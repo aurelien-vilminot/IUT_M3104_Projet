@@ -1,2 +1,5 @@
 <?php
-echo"monvier"?>
+
+    include '../app/control/test.php';
+
+?>
