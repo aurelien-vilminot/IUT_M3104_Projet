@@ -2,6 +2,11 @@
 
     include '../control/test.php';
 
-    echo test();
+    function test($param)
+    {
+        $text = $param;
+
+        return $text;
+    }
 
 ?>

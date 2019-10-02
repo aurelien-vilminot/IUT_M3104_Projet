@@ -2,12 +2,9 @@
 
     if (!$_GET['control'])
     {
-        function test()
-        {
-            $text = 'coucou';
+        include '../view/test.php';
 
-            return $text;
-        }
+        echo test('controle le s');
     }
 
 ?>
