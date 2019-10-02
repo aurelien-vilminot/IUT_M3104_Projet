@@ -2,7 +2,12 @@
 
     if (!$_GET['control'])
     {
-        echo 'c la zooooone !';
+        function test()
+        {
+            $text = 'coucou';
+
+            return $text;
+        }
     }
 
 ?>
