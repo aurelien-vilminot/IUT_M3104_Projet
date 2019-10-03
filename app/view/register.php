@@ -1,4 +1,4 @@
-<form action="verifReg.php" method="POST">
+<form action="verifReg.php" method="POST">//Formulaire d'inscription
     <label><b>Nom d'utilisateur</b></label>
     <input type="text" placeholder="Entrer un nom d\'utilisateur" name="Username" required>
 
