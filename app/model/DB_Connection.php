@@ -7,6 +7,6 @@
     try {
         $DataBase = new PDO('mysql:host=' . dbHost . '; dbname=' . dbName,dbUser,dbPassword);
     } catch (PDOException $Exept) {
-        echo 'Connexion échoué : ' . $Exept->getMessage();
+        echo 'Connexion échouée : ' . $Exept->getMessage();
     }
 ?>
