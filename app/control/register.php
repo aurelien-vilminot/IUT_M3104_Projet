@@ -5,7 +5,7 @@ if($_SESSION['user'] == 1)
 
 if(isset($_POST['submit']))
 {
-    include '../model/register.php';
+    include '../app/model/register.php';
 
     $login = trim($_POST['login']);
     $mail = trim($_POST['mail']);
