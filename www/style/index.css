@@ -108,7 +108,14 @@ form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 5vw;
+}
+
+form label {
+    margin-bottom: 1vw;
+}
+
+form input[type=submit] {
+    margin-bottom: 2vw;
 }
 
 footer {
