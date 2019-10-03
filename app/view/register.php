@@ -5,7 +5,7 @@
     <label>E-mail</label>
     <input type="text" placeholder="Entrer un e-mail" name="mail" required>
 
-    <label>Mot de passe<</label>
+    <label>Mot de passe</label>
     <input type="password" placeholder="Entrer un mot de passe" name="password" required>
 
     <label>Vérification du mot de passe</label>
