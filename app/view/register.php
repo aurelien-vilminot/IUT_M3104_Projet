@@ -15,5 +15,5 @@
     <p class="error"><?php echo (isset($error_email)) ? $error_email : ''; ?></p>
     <p class="error"><?php echo (isset($error_password)) ? $error_password : ''; ?></p>
 
-    <input type="submit" id="submit" name="register" value="Inscription">
+    <input type="submit" id="submit" name="submit" value="Inscription">
 </form>
