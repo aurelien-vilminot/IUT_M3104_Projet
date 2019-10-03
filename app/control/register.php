@@ -1,6 +1,8 @@
 <?php
 
-include '../model/register.php';
+include '../app/view/register.php';
+
+//include '../model/register.php';
 
 $Id = $_POST['username'];
 $Mail = $_POST['mail'];

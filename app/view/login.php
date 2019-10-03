@@ -1,9 +1,9 @@
-<form action="verifLog.php" method="POST">//Formulaire de connexion
-    <label><b>Nom d'utilisateur</b></label>
-    <input type="text" placeholder="Entrer le nom d\'utilisateur" name="Username" required>
+<form action="" method="POST">
+    <label>Nom d'utilisateur</label>
+    <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required>
 
-    <label><b>Mot de passe</b></label>
-    <input type="password" placeholder="Entrer le mot de passe" name="Password" required>
+    <label>Mot de passe</label>
+    <input type="password" placeholder="Entrer le mot de passe" name="password" required>
 
-    <input type="submit" id="submit" value="LOGIN">
+    <input type="submit" id="submit" name="login" value="S'identifier">
 </form>
