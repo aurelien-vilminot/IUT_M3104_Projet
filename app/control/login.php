@@ -1,3 +1,3 @@
 <?php
-    include '../view/login.php';
+    include '../app/view/login.php';
 ?>
