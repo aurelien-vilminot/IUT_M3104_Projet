@@ -1,21 +1,35 @@
 <?php
 
-include '../app/view/register.php';
+if($_SESSION['user'] == 1)
+    header("Location:index.php");
 
-//include '../model/register.php';
-
-$Id = $_POST['username'];
-$Mail = $_POST['mail'];
-$Password = $_POST['password'];
-$check_password = $_POST['check_password'];
-$action = $_POST['action'];
-
-if ($action == 'Inscription')
+if(isset($_POST['submit']))
 {
-    $message = 'Voici vos identifiants d\'inscription:' .PHP_EOL;
-    $message .= 'Email:' . register::getId() . PHP_EOL;
-    $message .= 'Mot de passe:' . PHP_EOL . register::getPassword();
-    $header = "From:". register::getMail();
-    $header .= "Reply-to:".register::getMail();
-    $header .= 'Content-type: text/html';
+    include '../model/register.php';
+
+    $login = trim($_POST['login']);
+    $mail = trim($_POST['mail']);
+    $password = trim($_POST['password']);
+    $check_password = trim($_POST['check_password']);
+
+    if ($password != $check_password)
+    {
+        $error_password = 'Les mots de passe ne correspondent pas';
+    }
+    else if(email_taken($mail) == 1)
+    {
+        $error_email = 'L\'adresse email est déjà utilisée';
+    }
+    else if (login_taken($login) == 1)
+    {
+        $error_login = 'Le login est déjà utilisé';
+    }
+    else
+    {
+        register($login, $mail, $password, false);
+        $_SESSION['user'] = 1;
+        header('Location:index.php');
+    }
 }
+include '../app/view/register.php';
+?>

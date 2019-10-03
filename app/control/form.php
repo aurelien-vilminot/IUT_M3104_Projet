@@ -1,6 +1,6 @@
 <?php
 
-include '../model/register.php';
+include '../model/class_register.php';
 
 $Id = $_POST['id'];
 $Mail = $_POST['mail'];
@@ -11,9 +11,9 @@ $action = $_POST['action'];
 if ($action == 'Inscription')
 {
     $message = 'Voici vos identifiants d\'inscription:' .PHP_EOL;
-    $message .= 'Email:' . register::getId() . PHP_EOL;
-    $message .= 'Mot de passe:' . PHP_EOL . register::getPassword();
-    $header = "From:". register::getMail();
+    $message .= 'Email:' . classRegister::getId() . PHP_EOL;
+    $message .= 'Mot de passe:' . PHP_EOL . classRegister::getPassword();
+    $header = "From:". classRegister::getMail();
     $header .= "Reply-to:".getMail();
     $header .= 'Content-type: text/html';
 }

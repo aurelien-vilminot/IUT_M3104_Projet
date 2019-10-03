@@ -1,78 +1,30 @@
 <?php
+    function email_taken($email){
+        global $DataBase;
+        $tab = array('email' => $email);
+        $sql = 'SELECT * FROM USER WHERE MAIL = :email';
+        $req = $DataBase->prepare($sql);
+        $req->execute($tab);
+        $free = $req->rowCount($sql);
 
-class register
-{
-    private $Id;
-    private $Mail;
-    private $Password;
-    private $VerifPassword;
-    private $Admin;
-
-
-    public function _construct()
-    {
-
+        return $free;
     }
 
-    public function getId()
-    {
-        return $this->Id;
+    function login_taken($login){
+        global $DataBase;
+        $tab = array('login' => $login);
+        $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
+        $req = $DataBase->prepare($sql);
+        $req->execute($tab);
+        $free = $req->rowCount($sql);
+
+        return $free;
     }
 
-    public function getMail()
-    {
-        return $this->mail;
+    function register($login, $email, $password, $isAdmin){
+        global $DataBase;
+        $tab = array('login'=>$login,'email'=>$email,'password'=>$password,'isAdmin'=>$isAdmin);
+        $sql = 'INSERT INTO USER (LOGIN,MAIL,PASSWORD,ADMIN) VALUES(:login,:email,:password,:isAdmin)';
+        $req = $DataBase->prepare($sql);
+        $req->execute($tab);
     }
-
-    public function getPassword()
-    {
-        return $this->Password;
-    }
-
-    public function getVerifPassword()
-    {
-        return $this->VerifPassword;
-    }
-
-
-
-    /*------*/
-
-    public function setId($id)
-    {
-        if (!is_string($id)) // S'il ne s'agit pas d'un string
-        {
-            trigger_error('La valeur entrée n\'est pas un string', E_USER_WARNING);
-        }
-        $this->Id = $id;
-
-    }
-
-
-    public function setMail($mail)
-    {
-        if (!is_string($mail)) // S'il ne s'agit pas d'un string
-        {
-            trigger_error('La valeur entrée n\'est pas un string', E_USER_WARNING);
-        }
-        $this->Mail = $mail;
-
-    }
-
-    public function setPassword($mdp)
-    {
-        if (!is_string($mdp)) // S'il ne s'agit pas d'un string
-        {
-            trigger_error('La valeur entrée n\'est pas un string', E_USER_WARNING);
-        }
-        if ($this->getVerifPassword() == $mdp)
-            $this->Password = $mdp;
-        else
-            trigger_error('Le mot de passe ne correspond pas', E_USER_WARNING);
-
-    }
-
-
-}
-
-?>

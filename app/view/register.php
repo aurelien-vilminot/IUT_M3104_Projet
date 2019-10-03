@@ -11,5 +11,9 @@
     <label>Vérification du mot de passe</label>
     <input type="password" placeholder="Vérifier le mot de passe" name="check_password" required>
 
+    <p class="error"><?php echo (isset($error_login)) ? $error_login : ''; ?></p>
+    <p class="error"><?php echo (isset($error_email)) ? $error_email : ''; ?></p>
+    <p class="error"><?php echo (isset($error_password)) ? $error_password : ''; ?></p>
+
     <input type="submit" id="submit" name="register" value="Inscription">
 </form>
