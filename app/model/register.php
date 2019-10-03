@@ -19,7 +19,6 @@ class register
         return $this->Id;
     }
 
-
     public function getMail()
     {
         return $this->mail;
