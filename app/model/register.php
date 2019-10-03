@@ -2,7 +2,7 @@
 
 class register
 {
-    private $Id;
+    private $login;
     private $Mail;
     private $Password;
     private $VerifPassword;
@@ -14,9 +14,9 @@ class register
 
     }
 
-    public function getId()
+    public function getLogin()
     {
-        return $this->Id;
+        return $this->login;
     }
 
     public function getMail()
@@ -38,13 +38,13 @@ class register
 
     /*------*/
 
-    public function setId($id)
+    public function setLogin($login)
     {
-        if (!is_string($id)) // S'il ne s'agit pas d'un string
+        if (!is_string($login)) // S'il ne s'agit pas d'un string
         {
             trigger_error('La valeur entrée n\'est pas un string', E_USER_WARNING);
         }
-        $this->Id = $id;
+        $this->login = $login;
 
     }
 
