@@ -1,4 +1,4 @@
-<form action="VerifLog.php" method="POST">
+<form action="verifLog.php" method="POST">
     <label><b>Nom d'utilisateur</b></label>
     <input type="text" placeholder="Entrer le nom d\'utilisateur" name="Username" required>
 
