@@ -1,6 +1,6 @@
 <?php
 
-class form
+class register
 {
     private $Id;
     private $Mail;
