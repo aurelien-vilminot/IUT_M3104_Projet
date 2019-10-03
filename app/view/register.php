@@ -1,4 +1,4 @@
-<form action="" method="POST">
+<form method="POST">
     <label>Nom d'utilisateur</label>
     <input type="text" placeholder="Entrer un nom d'utilisateur" name="login" required>
 

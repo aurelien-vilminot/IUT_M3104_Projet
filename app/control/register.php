@@ -26,7 +26,7 @@ if(isset($_POST['submit']))
     }
     else
     {
-        register($login, $mail,$password, false);
+        register($login, $mail, $password, false);
         $_SESSION['user'] = 1;
         header('Location:index.php');
     }
