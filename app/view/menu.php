@@ -1,7 +1,7 @@
 <section class="menu">
     <div class="topMenuBorder"></div>
     <div class="imgMenu">
-        <img src="img/logo.png">
+        <img src="media/logo.png">
     </div>
     <div class="middleMenuBorder"></div>
     <div class="pages">
