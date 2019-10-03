@@ -2,7 +2,7 @@
 
 include '../model/register.php';
 
-$Id = $_POST['id'];
+$Id = $_POST['username'];
 $Mail = $_POST['mail'];
 $Password = $_POST['password'];
 $check_password = $_POST['check_password'];
