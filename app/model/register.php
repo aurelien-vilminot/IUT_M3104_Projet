@@ -1,36 +1,43 @@
 <?php
 
+include '../app/model/DB_Connection.php';
 
-    function email_taken($email){
-        include '../app/model/DB_Connection.php';
+class CRegister
+{
+    private $DataBase;
 
+    public function __construct()
+    {
+        $this->DataBase = init_database();
+    }
+
+    public function email_taken($email)
+    {
         $tab = array('email' => $email);
         $sql = 'SELECT * FROM USER WHERE MAIL = :email';
-        $req = $DataBase->prepare($sql);
+        $req = $this->DataBase->prepare($sql);
         $req->execute($tab);
         $free = $req->rowCount($sql);
 
         return $free;
     }
 
-    function login_taken($login){
-        include '../app/model/DB_Connection.php';
-
-        global $DataBase;
+    public function login_taken($login)
+    {
         $tab = array('login' => $login);
         $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
-        $req = $DataBase->prepare($sql);
+        $req = $this->DataBase->prepare($sql);
         $req->execute($tab);
         $free = $req->rowCount($sql);
 
         return $free;
     }
 
-    function register($login, $email, $password, $isAdmin){
-        include '../app/model/DB_Connection.php';
-
-        $tab = array('login'=>$login,'email'=>$email,'password'=>$password,'isAdmin'=>$isAdmin);
+    public function register($login, $email, $password, $isAdmin)
+    {
+        $tab = array('login' => $login, 'email' => $email, 'password' => $password, 'isAdmin' => $isAdmin);
         $sql = 'INSERT INTO USER (LOGIN,MAIL,PASSWORD,ADMIN) VALUES(:login,:email,:password,:isAdmin)';
-        $req = $DataBase->prepare($sql);
+        $req = $this->DataBase->prepare($sql);
         $req->execute($tab);
     }
+}

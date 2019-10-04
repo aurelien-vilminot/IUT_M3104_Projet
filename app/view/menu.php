@@ -5,7 +5,17 @@
     </div>
     <div class="middleMenuBorder"></div>
     <div class="pages">
-        <a href="index.php?page=login">Connexion</a>
-        <a href="index.php?page=register">Inscription</a>
+        <?php
+            if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
+                echo <<<EOT
+<a href="index.php?page=profil">Mon profil</a>
+<a href="index.php?page=logout">Déconnexion</a>
+EOT;
+            else
+                echo <<<EOT
+<a href="index.php?page=login">Connexion</a>
+<a href="index.php?page=register">Inscription</a>
+EOT;
+            ?>
     </div>
 </section>
