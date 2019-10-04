@@ -5,7 +5,18 @@
     <label>Mot de passe</label>
     <input type="password" placeholder="Entrer le mot de passe" name="password">
 
-    <input type="submit" name="login" value="S'identifier">
+    <?php
+        if (isset($error_user_not_found))
+            echo <<<EOT
+<p class="error">$error_user_not_found</p>
+EOT;
+        elseif (isset($error_password))
+            echo <<<EOT
+<p class="error">$error_password</p>
+EOT;
+    ?>
+
+    <input type="submit" name="submit" value="S'identifier">
 
     <input type="submit" name="lost_password" value="Mot de passe oublié ?">
 </form>

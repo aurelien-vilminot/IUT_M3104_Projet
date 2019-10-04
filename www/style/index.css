@@ -12,7 +12,7 @@ body {
     display: flex;
     flex-direction: row;
     font-family: "Roboto";
-    font-size: 2vw;
+    font-size: 1.5vw;
     color: gray;
     margin: 0;
     padding: 0;
@@ -114,8 +114,42 @@ form input {
     margin-bottom: 1vw;
 }
 
-form input[type=submit] {
+input[type=text], input[type=password] {
+    color: #6a93ca;
+    width: 100%;
+    padding: 0.8vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 1vw;
+    box-sizing: border-box;
+    margin-top: 0.5vw;
+    margin-bottom: 1vw;
+    resize: vertical;
+    font-size: 0.9vw;
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type=submit] {
+    background-color: #6a93ca;
+    color: white;
+    padding: 0.6vw 1.5vw;
     margin-bottom: 2vw;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.4vw;
+    transition: 300ms;
+    width: 100%;
+}
+
+input[type=submit]:hover {
+    background-color: #000000;
+}
+
+.error {
+    color: #EE3831;
 }
 
 footer {
@@ -125,7 +159,6 @@ footer {
     margin: 2vw;
     box-shadow: 1px 1px 12px #555;
     border-radius: 8px;
-
 }
 
 footer img {
