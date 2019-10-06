@@ -1,7 +1,7 @@
 <?php
-    include '../app/model/DB_Connection.php';
+    require '../app/model/DB_Connection.php';
 
-    class CLogin
+    class LoginManager
     {
         private $DataBase;
 

@@ -17,18 +17,18 @@
     <link rel="icon" type="image/png" href=""/>
 </head>
 <body>
-    <?php include '../app/view/menu.php'?>
+    <?php require '../app/view/menu.php'?>
     <main>
         <div class="topMainBorder"></div>
 
         <section class="data">
             <h1>FreeNote</h1>
             <?php
-                include '../app/control/' . $page . '.php';
+                require '../app/control/' . $page . '.php';
             ?>
         </section>
 
-        <?php include '../app/view/footer.php'?>
+        <?php require '../app/view/footer.php'?>
     </main>
 </body>
 </html>

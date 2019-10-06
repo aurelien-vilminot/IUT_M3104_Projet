@@ -7,8 +7,8 @@
         $login = trim($_POST['login']);
         $password = trim($_POST['password']);
 
-        include '../app/model/login.php';
-        $loginUser  = new CLogin();
+        require_once '../app/model/login.php';
+        $loginUser  = new LoginManager();
 
         if($loginUser->verif_user($login, $password) == 0)
         {
@@ -21,4 +21,4 @@
             $error_password = "Le mot de passe est incorrect";
     }
 
-    include '../app/view/login.php';
+    require '../app/view/login.php';

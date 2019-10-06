@@ -1,3 +1,3 @@
 <?php
-session_destroy();
-header('Location:index.php?page=login');
+    session_destroy();
+    header('Location:index.php?page=login');
