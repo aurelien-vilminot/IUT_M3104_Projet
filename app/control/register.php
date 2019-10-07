@@ -4,13 +4,14 @@
 
     if(isset($_POST['submit']))
     {
+        require_once '../app/model/user.php';
+
         $login = trim($_POST['login']);
         $mail = trim($_POST['mail']);
         $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
         $check_password = trim($_POST['check_password']);
 
-        require '../app/model/register.php';
-        $registration  = new RegisterManager();
+        $registration  = new User($login);
 
         if (!password_verify($check_password, $password))
         {
@@ -28,6 +29,7 @@
         {
             $registration->register($login, $mail, $password, 0);
             $_SESSION['user'] = 1;
+            $_SESSION['currentUser'] = $registration;
             header('Location:index.php');
         }
     }

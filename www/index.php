@@ -23,6 +23,15 @@
 
         <section class="data">
             <h1>FreeNote</h1>
+            <!-- tmp -->
+            <?php
+                require '../app/model/user.php';
+                $test = new User('aurelien1');
+                echo $test->setMail('aurelien1@yahoo.fr') . PHP_EOL;
+            ?>
+
+            <!-- /tmp -->
+
             <?php
                 require '../app/control/' . $page . '.php';
             ?>

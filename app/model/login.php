@@ -1,5 +1,5 @@
 <?php
-    require '../app/model/DB_Connection.php';
+    require '../app/model/db_connection.php';
 
     class LoginManager
     {
@@ -12,9 +12,7 @@
 
         public function verif_user($login, $password)
         {
-            $tab = array(
-                'login' => $login,
-            );
+            $tab = array('login' => $login);
             $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
             $requete = $this->DataBase->prepare($sql);
             $requete->execute($tab);
