@@ -29,7 +29,6 @@
         {
             $registration->register($login, $mail, $password, 0);
             $_SESSION['user'] = 1;
-            $_SESSION['currentUser'] = $registration;
             header('Location:index.php');
         }
     }
