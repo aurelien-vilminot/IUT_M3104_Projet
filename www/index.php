@@ -23,9 +23,7 @@
 
         <section class="data">
             <h1>FreeNote</h1>
-            <?php
-                require '../app/control/' . $page . '.php';
-            ?>
+            <?php require '../app/control/' . $page . '.php'?>
         </section>
 
         <?php require '../app/view/footer.php'?>
