@@ -23,13 +23,6 @@
 
         <section class="data">
             <h1>FreeNote</h1>
-            <!-- tmp -->
-            <?php
-                require '../app/model/user.php';
-            ?>
-
-            <!-- /tmp -->
-
             <?php
                 require '../app/control/' . $page . '.php';
             ?>
