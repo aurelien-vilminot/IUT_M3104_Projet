@@ -26,8 +26,6 @@
             <!-- tmp -->
             <?php
                 require '../app/model/user.php';
-                $test = new User('aurelien1');
-                echo $test->setMail('aurelien1@yahoo.fr') . PHP_EOL;
             ?>
 
             <!-- /tmp -->
