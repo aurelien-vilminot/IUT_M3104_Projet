@@ -22,6 +22,10 @@
         <div class="topMainBorder"></div>
 
         <section class="data">
+            <?php
+            if(isset($_GET['etat']) && !empty($_GET['etat']) && $_GET['etat'] == 'cool')
+                echo 'c cool boy!';
+            ?>
             <h1>FreeNote</h1>
             <?php require '../app/control/' . $page . '.php'?>
         </section>

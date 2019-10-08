@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
-        header("Location: ../www/index.php");
+        header('Location: index.php');
 
     if(isset($_POST['submit']))
     {
@@ -14,12 +14,18 @@
         if($loginUser->verif_user($login, $password) == 0)
         {
             $_SESSION['user'] = 1;
-            header("Location:index.php");
+            header('Location: index.php');
         }
         elseif ($loginUser->verif_user($login, $password) == 2)
-            $error_user_not_found = "L'identifiant est incorrect";
+            $error_user_not_found = 'L\'identifiant est incorrect';
         else
-            $error_password = "Le mot de passe est incorrect";
+            $error_password = 'Le mot de passe est incorrect';
+    }
+    elseif(isset($_POST['lost_password']))
+    {
+        $_SESSION['login'] = trim($_POST['login']);
+        $_SESSION['lost_password'] = 1;
+        header('Location: index.php?page=lost_password');
     }
 
     require '../app/view/login.php';

@@ -17,6 +17,5 @@ EOT;
     ?>
 
     <input type="submit" name="submit" value="S'identifier">
-
     <input type="submit" name="lost_password" value="Mot de passe oublié ?">
 </form>

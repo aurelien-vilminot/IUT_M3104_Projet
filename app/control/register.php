@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
-        header("Location: ../www/index.php");
+        header("Location: index.php");
 
     if(isset($_POST['submit']))
     {
@@ -29,7 +29,7 @@
         {
             $registration->register($login, $mail, $password, 0);
             $_SESSION['user'] = 1;
-            header('Location:index.php');
+            header('Location: index.php');
         }
     }
 
