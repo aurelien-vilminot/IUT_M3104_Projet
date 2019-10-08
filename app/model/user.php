@@ -13,42 +13,25 @@
         {
             $this->DataBase = init_database();
             $this->login = $login;
-        }
 
-        public function getLogin()
-        {
-            return $this->login;
-        }
-
-        public function getMail()
-        {
-            $sql = 'SELECT MAIL FROM USER WHERE LOGIN = \'' . $this->login . '\'';
+            $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $this->login . '\'';
             $req = $this->DataBase->query($sql);
-            $row = $req->fetchAll();
-            $this->mail = $row[0][0];
-
-            return $this->mail;
+            while($row = $req->fetch())
+            {
+                $this->mail = $row['MAIL'];
+                $this->password = $row['PASSWORD'];
+                $this->admin = $row['ADMIN'];
+            }
+            $req->closeCursor();
         }
 
-        public function getPassword()
-        {
-            $sql = 'SELECT PASSWORD FROM USER WHERE LOGIN = \'' . $this->login . '\'';
-            $req = $this->DataBase->query($sql);
-            $row = $req->fetchAll();
-            $this->password = $row[0][0];
+        public function getLogin(){return $this->login;}
 
-            return $this->password;
-        }
+        public function getMail(){return $this->mail;}
 
-        public function getAdmin()
-        {
-            $sql = 'SELECT ADMIN FROM USER WHERE LOGIN = \'' . $this->login . '\'';
-            $req = $this->DataBase->query($sql);
-            $row = $req->fetchAll();
-            $this->admin = $row[0][0];
+        public function getPassword(){return $this->password;}
 
-            return $this->admin;
-        }
+        public function getAdmin(){return $this->admin;}
 
         public function setLogin($login)
         {
