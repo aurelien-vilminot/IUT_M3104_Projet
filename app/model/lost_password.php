@@ -54,10 +54,10 @@
         public function sendMail()
         {
             $message = 'Bonjour ' . $this->login . ', ' . "\n" . "\n";
-            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici donc vos identifiants tempraires : ' . "\n";
+            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici vos identifiants tempraires : ' . "\n";
             $message .= 'Identifiant : ' . $this->login . "\n";
             $message .= 'Mot de passe : ' . $this->setNewPassword() . "\n" . "\n";
-            $message .= 'Pour modifier votre mot de passe, aller sur votre profil puis saissez votre nouveau mot de passe.' . "\n" . "\n";
+            $message .= 'Pour modifier votre mot de passe, allez sur votre profil puis saisissez votre nouveau mot de passe.' . "\n" . "\n";
             $message .= 'L\'équipe FreeNote.';
 
             $header = 'From: FreeNote <reset.password@freenote.fr>' . "\n";
