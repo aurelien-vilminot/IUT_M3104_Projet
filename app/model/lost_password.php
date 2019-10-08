@@ -62,7 +62,7 @@
 
             $header = 'From: FreeNote <reset.password@freenote.fr>' . "\n";
             $header .= 'Return-Path: <reset.password@freenote.fr>' . "\n";
-            $header .= 'Content-type: text/html';
+            $header .= 'Content-Type: text/plain; charset=utf-8';
 
             mail($this->mail, 'Récupération de mot de passe', $message, $header);
         }
