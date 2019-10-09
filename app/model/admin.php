@@ -78,7 +78,8 @@ class Admin extend User {
 
   public function delete_discussion ($discussion)
   {
-
+    $sql = 'DELETE FROM DISCUSSION WHERE ID = $discussion';
+    mysqli_query($sql);
   }
 
   public function create_message ($message)
@@ -95,16 +96,17 @@ class Admin extend User {
   {
     if($state)
     {
-      $discussion.open_discussion($message);
+      $discussion.open_message($message);
     }
     else {
-      $discussion.close_discussion($message);
+      $discussion.close_message($message);
     }
   }
 
   public function delete_message ($message)
   {
-
+    $sql = 'DELETE FROM MESSAGE WHERE ID = $message';
+    mysqli_query($sql);
   }
 
 }
