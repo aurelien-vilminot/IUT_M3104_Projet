@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FreeNote</title>
     <link rel="stylesheet" id="style" href="style/index.css" />
-    <link rel="icon" type="image/png" href=""/>
+    <link rel="icon" type="image/png" href="media/favicon.png"/>
 </head>
 <body>
     <?php require '../app/view/menu.php'?>
