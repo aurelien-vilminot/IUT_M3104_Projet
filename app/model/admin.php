@@ -5,6 +5,7 @@ class Admin extend User {
 
   public _construct () {};
 
+
   public function open_discussion()
   {
 
@@ -17,7 +18,7 @@ class Admin extend User {
 
   public function create_user ($user)
   {
-    new User;
+    new User($user);
   }
 
   public function read_user ($user)
@@ -36,9 +37,15 @@ class Admin extend User {
   }
 
 
-  public function create_discussion ($discussion)
+  public function create_discussion ($discussion, $state)
   {
-
+    if($state)
+    {
+      $discussion.open_discussion();
+    }
+    else {
+      $discussion.close_discussion();
+    }
   }
 
   public function  read_discussion ($discussion)
