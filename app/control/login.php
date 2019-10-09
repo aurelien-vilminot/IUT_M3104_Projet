@@ -13,11 +13,7 @@
 
         if($loginUser->verif_user($login, $password) == 0)
         {
-            require_once '../app/model/user.php';
-
-            $currentUser = new User($login);
             $_SESSION['user'] = 1;
-            $_SESSION['currentUser'] = $currentUser;
             header('Location: index.php');
         }
         elseif ($loginUser->verif_user($login, $password) == 2)

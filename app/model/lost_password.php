@@ -1,5 +1,5 @@
 <?php
-    require '../app/model/db_connection.php';
+    require '../app/model/database.php';
 
     class Lost_Password_Manager
     {

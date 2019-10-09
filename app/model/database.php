@@ -4,6 +4,7 @@
     define('dbUser', 'aurelien');
     define('dbPassword', 'M3104_ASTC');
 
+
     function init_database()
     {
         try {
@@ -17,3 +18,4 @@
         }
         return $DataBase;
     }
+
