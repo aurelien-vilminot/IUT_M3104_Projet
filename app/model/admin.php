@@ -1,9 +1,9 @@
 <?php
-include 'user.php';
+require '../app/model/user.php';
 
-class Admin extend User {
+class Admin extends User {
 
-  public _construct () {};
+  public function __construct(){}
 
 
   public function open_discussion($discussion)

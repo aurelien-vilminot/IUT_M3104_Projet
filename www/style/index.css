@@ -154,6 +154,7 @@ input[type=submit]:hover {
 
 footer {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-around;
     margin: 2vw;
@@ -161,8 +162,13 @@ footer {
     border-radius: 8px;
 }
 
-footer img {
+.github {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
     width: 100%;
+    margin-bottom: 1vw;
 }
 
 /* Animation ouverture page */

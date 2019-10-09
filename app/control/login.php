@@ -14,7 +14,7 @@
         if($loginUser->verif_user($login, $password) == 0)
         {
             $_SESSION['user'] = 1;
-            header('Location: index.php');
+            header('Location: index.php?page=home');
         }
         elseif ($loginUser->verif_user($login, $password) == 2)
             $error_user_not_found = 'L\'identifiant est incorrect';
