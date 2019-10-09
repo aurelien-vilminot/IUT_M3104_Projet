@@ -43,7 +43,7 @@
 
         public function setNewPassword()
         {
-            $newPassword = uniqid();
+            $newPassword = password_hash(uniqid(),PASSWORD_DEFAULT);
             $tab = array('password' => $newPassword);
             $sql = 'UPDATE USER SET PASSWORD = :password  WHERE LOGIN = \'' . $this->login . '\'';
             $req = $this->DataBase->prepare($sql);
