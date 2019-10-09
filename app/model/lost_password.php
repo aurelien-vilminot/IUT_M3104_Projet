@@ -44,7 +44,8 @@
         public function setNewPassword()
         {
             $newPassword = uniqid();
-            $tab = array('password' => $newPassword);
+            $newPasswordHash = password_hash($newPassword,PASSWORD_DEFAULT);
+            $tab = array('password' => $newPasswordHash);
             $sql = 'UPDATE USER SET PASSWORD = :password  WHERE LOGIN = \'' . $this->login . '\'';
             $req = $this->DataBase->prepare($sql);
             if ($req->execute($tab))
