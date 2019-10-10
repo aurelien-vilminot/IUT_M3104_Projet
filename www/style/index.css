@@ -190,6 +190,15 @@ input[type=submit]:hover {
     margin: 0 2vw 0 2vw;
 }
 
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #6a93ca;
+    border-radius: 4px;
+}
+
 footer {
     display: flex;
     flex-direction: column;

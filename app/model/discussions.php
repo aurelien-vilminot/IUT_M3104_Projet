@@ -12,9 +12,9 @@
             while($row = $req->fetch())
             {
                 $tabDiscussions[$compt] = array();
-                $tabDiscussions[$compt]['id'] = $row['ID'];
-                $tabDiscussions[$compt]['title'] = $row['TITLE'];
-                $tabDiscussions[$compt]['state'] = $row['STATE'];
+                $tabDiscussions[$compt][$compt] = $row['ID'];
+                $tabDiscussions[$compt][$compt] = $row['TITLE'];
+                $tabDiscussions[$compt][$compt] = $row['STATE'];
                 ++$compt;
             }
             $req->closeCursor();
