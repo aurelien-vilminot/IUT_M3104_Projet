@@ -12,7 +12,6 @@
             while($row = $req->fetch())
             {
                 $tabDiscussions[$compt] = array();
-                $tabDiscussions[$compt][$compt] = $row['ID'];
                 $tabDiscussions[$compt][$compt] = $row['TITLE'];
                 $tabDiscussions[$compt][$compt] = $row['STATE'];
                 ++$compt;
