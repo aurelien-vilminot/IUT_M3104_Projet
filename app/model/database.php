@@ -9,7 +9,7 @@
 
         public function __construct()
         {
-            if (!isset($this->DataBase))
+            if ($this->DataBase == null)
             {
                 try {
                     $dsn = 'mysql:host=' . dbHost . '; dbname=' . dbName;
