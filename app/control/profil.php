@@ -4,5 +4,8 @@
 
     require_once '../app/model/user.php';
 
-    $myUser =  $_SESSION['CurrentUser'];
-    echo $myUser->getmail();
+    $myUser =  new User($_SESSION['loginCurrentUser']);
+    $id = $myUser->getLogin();
+    $mail = $myUser->getMail();
+
+    require '../app/view/profil.php';
