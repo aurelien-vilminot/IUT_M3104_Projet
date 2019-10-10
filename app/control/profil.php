@@ -12,7 +12,7 @@
     {
         $newMail = trim($_POST['mail']);
 
-        if($myUser->email_taken($mail) == 1)
+        if($myUser->email_taken($newMail) == 1)
         {
             $error_email = 'L\'adresse email est déjà utilisée';
         }

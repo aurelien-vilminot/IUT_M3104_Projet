@@ -5,7 +5,7 @@
 
     <div class="modif">
         <div class="modifMail">
-            <h3>Modification de votre Mail :<br></h3>
+            <h3>Modification de votre mail :<br></h3>
             <form action="" method="post">
                 <input type="text" placeholder="Entrez une nouvelle adresse mail" name="mail" required>
                 <?php
