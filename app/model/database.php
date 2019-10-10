@@ -4,29 +4,34 @@
     define('dbUser', 'aurelien');
     define('dbPassword', 'M3104_ASTC');
 
-    class DataBase {
-        private $DataBase;
+    abstract class DataBase {
 
-        public function __construct()
-        {
-            if ($this->DataBase == null)
-            {
-                try {
-                    $dsn = 'mysql:host=' . dbHost . '; dbname=' . dbName;
-                    $DataBase = new PDO($dsn, dbUser, dbPassword);
-                    $DataBase->exec('SET CHARACTER SET utf8');
-                    $DataBase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                }
-                catch (PDOException $e){
-                    die ('Erreur : ' . $e->getMessage());
-                }
-                $this->DataBase = $DataBase;
+        private $bdd;
+
+        protected function executeRequete($sql, $params = null) {
+            if ($params == null) {
+                $resultat = $this->getBdd()->query($sql);    // exécution directe
             }
+            else {
+                $resultat = $this->getBdd()->prepare($sql);  // requête préparée
+                $resultat->execute($params);
+            }
+            return $resultat;
         }
 
-        public function getDataBase()
+        private function getBdd()
         {
-            return $this->DataBase;
+            if ($this->bdd == null)
+            {
+                $dsn = 'mysql:host=' . dbHost . '; dbname=' . dbName;
+                $DataBase = new PDO($dsn, dbUser, dbPassword);
+                $DataBase->exec('SET CHARACTER SET utf8');
+                $DataBase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                $this->bdd = $DataBase;
+            }
+            return $this->bdd;
         }
+
     }
 

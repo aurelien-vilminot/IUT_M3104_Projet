@@ -1,20 +1,12 @@
 <?php
 
-    class LoginManager
+    class LoginManager extends DataBase
     {
-        private $DataBase;
-
-        public function __construct($DataBase)
-        {
-            $this->DataBase = $DataBase;
-        }
 
         public function verif_user($login, $password)
         {
-            $tab = array('login' => $login);
-            $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
-            $requete = $this->DataBase->prepare($sql);
-            $requete->execute($tab);
+            $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
+            $requete = $this->executeRequete($sql);
 
             $exist = $requete->rowCount($sql);
 

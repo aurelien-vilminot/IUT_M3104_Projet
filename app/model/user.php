@@ -1,7 +1,7 @@
 <?php
     require '../app/model/database.php';
 
-    class User
+    class User extends DataBase
     {
         private $DataBase;
         private $login;
