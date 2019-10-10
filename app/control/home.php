@@ -4,7 +4,8 @@
         require_once '../app/model/user.php';
         //require_once '../app/model/discussions.php';
 
-        $myUser = new User($_SESSION['loginCurrentUser']);
+        $_SESSION['CurrentUser'] = new User($_SESSION['loginCurrentUser']);
+        $myUser = $_SESSION['CurrentUser'];
         $id = $myUser->getLogin();
    }
 //
