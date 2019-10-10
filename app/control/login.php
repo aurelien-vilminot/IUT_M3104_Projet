@@ -14,6 +14,7 @@
         if($loginUser->verif_user($login, $password) == 0)
         {
             $_SESSION['user'] = 1;
+            $_SESSION['loginCurrentUser'] = $login;
             header('Location: index.php?page=home');
         }
         elseif ($loginUser->verif_user($login, $password) == 2)
