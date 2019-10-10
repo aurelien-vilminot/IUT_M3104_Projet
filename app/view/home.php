@@ -15,6 +15,11 @@ EOT;
     </div>
 
     <div>
-        <p>Discussions (à venir)</p>
+        <?php
+            foreach ($tabDisc as &$discussion)
+            {
+                echo $discussion['id'] . PHP_EOL;
+            }
+        ?>
     </div>
 </div>
