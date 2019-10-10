@@ -15,8 +15,6 @@
             </tr>
 
             <?php
-            print_r($tabDisc);
-            exit;
                 foreach ($tabDisc as &$discussion)
                 {
                     echo '<tr>';
