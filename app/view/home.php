@@ -18,7 +18,7 @@
                 foreach ($tabDisc as &$discussion)
                 {
                     echo '<tr>';
-                    for ($i = 0 ; $i < 3 ; ++i)
+                    for ($i = 0 ; $i < 3 ; ++$i)
                     {
                         echo '<td>' . $discussion[$i] . '</td>';
                     }
