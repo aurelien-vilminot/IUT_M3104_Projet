@@ -21,20 +21,6 @@ class Admin extends User {
     $this->getDataBase()->query($sql);
   }
 
-  public function open_message($message)
-  {
-    require '../app/model/db_connection.php';
-    $sql = 'UPDATE MESSAGE SET STATE = TRUE where ID = $message';
-    $this->getDataBase()->query($sql);
-  }
-
-  public function close_discussion($message)
-  {
-    require '../app/model/db_connection.php';
-    $sql = 'UPDATE MESSAGE SET STATE = FALSE where ID = $message';
-    $this->getDataBase()->query($sql);
-  }
-
   public function create_user ($user)
   {
     new User($user);
@@ -57,27 +43,11 @@ class Admin extends User {
     $this->getUser()->query($sql);
   }
 
-
-  public function create_discussion ($discussion)
-  {
-    new Discussion($discussion);                         #pas encore creer
-  }
-
   public function  read_discussion ($discussion)
   {
 
   }
 
-  public function  update_discussion ($discussion, $state)
-  {
-    if($state)
-    {
-      $this->getDisussion().open_discussion($discussion);          #getDiscussion pas encore creer
-    }
-    else {
-      $this->getDisussion().close_discussion($discussion);        #getDiscussion pas encore creer
-    }
-  }
 
   public function delete_discussion ($discussion)
   {
@@ -86,26 +56,12 @@ class Admin extends User {
     $this->getDiscussion()->query($sql);      #getDiscussion pas encore creer
   }
 
-  public function create_message ($message)
-  {
-    new Message ($message);     #classe pas encore creer
-  }
 
   public function read_message ($message)
   {
 
   }
 
-  public function update_message ($message)
-  {
-    if($state)
-    {
-      $this->getMessage()->open_message($message);    #getMessage pas encore declarer
-    }
-    else {
-      $this->getMessage()->close_message($message);    #getMessage pas encore declarer
-    }
-  }
 
   public function delete_message ($message)
   {
