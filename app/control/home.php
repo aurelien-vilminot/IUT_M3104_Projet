@@ -6,9 +6,8 @@
 
         $myUser = new User($_SESSION['loginCurrentUser']);
         $id = $myUser->getLogin();
-        $myDB = $myUser->getDataBase();
 
-        $myDiscussions = new Discussion($myDB);
+        $myDiscussions = new Discussion($myUser->getDataBase());
         $tabDisc = $myDiscussions->getAllDiscussion();
     }
 
