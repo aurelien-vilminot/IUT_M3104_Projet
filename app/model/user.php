@@ -76,8 +76,9 @@
             $sql = 'SELECT * FROM USER WHERE MAIL = \'' . $email . '\'';
             $req = $this->executeRequete($sql);
             $free = $req->rowCount($sql);
-
-            return $free;
+            echo $free;
+            exit;
+            //return $free;
         }
 
         public function login_taken($login)
