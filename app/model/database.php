@@ -13,7 +13,7 @@
             {
                 try {
                     $dsn = 'mysql:host=' . dbHost . '; dbname=' . dbName;
-                    $DataBase = new PDO($dsn, dbUser, dbPassword, array(PDO::ATTR_PERSISTENT => true));
+                    $DataBase = new PDO($dsn, dbUser, dbPassword);
                     $DataBase->exec('SET CHARACTER SET utf8');
                     $DataBase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
                 }
