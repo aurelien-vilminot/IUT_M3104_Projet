@@ -1,13 +1,12 @@
 <?php
-    require '../app/model/database.php';
 
     class LoginManager
     {
         private $DataBase;
 
-        public function __construct()
+        public function __construct($DataBase)
         {
-            $this->DataBase = init_database();
+            $this->DataBase = $DataBase;
         }
 
         public function verif_user($login, $password)

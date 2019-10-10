@@ -6,7 +6,7 @@
     {
         require_once '../app/model/login.php';
 
-        $loginUser = new LoginManager();
+        $loginUser = new LoginManager($myDB->getDataBase());
 
         $login = trim($_POST['login']);
         $password = trim($_POST['password']);
