@@ -62,12 +62,13 @@ class Message{
     }
   }
 
-  public function set_content($message,$content)
+  public function add_content($message,$content)
   {
-    $sql1 = 'SELECT CONTENT FROM MESSAGE WHERE ID = $message'
+    $sql1 = 'SELECT CONTENT FROM MESSAGE WHERE ID = $message';
     $prev = query($sql1);
-    $sql2 = 'UPDATE MESSAGE SET CONTENT = $prev + $content WHERE MESSAGE = $message'
-    $this->getDataBase()->query($sql2)
+    $concat = $prev . $content;
+    $sql2 = 'UPDATE MESSAGE SET CONTENT = $concat WHERE MESSAGE = $message';
+    $this->getDataBase()->query($sql2);
   }
 
 }
