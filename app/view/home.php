@@ -8,11 +8,27 @@
     </div>
 
     <div>
-        <?php
-            foreach ($tabDisc as &$discussion)
-            {
-                echo $discussion['id'] . PHP_EOL;
-            }
-        ?>
+        <table>
+            <tr>
+                <th>Discussion</th>
+                <th>État</th>
+            </tr>
+            <tr>
+                <?php
+                foreach ($tabDisc as &$discussion)
+                {
+                    echo '<td>' . $discussion['title'] . '</td>';
+                }
+                ?>
+            </tr>
+            <tr>
+                <?php
+                foreach ($tabDisc as &$discussion)
+                {
+                    echo '<td>' . $discussion['state'] . '</td>';
+                }
+                ?>
+            </tr>
+        </table>
     </div>
 </div>
