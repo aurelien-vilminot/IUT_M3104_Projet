@@ -10,28 +10,28 @@ class Admin extends User {
   {
     require '../app/model/db_connection.php';
     $sql = 'UPDATE DISCUSSION SET STATE = TRUE where ID = $discussion';
-    mysqli_query($sql);
+    $this.getDataBase()->query($sql);
   }
 
   public function close_discussion($discussion)
   {
     require '../app/model/db_connection.php';
     $sql = 'UPDATE DISCUSSION SET STATE = FALSE where ID = $discussion';
-    mysqli_query($sql);
+    $this.getDataBase()->query($sql);
   }
 
   public function open_message($message)
   {
     require '../app/model/db_connection.php';
     $sql = 'UPDATE MESSAGE SET STATE = TRUE where ID = $message';
-    mysqli_query($sql);
+    $this.getDataBase()->query($sql);
   }
 
   public function close_discussion($message)
   {
     require '../app/model/db_connection.php';
     $sql = 'UPDATE MESSAGE SET STATE = FALSE where ID = $message';
-    mysqli_query($sql);
+    $this.getDataBase()->query($sql);
   }
 
   public function create_user ($user)

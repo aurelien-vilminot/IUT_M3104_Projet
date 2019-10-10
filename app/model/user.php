@@ -25,6 +25,8 @@
             $req->closeCursor();
         }
 
+        public function getDataBase(){return $this->DataBase;}
+
         public function getLogin(){return $this->login;}
 
         public function getMail(){return $this->mail;}
