@@ -3,10 +3,11 @@
 
     if (!isset($db_activate))
     {
-        require_once '../app/model/database.php';
+        require '../app/model/database.php';
         $myDB = new DataBase();
         $db_activate = 1;
     }
+
     if(isset($_GET['page']) && !empty($_GET['page']))
             $page = $_GET['page'];
         else
