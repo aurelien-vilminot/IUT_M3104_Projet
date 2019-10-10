@@ -2,7 +2,8 @@
     session_start();
 
     require_once '../app/model/database.php';
-    $myDB = new DataBase();
+    if(!isset($myDB))
+        $myDB = new DataBase();
 
     if(isset($_GET['page']) && !empty($_GET['page']))
             $page = $_GET['page'];
