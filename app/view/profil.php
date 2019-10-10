@@ -1,7 +1,7 @@
 <div class="profil">
     <p>Bonjour <?=$id?> !<br>
         Voici vos informations : <br><br>
-        Mail : <?=$mail?><br<br><p>
+        Mail : <?=$mail?></p>
 
     <div class="modif">
         <div class="modifMail">
@@ -20,5 +20,4 @@
             </form>
         </div>
     </div>
-
 </div>
