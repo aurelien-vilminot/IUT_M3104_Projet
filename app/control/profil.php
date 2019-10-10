@@ -5,8 +5,6 @@
     require_once '../app/model/user.php';
 
     $myUser =  new User($_SESSION['loginCurrentUser']);
-    $id = $myUser->getLogin();
-    $mail = $myUser->getMail();
 
     if(isset($_POST['submit_mail']))
     {
@@ -40,6 +38,10 @@
         {
             $myUser->setPassword($newPassword);
         }
+
     }
+
+    $id = $myUser->getLogin();
+    $mail = $myUser->getMail();
 
     require '../app/view/profil.php';
