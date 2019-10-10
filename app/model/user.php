@@ -117,23 +117,9 @@
           new Message ($message);                              #classe pas encore creer
         }
 
-
-        public function open_message($message)
-        {
-          require '../app/model/db_connection.php';
-          $sql = 'UPDATE MESSAGE SET STATE = TRUE where ID = $message';
-          $this->getDataBase()->query($sql);
-        }
-
-        public function close_message($message)
-        {
-          require '../app/model/db_connection.php';
-          $sql = 'UPDATE MESSAGE SET STATE = FALSE where ID = $message';
-          $this->getDataBase()->query($sql);
-        }
-
         public function update_message ($message,$state)   #cette fn est ici car tout le mon de peut fermer un message
         {
+          require '../app/model/message.php';
           if($state)
           {
             $this->getMessage()->open_message($message);    #getMessage pas encore declarer
