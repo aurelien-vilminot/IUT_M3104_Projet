@@ -7,9 +7,9 @@
         private $login;
         private $mail;
 
-        public function __construct($login)
+        public function __construct($DataBase, $login)
         {
-            $this->DataBase = init_database();
+            $this->DataBase = $DataBase;
             $this->login = $login;
         }
 

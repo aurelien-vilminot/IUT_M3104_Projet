@@ -4,7 +4,7 @@
 
     require_once '../app/model/user.php';
 
-    $myUser =  new User($_SESSION['loginCurrentUser']);
+    $myUser =  new User($myDB->getDataBase(), $_SESSION['loginCurrentUser']);
 
     if(isset($_POST['submit_mail']))
     {
