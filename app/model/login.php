@@ -1,28 +1,29 @@
 <?php
+    require '../app/model/database.php';
 
     class LoginManager extends DataBase
-    {
-
-        public function verif_user($login, $password)
         {
-            $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
-            $requete = $this->executeRequete($sql);
 
-            $exist = $requete->rowCount($sql);
-
-            $requete->setFetchMode(PDO::FETCH_OBJ);
-            while ($result = $requete->fetch())
+            public function verif_user($login, $password)
             {
-                $BD_password =  $result->PASSWORD;
+                $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
+                $requete = $this->executeRequete($sql);
+
+                $exist = $requete->rowCount($sql);
+
+                $requete->setFetchMode(PDO::FETCH_OBJ);
+                while ($result = $requete->fetch())
+                {
+                    $BD_password =  $result->PASSWORD;
+                }
+
+                $result = 1;
+
+                if ($exist != 1)
+                    $result = 2;
+                elseif (password_verify($password,$BD_password))
+                    $result = 0;
+
+                return $result;
             }
-
-            $result = 1;
-
-            if ($exist != 1)
-                $result = 2;
-            elseif (password_verify($password,$BD_password))
-                $result = 0;
-
-            return $result;
         }
-    }
