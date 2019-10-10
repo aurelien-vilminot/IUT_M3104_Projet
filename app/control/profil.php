@@ -2,5 +2,5 @@
     if(!isset($_SESSION['user']) && $_SESSION['user'] != 1)
         header("Location: index.php?page=login");
 
-    //$test = new User('aurelien');
-    //echo $test->getMail();
+    $test = new User('aurelien');
+    echo $test->getMail();
