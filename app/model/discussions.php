@@ -4,9 +4,9 @@
     class Discussion{
         private $DataBase;
 
-        public function __construct()
+        public function __construct($DataBase)
         {
-            $this->DataBase = init_database();
+            $this->DataBase = $DataBase;
         }
 
         public function getAllDiscussion()
