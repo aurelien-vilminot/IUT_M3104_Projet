@@ -4,5 +4,5 @@
 
     require_once '../app/model/user.php';
 
-    $test = new User($_SESSION['loginCurrentUser']);
-    echo $test->getMail();
+    $myUser =  $_SESSION['CurrentUser'];
+    echo $myUser->getmail();
