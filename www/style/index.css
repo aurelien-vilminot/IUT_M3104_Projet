@@ -152,6 +152,10 @@ input[type=submit]:hover {
     color: #EE3831;
 }
 
+.validate {
+    color: #2CC84D;
+}
+
 .profil {
     width: 100%;
     display: flex;

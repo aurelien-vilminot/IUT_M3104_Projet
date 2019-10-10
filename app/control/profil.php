@@ -17,6 +17,7 @@
         else
         {
             $myUser->setMail($newMail);
+            $email_change = 'Votre nouvel e-mail a bien été enregistré !';
         }
     }
 
@@ -37,8 +38,8 @@
         else
         {
             $myUser->setPassword($newPassword);
+            $password_change = 'Votre nouveau mot de passe a bien été enregistré !';
         }
-
     }
 
     $id = $myUser->getLogin();

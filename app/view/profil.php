@@ -37,4 +37,15 @@ EOT;
             </form>
         </div>
     </div>
+
+    <?php
+    if (isset($email_change))
+        echo <<<EOT
+<p class="validate">$email_change</p>
+EOT;
+    elseif (isset($password_change))
+        echo <<<EOT
+<p class="validate">$password_change</p>
+EOT;
+    ?>
 </div>
