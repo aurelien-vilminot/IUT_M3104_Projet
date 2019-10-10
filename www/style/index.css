@@ -26,6 +26,10 @@ a {
     transition: 1s;
 }
 
+p {
+    text-align: justify;
+}
+
 a:hover {
     color: #619EB7;
     transition: 0.1s;
@@ -169,6 +173,21 @@ input[type=submit]:hover {
     display: flex;
     align-items: center;
     justify-content: space-around;
+}
+
+.home {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.home div{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 1vw 0 1vw;
 }
 
 footer {
