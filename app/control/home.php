@@ -8,7 +8,7 @@
         $id = $myUser->getLogin();
    }
 
-    $myDiscussions = new Discussion($myUser->getDataBase());
+    $myDiscussions = new Discussion();
     $tabDisc = $myDiscussions->getAllDiscussion();
 
     require '../app/view/home.php';
