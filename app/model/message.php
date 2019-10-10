@@ -22,6 +22,7 @@ class Message{
       $this->State = $row['STATE'];
       $this->Id_Discussion = $row['ID_DISCUSSION'];
     }
+    $req->closeCursor();
   }
 
 
@@ -31,21 +32,32 @@ class Message{
   public function getState(){return $this->State;}
   public function getId_Discussion(){return $this->Id_DIscussion;}
 
+  public function getNumberMessage($discussion)
+  {
+    $sql = 'SELECT COUNT(*) FROM MESSAGE WHERE ID_DISCUSSION = $discussion';
+    return $this->getDataBase()->query($sql);
+  }
+
   public function close_message($message)
   {
-    require '../app/model/db_connection.php';
     $sql = 'UPDATE MESSAGE SET STATE = FALSE WHERE ID = $message';
     $this->getDataBase()->query($sql);
   }
 
   public function open_message($message)
   {
-    require '../app/model/db_connection.php';
     $sql = 'UPDATE MESSAGE SET STATE = TRUE where ID = $message';
     $this->getDataBase()->query($sql);
   }
 
-}
+  public function add_content($message,$content)
+  {
+    $sql1 = 'SELECT CONTENT FROM MESSAGE WHERE ID = $message'
+    $prev = query($sql1);
+    $sql2 = 'UPDATE MESSAGE SET CONTENT = $prev + $content WHERE MESSAGE = $message'
+    $this->getDataBase()->query($sql2)
+  }
 
+}
 
 ?>
