@@ -1,20 +1,14 @@
 <?php
     require '../app/model/database.php';
 
-    class Discussion{
-        private $DataBase;
-
-        public function __construct($DataBase)
-        {
-            $this->DataBase = $DataBase;
-        }
-
+    class Discussion extends DataBase
+    {
         public function getAllDiscussion()
         {
             $tabDiscussions = array();
             $compt = 0;
             $sql = 'SELECT * FROM DISCUSSION';
-            $req = $this->DataBase->query($sql);
+            $req = $this->executeRequete($sql);
             while($row = $req->fetch())
             {
                 $tabDiscussions[$compt] = array();
