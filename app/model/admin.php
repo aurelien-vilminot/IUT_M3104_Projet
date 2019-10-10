@@ -60,7 +60,7 @@ class Admin extends User {
 
   public function create_discussion ($discussion)
   {
-    new Discussion($discussion);  #pas encore creer
+    new Discussion($discussion);                         #pas encore creer
   }
 
   public function  read_discussion ($discussion)
@@ -72,10 +72,10 @@ class Admin extends User {
   {
     if($state)
     {
-      $discussion.open_discussion($discussion);
+      $this->getDisussion().open_discussion($discussion);          #getDiscussion pas encore creer
     }
     else {
-      $discussion.close_discussion($discussion);
+      $this->getDisussion().close_discussion($discussion);        #getDiscussion pas encore creer
     }
   }
 
@@ -100,10 +100,10 @@ class Admin extends User {
   {
     if($state)
     {
-      $this->getDiscussion()->open_message($message);    #getDiscussion pas encore declarer
+      $this->getMessage()->open_message($message);    #getMessage pas encore declarer
     }
     else {
-      $this->getDiscussion()->close_message($message);    #getDiscussion pas encore declarer
+      $this->getMessage()->close_message($message);    #getMessage pas encore declarer
     }
   }
 
