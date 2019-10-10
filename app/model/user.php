@@ -109,12 +109,6 @@
         public function update_message ($message,$state)   #cette fn est ici car tout le mon de peut fermer un message
         {
           require '../app/model/message.php';
-          if($state)
-          {
-            $this->getMessage()->open_message($message);    #getMessage pas encore declarer
-          }
-          else {
-            $this->getMessage()->close_message($message);    #getMessage pas encore declarer
-          }
+          $this->message->setstate($message,$state);
         }
     }

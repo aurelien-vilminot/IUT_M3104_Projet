@@ -32,6 +32,7 @@ class Message{
   public function getState(){return $this->State;}
   public function getId_Discussion(){return $this->Id_DIscussion;}
 
+
   public function getNumberMessage($discussion)
   {
     $sql = 'SELECT COUNT(*) FROM MESSAGE WHERE ID_DISCUSSION = $discussion';
@@ -50,7 +51,18 @@ class Message{
     $this->getDataBase()->query($sql);
   }
 
-  public function add_content($message,$content)
+  private function setstate($state,$message)
+  {
+    if($state)
+    {
+      $this->getMessage()->open_message($message);    #getMessage pas encore declarer
+    }
+    else {
+      $this->getMessage()->close_message($message);    #getMessage pas encore declarer
+    }
+  }
+
+  public function set_content($message,$content)
   {
     $sql1 = 'SELECT CONTENT FROM MESSAGE WHERE ID = $message'
     $prev = query($sql1);
