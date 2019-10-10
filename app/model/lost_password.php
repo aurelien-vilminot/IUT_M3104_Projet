@@ -1,15 +1,13 @@
 <?php
     require '../app/model/database.php';
 
-    class Lost_Password_Manager
+    class Lost_Password_Manager extends DataBase
     {
-        private $DataBase;
         private $login;
         private $mail;
 
-        public function __construct($DataBase, $login)
+        public function __construct($login)
         {
-            $this->DataBase = $DataBase;
             $this->login = $login;
         }
 
@@ -17,8 +15,7 @@
         {
             $tab = array('login' => $this->login);
             $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
-            $requete = $this->DataBase->prepare($sql);
-            $requete->execute($tab);
+            $requete = $this->executeRequete($sql, $tab);
 
             $isExist = $requete->rowCount($sql);
             return $isExist;
@@ -27,7 +24,7 @@
         private function setMail()
         {
             $sql = 'SELECT MAIL FROM USER WHERE LOGIN = \'' . $this->login . '\'';
-            $req = $this->DataBase->query($sql);
+            $req = $this->executeRequete($sql);
             $row = $req->fetchAll();
             $this->mail = $row[0][0];
         }
@@ -47,9 +44,8 @@
             $newPasswordHash = password_hash($newPassword,PASSWORD_DEFAULT);
             $tab = array('password' => $newPasswordHash);
             $sql = 'UPDATE USER SET PASSWORD = :password  WHERE LOGIN = \'' . $this->login . '\'';
-            $req = $this->DataBase->prepare($sql);
-            if ($req->execute($tab))
-                return $newPassword;
+            $this->executeRequete($sql, $tab);
+            return $newPassword;
         }
 
         public function sendMail()

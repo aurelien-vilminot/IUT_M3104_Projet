@@ -11,7 +11,7 @@
         $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
         $check_password = trim($_POST['check_password']);
 
-        $registration  = new User($myDB->getDataBase(), $login);
+        $registration  = new User($login);
 
         if (!password_verify($check_password, $password))
         {
