@@ -73,7 +73,7 @@
 
         public function email_taken($email)
         {
-            $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $email . '\'';
+            $sql = 'SELECT * FROM USER WHERE MAIL = \'' . $email . '\'';
             $req = $this->executeRequete($sql);
             $free = $req->rowCount($sql);
 
