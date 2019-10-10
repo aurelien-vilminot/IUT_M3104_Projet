@@ -12,6 +12,7 @@
 
         if($myUser->email_taken($newMail) == 1)
         {
+            exit;
             $error_email = 'L\'adresse email est déjà utilisée';
         }
         else
