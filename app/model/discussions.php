@@ -13,7 +13,7 @@
             {
                 $tabDiscussions[$compt] = array();
                 $tabDiscussions[$compt][$compt] = $row['TITLE'];
-                $tabDiscussions[$compt][$compt] = $row['STATE'];
+                $tabDiscussions[$compt][++$compt] = $row['STATE'];
                 ++$compt;
             }
             $req->closeCursor();
