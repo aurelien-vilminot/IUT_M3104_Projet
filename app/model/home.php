@@ -9,15 +9,16 @@ class Home extends DataBase
         $compt = 0;
         $sql = 'SELECT * FROM DISCUSSION';
         $req = $this->executeRequete($sql);
-        echo $req->rowCount();
-        while($row = $req->fetch())
+        $compt = $req->rowCount();
+        $row = $req->fetchAll();
+        $i = 0;
+        while($i <= $compt)
         {
-            $tabDiscussions[$compt] = array();
-            $tabDiscussions[$compt][$compt] = $row['TITLE'];
-            $tabDiscussions[$compt][++$compt] = $row['STATE'];
-            $compt = 1 + $compt;
+            $tabDiscussions[$i] = array();
+            $tabDiscussions[$i][$i] = $row[$i][$i];
+            $tabDiscussions[$i][$i+1] = $row[$i][$i + 1];
+            ++$i;
         }
-        $req->closeCursor();
 
         return $tabDiscussions;
     }
