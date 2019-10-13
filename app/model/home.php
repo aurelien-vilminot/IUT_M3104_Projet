@@ -15,8 +15,8 @@ class Home extends DataBase
         while($i <= $compt)
         {
             $tabDiscussions[$i] = array();
-            $tabDiscussions[$i][$i] = $row[$i+1][$i+1];
-            $tabDiscussions[$i][$i+1] = $row[$i+1][$i + 2];
+            $tabDiscussions[$i][$i] = $row[$i][$i + 1];
+            $tabDiscussions[$i][$i+1] = $row[$i][$i + 2];
             ++$i;
         }
 
