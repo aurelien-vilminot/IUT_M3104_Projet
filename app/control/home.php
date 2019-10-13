@@ -7,5 +7,6 @@
     echo $tabDisc[1][0] . ' ' . $tabDisc[1][1] .PHP_EOL;
     echo $tabDisc[2][0] . ' ' . $tabDisc[2][1] .PHP_EOL;
 
+
     require '../app/view/home.php';
 
