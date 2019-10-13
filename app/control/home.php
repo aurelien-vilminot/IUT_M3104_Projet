@@ -6,7 +6,7 @@
     echo $tabDisc[0][0] . ' ' . $tabDisc[0][1] .PHP_EOL;
     echo $tabDisc[1][0] . ' ' . $tabDisc[1][1] .PHP_EOL;
     echo $tabDisc[2][0] . ' ' . $tabDisc[2][1] .PHP_EOL;
-
+    print_r($tabDisc);
 
     require '../app/view/home.php';
 
