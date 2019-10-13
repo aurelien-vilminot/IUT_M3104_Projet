@@ -9,6 +9,7 @@ class Home extends DataBase
         $compt = 0;
         $sql = 'SELECT * FROM DISCUSSION';
         $req = $this->executeRequete($sql);
+        echo $req->rowCount();
         while($row = $req->fetch())
         {
             $tabDiscussions[$compt] = array();
