@@ -1,5 +1,5 @@
 <div class="home">
-    <div>
+    <div class="presentation">
         <p>
             Bienvenue sur FreeNote,<br><br>
             Ce réseau social a pour vocation d'être inutile... Mais bon on a pas le choix de le faire, désolé les gars :(<br><br>
@@ -7,7 +7,7 @@
         </p>
     </div>
 
-    <div>
+    <div class="discussions">
         <table>
             <tr>
                 <th>Discussion</th>
@@ -18,13 +18,44 @@
                 foreach ($tabDisc as &$discussion)
                 {
                     echo '<tr>';
-                    for ($i = 0 ; $i < 2 ; ++$i)
+                    for ($i = 1 ; $i < 3 ; ++$i)
                     {
-                        echo '<td>' . $discussion[$i] . '</td>';
+                        if ($discussion[$i] == '0')
+                            echo '<td><img src="media/close.png" alt="close"></td>';
+                        elseif ($discussion[$i] == '1')
+                            echo '<td><img src="media/open.png" alt="close"></td>';
+                        else
+                            echo '<td><a href="index.php?page=profil">' . $discussion[$i] . '</a></td>';
                     }
                     echo '</tr>';
                 }
             ?>
         </table>
+        <div class="prev_next">
+            <?php
+                if ($page_disc == 1)
+                    echo <<<EOT
+            <img src="media/prev_gray.png" alt="prev" id="imgWithoutLink">
+EOT;
+                else {
+                    $page_prev = $page_disc - 1;
+                    echo <<<EOT
+            <a href="index.php?page=home&disc=$page_prev"><img src="media/prev.png" alt="prev"></a>
+EOT;
+                }
+
+            if ($page_disc == $nbDiscussionsPages)
+                echo <<<EOT
+            <img src="media/next_gray.png" alt="next" id="imgWithoutLink">
+EOT;
+            else {
+                $page_next = $page_disc + 1;
+                echo <<<EOT
+            <a href="index.php?page=home&disc=$page_next"><img src="media/next.png" alt="next"></a>
+EOT;
+            }
+            ?>
+        </div>
     </div>
+
 </div>

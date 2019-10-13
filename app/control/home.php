@@ -1,12 +1,28 @@
 <?php
-
     require_once '../app/model/home.php';
-    $myHome = new Home();
-    $tabDisc = $myHome->getAllDiscussion();
-    echo $tabDisc[0][0] . ' ' . $tabDisc[0][1] .PHP_EOL;
-    echo $tabDisc[1][0] . ' ' . $tabDisc[1][1] .PHP_EOL;
-    echo $tabDisc[2][0] . ' ' . $tabDisc[2][1] .PHP_EOL;
-    print_r($tabDisc);
 
-    require '../app/view/home.php';
+    $nbDiscussionsByPages = 2;
+
+    $myHome = new Home();
+    $nbDiscussions = $myHome->getNbDiscussions();
+
+    $nbDiscussionsPages = ceil($nbDiscussions/$nbDiscussionsByPages);
+
+    if(isset($_GET['disc']))
+    {
+        $page_disc = $_GET['disc'];
+
+        if($page_disc > $nbDiscussionsPages)
+        {
+            $page_disc = $nbDiscussionsPages;
+        }
+    }
+    else
+        $page_disc = 1;
+
+    $firstDiscussion = ($page_disc - 1) * $nbDiscussionsByPages;
+
+    $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
+
+require '../app/view/home.php';
 

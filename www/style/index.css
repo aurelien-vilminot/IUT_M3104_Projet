@@ -182,12 +182,17 @@ input[type=submit]:hover {
     justify-content: space-around;
 }
 
-.home div{
+.presentation, .discussions{
     width: 50%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0 2vw 0 2vw;
+}
+
+.discussions{
+    margin-top: 1vw;
 }
 
 table {
@@ -197,6 +202,26 @@ table {
 table, th, td {
     border: 1px solid #6a93ca;
     border-radius: 4px;
+}
+th, td{
+    padding: 1vw;
+}
+
+.prev_next{
+    display: flex;
+    justify-content: space-around;
+    margin: 1vw 0 2vw 0;
+    width: 40%;
+    padding-left: 8%;
+}
+
+.prev_next img {
+    width: 40%;
+}
+
+#imgWithoutLink {
+    width: 14%;
+    height: 90%;
 }
 
 footer {

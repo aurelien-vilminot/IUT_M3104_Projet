@@ -3,24 +3,31 @@ require '../app/model/database.php';
 
 class Home extends DataBase
 {
-    public function getAllDiscussion()
+    public function getDiscussions($firstDiscussion, $nbDiscussionsByPages)
     {
-        $tabDiscussions = array();
-        $compt = 0;
-        $sql = 'SELECT * FROM DISCUSSION';
-        $req = $this->executeRequete($sql);
+        $tab = array('first' => $nbDiscussionsByPages, 'second' => $firstDiscussion);
+        $sql = 'SELECT * FROM DISCUSSION ORDER BY ID LIMIT :second, :first';
+        $req = $this->executeLIMITRequete($sql, $nbDiscussionsByPages, $firstDiscussion);
         $compt = $req->rowCount();
         $row = $req->fetchAll();
+        $tabDiscussions = array();
         $i = 0;
-        while($i <= $compt)
+        while($i < $compt)
         {
             $tabDiscussions[$i] = array();
-            $tabDiscussions[$i][$i] = $row[$i][$i + 1];
-            $tabDiscussions[$i][$i+1] = $row[$i][$i + 2];
+            $tabDiscussions[$i][0] = $row[$i][0];
+            $tabDiscussions[$i][1] = $row[$i][1];
+            $tabDiscussions[$i][2] = $row[$i][2];
             ++$i;
         }
-
         return $tabDiscussions;
+    }
+
+    public function getNbDiscussions()
+    {
+        $sql = 'SELECT * FROM DISCUSSION';
+        $req = $this->executeRequete($sql);
+        return $nbDiscussions = $req->rowCount();
     }
 }
 

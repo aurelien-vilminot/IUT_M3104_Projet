@@ -8,7 +8,8 @@
 
         private $bdd;
 
-        protected function executeRequete($sql, $params = null) {
+        protected function executeRequete($sql, $params = null)
+        {
             if ($params == null) {
                 $resultat = $this->getBdd()->query($sql);    // exécution directe
             }
@@ -17,6 +18,15 @@
                 $resultat->execute($params);
             }
             return $resultat;
+        }
+
+        protected function executeLIMITRequete($sql, $first, $second)
+        {
+            $resulat = $this->getBdd()->prepare($sql);
+            $resulat->bindValue(':first', intval($first), PDO::PARAM_INT);
+            $resulat->bindValue(':second', intval($second), PDO::PARAM_INT);
+            $resulat->execute();
+            return $resulat;
         }
 
         private function getBdd()
