@@ -6,7 +6,7 @@
 
     abstract class DataBase {
 
-        private $bdd;
+        private static $bdd;
 
         protected function executeRequete($sql, $params = null) {
             if ($params == null) {
@@ -21,16 +21,16 @@
 
         private function getBdd()
         {
-            if ($this->bdd == null)
+            if (self::$bdd == null)
             {
                 $dsn = 'mysql:host=' . dbHost . '; dbname=' . dbName;
                 $DataBase = new PDO($dsn, dbUser, dbPassword);
                 $DataBase->exec('SET CHARACTER SET utf8');
                 $DataBase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-                $this->bdd = $DataBase;
+                self::$bdd = $DataBase;
             }
-            return $this->bdd;
+            return self::$bdd;
         }
 
     }
