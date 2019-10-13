@@ -17,7 +17,7 @@
     <link rel="icon" type="image/png" href="media/favicon.png"/>
 </head>
 <body>
-    <?php require '../app/view/menu.php'?>
+    <?php require '../app/view/layouts/menu.php' ?>
     <main>
         <div class="topMainBorder"></div>
 
@@ -26,7 +26,7 @@
             <?php require '../app/control/' . $page . '.php'?>
         </section>
 
-        <?php require '../app/view/footer.php'?>
+        <?php require '../app/view/layouts/footer.php' ?>
     </main>
 </body>
 </html>

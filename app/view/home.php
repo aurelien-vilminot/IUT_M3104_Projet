@@ -2,7 +2,7 @@
     <div class="presentation">
         <p>
             Bienvenue sur FreeNote,<br><br>
-            Ce réseau social a pour vocation d'être inutile... Mais bon on a pas le choix de le faire, désolé les gars :(<br><br>
+            Ce réseau social a pour vocation d'être inutile... Mais bon on n'a pas le choix de le faire, désolé les gars :(<br><br>
             Plus sérieusement, réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant des messages participatifs au sein desquels chaque utilisateur ne peut ajouter qu’un ou deux mots.
         </p>
     </div>
@@ -25,7 +25,7 @@
                         elseif ($discussion[$i] == '1')
                             echo '<td><img src="media/open.png" alt="close"></td>';
                         else
-                            echo '<td><a href="index.php?page=profil">' . $discussion[$i] . '</a></td>';
+                            echo '<td><a href="index.php?page=discussion&id=' . $discussion[0] . '">' . $discussion[$i] . '</a></td>';
                     }
                     echo '</tr>';
                 }
@@ -35,23 +35,23 @@
             <?php
                 if ($page_disc == 1)
                     echo <<<EOT
-            <img src="media/prev_gray.png" alt="prev" id="imgWithoutLink">
+<img src="media/prev_gray.png" alt="prev" id="imgWithoutLink">
 EOT;
                 else {
                     $page_prev = $page_disc - 1;
                     echo <<<EOT
-            <a href="index.php?page=home&disc=$page_prev"><img src="media/prev.png" alt="prev"></a>
+<a href="index.php?page=home&disc=$page_prev"><img src="media/prev.png" alt="prev"></a>
 EOT;
                 }
 
             if ($page_disc == $nbDiscussionsPages)
                 echo <<<EOT
-            <img src="media/next_gray.png" alt="next" id="imgWithoutLink">
+<img src="media/next_gray.png" alt="next" id="imgWithoutLink">
 EOT;
             else {
                 $page_next = $page_disc + 1;
                 echo <<<EOT
-            <a href="index.php?page=home&disc=$page_next"><img src="media/next.png" alt="next"></a>
+<a href="index.php?page=home&disc=$page_next"><img src="media/next.png" alt="next"></a>
 EOT;
             }
             ?>

@@ -224,6 +224,16 @@ th, td{
     height: 90%;
 }
 
+.messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 2vw;
+    border: 0.1vw solid #ccc;
+    border-radius: 1vw;
+}
+
 footer {
     display: flex;
     flex-direction: column;
