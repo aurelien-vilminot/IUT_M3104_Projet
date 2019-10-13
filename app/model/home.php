@@ -14,7 +14,7 @@ class Home extends DataBase
             $tabDiscussions[$compt] = array();
             $tabDiscussions[$compt][$compt] = $row['TITLE'];
             $tabDiscussions[$compt][++$compt] = $row['STATE'];
-            ++$compt;
+            $compt = 1 + $compt;
         }
         $req->closeCursor();
 
