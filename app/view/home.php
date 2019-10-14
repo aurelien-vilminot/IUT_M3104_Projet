@@ -21,9 +21,9 @@
                     for ($i = 1 ; $i < 3 ; ++$i)
                     {
                         if ($discussion[$i] == '0')
-                            echo '<td><img src="media/close.png" alt="close"></td>';
+                            echo '<td><img src="media/close.png" alt="close" title="Cette discussion est close"></td>';
                         elseif ($discussion[$i] == '1')
-                            echo '<td><img src="media/open.png" alt="close"></td>';
+                            echo '<td><img src="media/open.png" alt="open" title="Cette discussion est ouverte"></td>';
                         else
                             echo '<td><a href="index.php?page=discussion&id=' . $discussion[0] . '">' . $discussion[$i] . '</a></td>';
                     }
@@ -40,7 +40,7 @@ EOT;
                 else {
                     $page_prev = $page_disc - 1;
                     echo <<<EOT
-<a href="index.php?page=home&disc=$page_prev"><img src="media/prev.png" alt="prev"></a>
+<a href="index.php?page=home&disc=$page_prev"><img src="media/prev.png" alt="prev"  title="Afficher les discussions précédentes"></a>
 EOT;
                 }
 
@@ -51,7 +51,7 @@ EOT;
             else {
                 $page_next = $page_disc + 1;
                 echo <<<EOT
-<a href="index.php?page=home&disc=$page_next"><img src="media/next.png" alt="next"></a>
+<a href="index.php?page=home&disc=$page_next"><img src="media/next.png" alt="next"  title="Afficher les discussions suivantes"></a>
 EOT;
             }
             ?>

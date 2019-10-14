@@ -1,6 +1,6 @@
 <form action="" method="POST">
     <label>E-mail</label>
-    <input type="text" placeholder="Entrer votre adresse email" name="mail" required>
+    <input type="text" placeholder="Entrez votre adresse email" name="mail" required>
 
     <?php
     if (isset($error_user_not_found))

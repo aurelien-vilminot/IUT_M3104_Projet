@@ -19,3 +19,6 @@ Récupérer données SQL :
             $this->admin = $row['ADMIN'];
         }
         $req->closeCursor();
+Variables à charger en tant que paramètre du site (.json) :
+
+    $nbDiscussionsByPages //Dans 'app/control/home.php'

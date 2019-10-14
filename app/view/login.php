@@ -1,9 +1,9 @@
 <form action="" method="POST">
     <label>Nom d'utilisateur</label>
-    <input type="text" placeholder="Entrer le nom d'utilisateur" name="login" required>
+    <input type="text" placeholder="Entrez votre nom d'utilisateur" name="login" required>
 
     <label>Mot de passe</label>
-    <input type="password" placeholder="Entrer le mot de passe" name="password">
+    <input type="password" placeholder="Entrez votre mot de passe" name="password">
 
     <?php
         if (isset($error_user_not_found))
