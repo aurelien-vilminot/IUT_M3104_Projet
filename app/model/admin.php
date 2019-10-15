@@ -1,5 +1,5 @@
 <?php
-require '../app/model/user.php';
+require_once '../app/model/user.php';
 
 class Admin extends User {
 
@@ -55,13 +55,6 @@ class Admin extends User {
     $sql = 'DELETE FROM DISCUSSION WHERE ID = $discussion';
     $this->getDiscussion()->query($sql);      #getDiscussion pas encore creer
   }
-
-
-  public function read_message ($message)
-  {
-
-  }
-
 
   public function delete_message ($message)
   {

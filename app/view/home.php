@@ -1,7 +1,7 @@
 <div class="home">
     <div class="presentation">
         <p>
-            Bienvenue sur FreeNote,<br><br>
+            Bienvenue sur FreeNote<b><?php if (isset($userLogin)) echo ' ' . $userLogin;?></b>,<br><br>
             Ce réseau social a pour vocation d'être inutile... Mais bon on n'a pas le choix de le faire, désolé les gars :(<br><br>
             Plus sérieusement, réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant des messages participatifs au sein desquels chaque utilisateur ne peut ajouter qu’un ou deux mots.
         </p>

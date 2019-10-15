@@ -1,5 +1,5 @@
 <?php
-require '../app/model/database.php';
+require_once '../app/model/database.php';
 
 class Discussion extends DataBase
 {
@@ -8,6 +8,8 @@ class Discussion extends DataBase
     {
         $this->id_discussion = $id;
     }
+
+    public function getIdDiscussion(){return $this->id_discussion;}
 
     public function getAllMessages()
     {

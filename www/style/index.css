@@ -229,7 +229,6 @@ th, td{
     flex-direction: column;
     align-items: center;
     width: 90%;
-    margin-bottom: 2vw;
     border: 0.1vw solid #ccc;
     border-radius: 1vw;
 }
@@ -241,14 +240,14 @@ th, td{
 }
 
 .message_state img {
-    width: 20%;
+    width: 1vw;
 }
 
 .infos {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: end;
 }
 
 .message {

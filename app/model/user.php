@@ -1,5 +1,5 @@
 <?php
-    require '../app/model/database.php';
+    require_once '../app/model/database.php';
 
     class User extends DataBase
     {
@@ -98,15 +98,23 @@
 
         public function create_discussion ($discussion)
         {
-          new Discussion($discussion);                         #pas encore creer
+
         }
 
-        public function create_message ($message)
+        public function create_message ($content, $state, $id_discussion)
         {
-          new Message ($message);                              #classe pas encore creer
+            $tab = array('content' => $content, 'state' =>$state, 'id_discussion' => $id_discussion);
+            $sql = 'INSERT INTO MESSAGE (CONTENT, STATE, ID_DISCUSSION) VALUES (:content, :state, :id_discussion)';
+            $this->executeRequete($sql, $tab);
+
+            $id_message = $this->lastInsertId();
+
+            $tab3 = array('login' => $this->login, 'id' => $id_message);
+            $sql3 = 'INSERT INTO USER_MESSAGE (ID_USER, ID_MESSAGE) VALUES (:login, :id)';
+            $this->executeRequete($sql3, $tab3);
         }
 
-        public function update_message ($message,$state)   #cette fn est ici car tout le mon de peut fermer un message
+        public function update_message ($message,$state)
         {
           require '../app/model/message.php';
           $this->message->setstate($message,$state);

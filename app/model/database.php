@@ -29,6 +29,11 @@
             return $resulat;
         }
 
+        protected function lastInsertId()
+        {
+            return $this->getBdd()->lastInsertId('USER_MESSAGE');
+        }
+
         private function getBdd()
         {
             if ($this->bdd == null)
@@ -43,5 +48,9 @@
             return $this->bdd;
         }
 
+        public function __sleep()
+        {
+            return array();
+        }
     }
 

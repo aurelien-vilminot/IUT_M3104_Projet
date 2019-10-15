@@ -7,14 +7,14 @@
     <div class="message">
         <p>$content</p>
     </div>
-     <div class="infos">
+    <div class="infos">
         <div>
              <a href=""><img src="media/infos.png" alt="Informations message" title="Informations du message"></a>
         </div>
         <div>
 
 EOT;
-            if ( $message['STATE'] == '1')
+            if ($message['STATE'] == '1')
                 echo <<<EOT
             <img src="media/continue.png" alt="Continuer le message" title="Le message peut être complété">
         </div>

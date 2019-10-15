@@ -28,10 +28,10 @@
         else
         {
             $registration->register($login, $mail, $password, 0);
-            $_SESSION['loginCurrentUser'] = $login;
+            $_SESSION['CurrentUser'] = $login;
             $_SESSION['user'] = 1;
             header('Location: index.php');
         }
     }
 
-    require '../app/view/register.php';
+    //require '../app/view/register.php';

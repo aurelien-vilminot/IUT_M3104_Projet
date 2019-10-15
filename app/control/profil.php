@@ -2,9 +2,9 @@
     if(!isset($_SESSION['user']) && $_SESSION['user'] != 1)
         header("Location: index.php?page=login");
 
-    require_once '../app/model/user.php';
+    require '../app/model/user.php';
 
-    $myUser =  new User($_SESSION['loginCurrentUser']);
+    $myUser = new User($_SESSION['CurrentUser']);
 
     if(isset($_POST['submit_mail']))
     {
