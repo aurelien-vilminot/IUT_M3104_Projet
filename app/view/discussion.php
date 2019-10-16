@@ -62,5 +62,5 @@ EOT;
         }
     }
     else
-        echo '<p><a href="index.php?page=register">Inscrivez-vous</a> si vous souhaitez participer à cette discusion';
+        echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
 

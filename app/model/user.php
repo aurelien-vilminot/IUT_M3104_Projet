@@ -23,8 +23,6 @@
             $req->closeCursor();
         }
 
-        public function getDataBase(){return $this->DataBase;}
-
         public function getLogin(){return $this->login;}
 
         public function getMail(){return $this->mail;}
@@ -124,10 +122,6 @@
             $this->update_message($idMessage, $content);
             $sql = 'UPDATE MESSAGE SET STATE = 0 WHERE ID = \'' . $idMessage . '\'';
             $this->executeRequete($sql);
-
-            $tab = array('login' => $this->login, 'id' => $idMessage);
-            $sql2 = 'INSERT INTO USER_MESSAGE (ID_USER, ID_MESSAGE) VALUES (:login, :id)';
-            $this->executeRequete($sql2, $tab);
         }
 
         public function authorizedUpdateMessage ($idMessage)
