@@ -11,10 +11,23 @@
     {
         $messageContent = $_POST['message'];
         $myUser = new User($_SESSION['CurrentUser']);
-        $myUser->create_message($messageContent, 1, $myDiscussion->getIdDiscussion());
+        $nbWord = explode(' ', $messageContent);
+        if (count($nbWord) <= 2)
+            $myUser->create_message($messageContent, 1, $myDiscussion->getIdDiscussion());
+        else
+            $error_message = 'Vous ne pouvez entrer qu\'un ou deux mots';
+    }
+    elseif (isset($_POST['submit_close']))
+    {
+        $messageContent = $_POST['message'];
+        $myUser = new User($_SESSION['CurrentUser']);
+        $nbWord = explode(' ', $messageContent);
+        if (count($nbWord) <= 2)
+            $myUser->create_message($messageContent, 0, $myDiscussion->getIdDiscussion());
+        else
+            $error_message = 'Vous ne pouvez entrer qu\'un ou deux mots';
     }
 
     $tabMessages = $myDiscussion->getAllMessages();
-
 
     require '../app/view/discussion.php';
