@@ -4,7 +4,8 @@
 
     require '../app/model/user.php';
 
-    $myUser = new User($_SESSION['CurrentUser']);
+    //$myUser = new User($_SESSION['CurrentUser']);
+    $myUser = unserialize($_SESSION['CurrentUser']);
 
     if(isset($_POST['submit_mail']))
     {

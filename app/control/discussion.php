@@ -6,6 +6,7 @@
     require_once '../app/model/user.php';
 
     $myDiscussion = new Discussion($_GET['id']);
+
     $nbMessagesMax = 10;
 
     if($myDiscussion->isExist() == 0)
@@ -15,7 +16,8 @@
     if (isset($_POST['submit']) || isset($_POST['submit_close']))
     {
         $messageContent = $_POST['message'];
-        $myUser = new User($_SESSION['CurrentUser']);
+        //$myUser = new User($_SESSION['CurrentUser']);
+        $myUser = unserialize($_SESSION['CurrentUser']);
         $nbWord = explode(' ', $messageContent);
 
         if ($myDiscussion->isEmpty() != 0)

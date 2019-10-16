@@ -136,4 +136,9 @@
             $req = $this->executeRequete($sql);
             return $req->rowCount();
         }
+
+        public function __sleep()
+        {
+            return array('login', 'mail', 'password', 'admin');
+        }
     }

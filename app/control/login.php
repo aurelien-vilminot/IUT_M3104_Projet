@@ -5,6 +5,7 @@
     if(isset($_POST['submit']))
     {
         require_once '../app/model/login.php';
+        require_once '../app/model/user.php';
 
         $loginUser = new LoginManager();
 
@@ -14,7 +15,8 @@
         if($loginUser->verif_user($login, $password) == 0)
         {
             $_SESSION['user'] = 1;
-            $_SESSION['CurrentUser'] = $login;
+            //$_SESSION['CurrentUser'] = $login;
+            $_SESSION['CurrentUser'] = serialize(new User($login));
             header('Location: index.php?page=home');
         }
         elseif ($loginUser->verif_user($login, $password) == 2)

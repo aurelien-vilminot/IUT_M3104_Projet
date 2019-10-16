@@ -4,7 +4,8 @@
 
     if (isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
-        $myUser = new User($_SESSION['CurrentUser']);
+        //$myUser = new User($_SESSION['CurrentUser']);
+        $myUser = unserialize($_SESSION['CurrentUser']);
         $userLogin = $myUser->getLogin();
     }
     $nbDiscussionsByPages = 2;
