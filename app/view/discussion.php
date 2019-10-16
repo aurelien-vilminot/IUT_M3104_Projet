@@ -36,22 +36,31 @@ EOT;
 <?php
     if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
+        if ($stateDiscussion == 1)
+        {
 ?>
-        <form method="post">
-            <input type="text" placeholder="Entrer un ou deux mots" name="message">
-            <input type="submit" name="submit" value="Envoyer">
-            <input type="submit" name="submit_close" value="Envoyer et clore le message">
-            <?php
-            if (isset($error_message))
-                echo <<<EOT
+            <form method="post">
+                <input type="text" placeholder="Entrer un ou deux mots" name="message">
+                <input type="submit" name="submit" value="Envoyer">
+                <input type="submit" name="submit_close" value="Envoyer et clore le message">
+                <?php
+                if (isset($error_message))
+                    echo <<<EOT
 <p class="error">$error_message</p>
 EOT;
-            elseif (isset($error_user_message))
-                echo <<<EOT
+                elseif (isset($error_user_message))
+                    echo <<<EOT
 <p class="error">$error_user_message</p>
 EOT;
-            ?>
-        </form>
+                ?>
+            </form>
 <?php
+        }
+        else
+        {
+            echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
+        }
     }
+    else
+        echo '<p><a href="index.php?page=register">Inscrivez-vous</a> si vous souhaitez participer à cette discusion';
 

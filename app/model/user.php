@@ -72,33 +72,22 @@
         }
 
         public function email_taken($email)
-        {
-            $sql = 'SELECT * FROM USER WHERE MAIL = \'' . $email . '\'';
-            $req = $this->executeRequete($sql);
-            $free = $req->rowCount($sql);
-
-            return $free;
-        }
+    {
+        $sql = 'SELECT * FROM USER WHERE MAIL = \'' . $email . '\'';
+        $req = $this->executeRequete($sql);
+        return $req->rowCount();
+    }
 
         public function login_taken($login)
         {
             $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
             $req = $this->executeRequete($sql);
-            $free = $req->rowCount($sql);
-
-            return $free;
-        }
-
-        public function register($login, $email, $password, $isAdmin)
-        {
-            $tab = array('login' => $login, 'email' => $email, 'password' => $password, 'isAdmin' => $isAdmin);
-            $sql = 'INSERT INTO USER (LOGIN,MAIL,PASSWORD,ADMIN) VALUES(:login,:email,:password,:isAdmin)';
-            $this->executeRequete($sql, $tab);
+            return $req->rowCount();
         }
 
         public function create_discussion ($discussion)
         {
-
+            //a coder
         }
 
         public function create_message ($content, $state, $id_discussion)
@@ -121,15 +110,24 @@
             $resultat = $req->fetchAll();
             $lastContent = $resultat[0][0];
             $newContent = $lastContent . ' ' . $content;
-            $sql2 = 'UPDATE MESSAGE SET CONTENT = \'' . $newContent . '\' WHERE ID = \'' . $idMessage . '\'';
-            $this->executeRequete($sql2);
+            $tab = array('idMessage' => $idMessage, 'newContent' => $newContent);
+            $sql2 = 'UPDATE MESSAGE SET CONTENT = :newContent WHERE ID = :idMessage';
+            $this->executeRequete($sql2, $tab);
+
+            $tab = array('login' => $this->login, 'id' => $idMessage);
+            $sql3 = 'INSERT INTO USER_MESSAGE (ID_USER, ID_MESSAGE) VALUES (:login, :id)';
+            $this->executeRequete($sql3, $tab);
         }
 
         public function update_close_message($idMessage, $content)
         {
             $this->update_message($idMessage, $content);
-            $sql2 = 'UPDATE MESSAGE SET STATE = 0 WHERE ID = \'' . $idMessage . '\'';
-            $this->executeRequete($sql2);
+            $sql = 'UPDATE MESSAGE SET STATE = 0 WHERE ID = \'' . $idMessage . '\'';
+            $this->executeRequete($sql);
+
+            $tab = array('login' => $this->login, 'id' => $idMessage);
+            $sql2 = 'INSERT INTO USER_MESSAGE (ID_USER, ID_MESSAGE) VALUES (:login, :id)';
+            $this->executeRequete($sql2, $tab);
         }
 
         public function authorizedUpdateMessage ($idMessage)

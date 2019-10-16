@@ -31,7 +31,7 @@
 
         protected function lastInsertId()
         {
-            return $this->getBdd()->lastInsertId('USER_MESSAGE');
+            return $this->getBdd()->lastInsertId('MESSAGE');
         }
 
         private function getBdd()
