@@ -19,5 +19,22 @@ class Discussion extends DataBase
 
         return $row;
     }
+
+    public function getLastMessage()
+    {
+        $sql = 'SELECT MAX(ID) FROM MESSAGE WHERE ID_DISCUSSION = \'' . $this->id_discussion . '\'';
+        $req = $this->executeRequete($sql);
+        $resultat = $req->fetchAll();
+        return $resultat[0][0];
+    }
+
+    public function isLastMessageClose()
+    {
+        $lastMessage = $this->getLastMessage();
+        $sql = 'SELECT STATE FROM MESSAGE WHERE ID = \'' . $lastMessage . '\'';
+        $req = $this->executeRequete($sql);
+        $resultat = $req->fetchAll();
+        return $resultat[0][0];
+    }
 }
 

@@ -114,9 +114,28 @@
             $this->executeRequete($sql3, $tab3);
         }
 
-        public function update_message ($message,$state)
+        public function update_message ($idMessage, $content)
         {
-          require '../app/model/message.php';
-          $this->message->setstate($message,$state);
+            $sql = 'SELECT CONTENT FROM MESSAGE WHERE ID = \'' . $idMessage . '\'';
+            $req = $this->executeRequete($sql);
+            $resultat = $req->fetchAll();
+            $lastContent = $resultat[0][0];
+            $newContent = $lastContent . ' ' . $content;
+            $sql2 = 'UPDATE MESSAGE SET CONTENT = \'' . $newContent . '\' WHERE ID = \'' . $idMessage . '\'';
+            $this->executeRequete($sql2);
+        }
+
+        public function update_close_message($idMessage, $content)
+        {
+            $this->update_message($idMessage, $content);
+            $sql2 = 'UPDATE MESSAGE SET STATE = 0 WHERE ID = \'' . $idMessage . '\'';
+            $this->executeRequete($sql2);
+        }
+
+        public function authorizedUpdateMessage ($idMessage)
+        {
+            $sql = 'SELECT * FROM USER_MESSAGE WHERE ID_USER = \'' . $this->login . '\'  AND ID_MESSAGE = \'' . $idMessage . '\'';
+            $req = $this->executeRequete($sql);
+            return $req->rowCount();
         }
     }

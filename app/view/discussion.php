@@ -46,6 +46,10 @@ EOT;
                 echo <<<EOT
 <p class="error">$error_message</p>
 EOT;
+            elseif (isset($error_user_message))
+                echo <<<EOT
+<p class="error">$error_user_message</p>
+EOT;
             ?>
         </form>
 <?php
