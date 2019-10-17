@@ -1,7 +1,16 @@
 <section class="menu">
     <div class="topMenuBorder"></div>
     <div class="imgMenu">
-        <a href="index.php"><img alt="Logo" src="media/logo.png"></a>
+        <?php
+        if(isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+            echo <<<EOT
+<a href="index.php"><img alt="Logo" src="media/logo_admin.png"></a>
+EOT;
+        else
+            echo <<<EOT
+<a href="index.php"><img alt="Logo" src="media/logo.png"></a>
+EOT;
+        ?>
     </div>
     <div class="middleMenuBorder"></div>
     <div class="pages">

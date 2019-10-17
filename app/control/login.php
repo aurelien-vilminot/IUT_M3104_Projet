@@ -18,12 +18,10 @@
             {
                 $_SESSION['user'] = 1;
                 $_SESSION['admin'] = 1;
-                //$_SESSION['CurrentUser'] = $login;
             }
             else
             {
                 $_SESSION['user'] = 1;
-                //$_SESSION['CurrentUser'] = $login;
             }
             $_SESSION['CurrentUser'] = serialize(new User($login));
             header('Location: index.php?page=home');

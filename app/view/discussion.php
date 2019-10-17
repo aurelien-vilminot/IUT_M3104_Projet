@@ -58,7 +58,7 @@ EOT;
                 {
                     $idPage = $_GET['id'];
                     echo <<<EOT
- <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">Fermer la discussion</a>
+ <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">• Fermer la discussion •</a>
 EOT;
                 }
             ?>
@@ -72,6 +72,6 @@ EOT;
     if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
     {
 ?>
-        <a href="index.php?page=discussion&id=<?=$_GET['id']?>&action=delete_discussion" class="warning">Supprimer la discussion</a>
+        <a href="index.php?page=discussion&id=<?=$_GET['id']?>&action=delete_discussion" class="warning">• Supprimer la discussion •</a>
 <?php
     }

@@ -1,7 +1,9 @@
 <?php
     session_start();
 
-    if(isset($_GET['page']) && !empty($_GET['page']))
+    $pages = scandir('../app/control/');
+
+    if(isset($_GET['page']) && !empty($_GET['page']) && in_array($_GET['page'].'.php',$pages))
             $page = $_GET['page'];
         else
             $page = 'home';

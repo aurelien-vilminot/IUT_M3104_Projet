@@ -4,7 +4,6 @@
 
     if (isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
-        //$myUser = new User($_SESSION['CurrentUser']);
         $myUser = unserialize($_SESSION['CurrentUser']);
         $userLogin = $myUser->getLogin();
     }
@@ -32,7 +31,7 @@
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
 
-    if (isset($_POST['newDiscussion']) && isset($_SESSION['user']) && $_SESSION['user'] == 1)
+    if (isset($_SESSION['user']) && $_SESSION['user'] == 1 && isset($_POST['newDiscussion']))
     {
         if ($nbDiscussions + 1 > $nbMaxDiscussions)
             $error_nb_discussions = 'Désolé, le nombre limite de discussions est atteint.';
