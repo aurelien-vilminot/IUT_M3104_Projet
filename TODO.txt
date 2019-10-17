@@ -1,0 +1,60 @@
+(justifiez les mesures de sécurité mises en œuvre dans votre fichier lisez-
+moi.txt).
+
+
+
+autoload
+
+
+
+URL propre
+
+
+
+Lien temporaire par mail pour mdp oublié
+
+
+
+sécurité injection sql...PDO bind
+
+
+
+(super) administrateur (tous les droits) ;
+
+
+
+Jeu de test des discussions
+
+
+
+le code source (sans ressources binaires) correctement commenté
+
+
+
+un fichier nommé lisez-moi.txt succinct comportant au minimum :
+    le nom de l’équipe et de tous ces membres ;
+    l’URL de l’index du site Web ;
+    une présentation concise du projet réalisé ;
+    les choix techniques (technologies, algorithmes, etc.) et leurs raisons ;
+    la configuration logicielle minimale et conseillée ;
+    l’ensemble des identifiants de connexion :
+        du site Web (au minimum un compte de test et un d’administration) ;
+        de la base de données ;
+        de l’hébergement ;
+        du compte du système de version (obligatoire).
+
+
+
+validation W3C de toutes vos pages HTML (documents au minimum de type HTML5) ;
+
+
+
+validation W3C de toutes vos pages CSS (documents au minimum de profil CSS niveau 3
+avec aucun avertissement et en tenant compte des extensions propriétaires comme
+avertissement).
+
+
+
+
+
+
