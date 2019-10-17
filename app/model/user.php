@@ -83,11 +83,6 @@
             return $req->rowCount();
         }
 
-        public function create_discussion ($discussion)
-        {
-            //a coder
-        }
-
         public function create_message ($content, $state, $id_discussion)
         {
             $tab = array('content' => $content, 'state' =>$state, 'id_discussion' => $id_discussion);

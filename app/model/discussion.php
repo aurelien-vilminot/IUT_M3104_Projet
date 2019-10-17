@@ -67,6 +67,19 @@ class Discussion extends DataBase
         return $req->rowCount();
     }
 
+    public function delete()
+    {
+        $tab = array('id' => $this->id_discussion);
+        $sql = 'DELETE FROM USER_MESSAGE WHERE ID_MESSAGE IN (SELECT ID FROM MESSAGE WHERE ID_DISCUSSION = :id)';
+        $this->executeRequete($sql, $tab);
+
+        $sql2 = 'DELETE FROM MESSAGE WHERE ID_DISCUSSION = :id';
+        $this->executeRequete($sql2, $tab);
+
+        $sql3 = 'DELETE FROM DISCUSSION WHERE ID = :id';
+        $this->executeRequete($sql3, $tab);
+    }
+
     public function getUsersMessage($id)
     {
         $sql = 'SELECT * FROM USER_MESSAGE WHERE ID_MESSAGE = \'' . $id . '\'';

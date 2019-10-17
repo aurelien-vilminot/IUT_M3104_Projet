@@ -42,8 +42,6 @@ EOT;
                 <input type="text" placeholder="Entrer un ou deux mots" name="message">
                 <input type="submit" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
-                <input type = 'submit' name = 'like' src = 'media/like.png'>
-
                 <?php
                 if (isset($error_message))
                     echo <<<EOT
@@ -56,6 +54,15 @@ EOT;
                 ?>
             </form>
             <?php
+                if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+                {
+                    $idPage = $_GET['id'];
+                    echo <<<EOT
+ <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">Fermer la discussion</a>
+EOT;
+                }
+            ?>
+            <?php
         } else
             echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
     }
@@ -65,9 +72,6 @@ EOT;
     if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
     {
 ?>
-      <form method = 'post'>
-        <input type = 'submit' name = 'close_discussion' value = 'Fermer discussion'>
-        <input type = 'submit' name = 'delete_discussion' value = 'Supprimer discussion'>
-
+        <a href="index.php?page=discussion&id=<?=$_GET['id']?>&action=delete_discussion" class="warning">Supprimer la discussion</a>
 <?php
     }

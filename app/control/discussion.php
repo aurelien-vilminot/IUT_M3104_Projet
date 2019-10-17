@@ -12,7 +12,6 @@
     if($myDiscussion->isExist() == 0)
         header('Location: index.php');
 
-
     if (isset($_POST['submit']) || isset($_POST['submit_close']) && isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
         $messageContent = $_POST['message'];
@@ -64,6 +63,17 @@
             else
                 $error_message = 'Vous ne pouvez entrer qu\'un ou deux mots';
         }
+    }
+
+    if (isset($_GET['action']) && $_GET['action'] == 'close_discussion' && isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+    {
+        $myDiscussion->setState(0);
+    }
+
+    if (isset($_GET['action']) && $_GET['action'] == 'delete_discussion' && isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+    {
+        $myDiscussion->delete();
+        header('Location: index.php');
     }
 
     $tabMessages = $myDiscussion->getAllMessages();

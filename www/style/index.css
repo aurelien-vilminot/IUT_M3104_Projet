@@ -271,19 +271,17 @@ th, td{
     align-items: end;
 }
 
-
-
-
-
-
-
-
 .message {
     border-radius: 2vw;
     background: #6a93ca;
     padding: 0 1vw 0 1vw;
     color: white;
     font-size: 1vw;
+}
+
+.warning {
+    color: #EE3831;
+    margin-bottom: 1vw;
 }
 
 footer {
