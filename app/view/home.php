@@ -43,7 +43,10 @@ EOT;
         elseif (isset($_SESSION['user']) && $_SESSION['user'] == 1 && !isset($_GET['action']) == 'newdiscussion')
         {
             echo <<<EOT
-
+<form action="" method="post">
+    <input type="text" placeholder="Entrez le titre de la discussion" name="titleDiscussion">
+    <input type="submit" name="newDiscussion" value="Créer cette discussion">
+</form>
 EOT;
         }
         ?>
