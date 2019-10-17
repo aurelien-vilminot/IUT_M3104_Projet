@@ -32,7 +32,7 @@
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
 
-    if (isset($_POST['newDiscussion']))
+    if (isset($_POST['newDiscussion']) && isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
         if ($nbDiscussions + 1 > $nbMaxDiscussions)
             $error_nb_discussions = 'Désolé, le nombre limite de discussions est atteint.';

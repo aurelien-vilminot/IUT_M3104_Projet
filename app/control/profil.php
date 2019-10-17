@@ -7,7 +7,7 @@
     //$myUser = new User($_SESSION['CurrentUser']);
     $myUser = unserialize($_SESSION['CurrentUser']);
 
-    if(isset($_POST['submit_mail']))
+    if(isset($_POST['submit_mail']) && isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
         $newMail = trim($_POST['mail']);
 
@@ -22,7 +22,7 @@
         }
     }
 
-    if(isset($_POST['submit_password']))
+    if(isset($_POST['submit_password']) && isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
         $password = trim($_POST['old_password']);
         $newPassword = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);

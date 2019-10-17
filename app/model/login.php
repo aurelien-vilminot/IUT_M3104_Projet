@@ -25,4 +25,12 @@
 
             return $result;
         }
+
+        public function isAdmin($login)
+        {
+            $sql = 'SELECT ADMIN FROM USER WHERE LOGIN = \'' . $login . '\'';
+            $req = $this->executeRequete($sql);
+            $resultat = $req->fetchAll();
+            return $resultat[0][0];
+        }
     }
