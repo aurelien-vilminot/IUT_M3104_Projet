@@ -48,7 +48,7 @@ EOT;
     {
         if ($stateDiscussion == 1) {
             ?>
-            <form method="post">
+            <form action="index.php?page=discussion&id=<?=$idPage?>" method="post">
                 <input type="text" placeholder="Entrer un ou deux mots" name="message">
                 <input type="submit" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
