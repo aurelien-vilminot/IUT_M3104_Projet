@@ -13,7 +13,7 @@
         header('Location: index.php');
 
 
-    if (isset($_POST['submit']) || isset($_POST['submit_close']))
+    if (isset($_POST['submit']) || isset($_POST['submit_close']) && isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
         $messageContent = $_POST['message'];
         //$myUser = new User($_SESSION['CurrentUser']);
@@ -67,17 +67,6 @@
     }
 
     $tabMessages = $myDiscussion->getAllMessages();
-// a finir !
-//    foreach ($tabMessages as &$message)
-//    {
-//        $message['USERS'] = [$myDiscussion->getUsersMessage($message['ID'])[0][0]];
-//        for ($i = 1 ; $i < count($myDiscussion->getUsersMessage($message['ID'])) ; ++$i)
-//        {
-//            $message['USERS'] += [$myDiscussion->getUsersMessage($message['ID'])[0][$i]];
-//        }
-//    }
-//
-//    print_r($tabMessages);
 
     if (count($tabMessages) == $nbMessagesMax)
         $myDiscussion->setState(0);
@@ -85,24 +74,3 @@
     $stateDiscussion = $myDiscussion->getState();
 
     require '../app/view/discussion.php';
-
-// Celia
-//    if (getAdmin()) {
-//        if (isset[$_POST['message_open']]) {
-//            ../
-//            model / message . php
-//        open_message($id_message);
-//      }
-//        if (isset[$_POST['message_close']]) {
-//            ../
-//            model / message . php
-//        close_message($id_message);
-//      }
-//        if (isset[$_POST['discussion_close']]) {
-//            close_discussion($id_discussion);
-//        }
-//        if (isset[$_POST['discussion_open']]) {
-//            open_discussion($id_discussion)
-//      }
-//    }
-

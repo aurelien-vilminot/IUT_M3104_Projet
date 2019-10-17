@@ -9,6 +9,7 @@
         $userLogin = $myUser->getLogin();
     }
     $nbDiscussionsByPages = 2;
+    $nbMaxDiscussions = 10;
 
     $myHome = new Home();
     $nbDiscussions = $myHome->getNbDiscussions();
@@ -31,12 +32,17 @@
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
 
-    if (isset($_POST['newDiscussion']))
+    if (isset($_POST['newDiscussion']) && isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
-        $myHome->createDiscussion($_POST['titleDiscussion']);
-        $id = $myHome->lastDiscussion();
-        header('Location: index.php?page=discussion&id=' . $id);
+        if ($nbDiscussions + 1 > $nbMaxDiscussions)
+            $error_nb_discussions = 'Désolé, le nombre limite de discussions est atteint.';
+        else
+        {
+            $myHome->createDiscussion($_POST['titleDiscussion']);
+            $id = $myHome->lastDiscussion();
+            header('Location: index.php?page=discussion&id=' . $id);
+        }
     }
 
-require '../app/view/home.php';
+    require '../app/view/home.php';
 

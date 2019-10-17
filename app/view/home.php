@@ -36,7 +36,7 @@
             echo <<<EOT
 <div class="newDiscussion">
     <img src="media/new.png">
-    <a href="index.php?page=home&action=newdiscussion">Nouvelle discussion</a>
+    <a href="index.php?page=home&disc=$page_disc&action=newdiscussion">Nouvelle discussion</a>
 </div>
 EOT;
         }
@@ -47,6 +47,10 @@ EOT;
     <input type="text" placeholder="Entrez le titre de la discussion" name="titleDiscussion">
     <input type="submit" name="newDiscussion" value="Créer cette discussion">
 </form>
+EOT;
+            if (isset($error_nb_discussions))
+                echo <<<EOT
+<p class="error">$error_nb_discussions</p>
 EOT;
         }
         ?>

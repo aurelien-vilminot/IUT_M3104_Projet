@@ -16,7 +16,7 @@ class Home extends DataBase
     {
         $sql = 'SELECT * FROM DISCUSSION';
         $req = $this->executeRequete($sql);
-        return $nbDiscussions = $req->rowCount();
+        return $req->rowCount();
     }
 
     public function createDiscussion($title)

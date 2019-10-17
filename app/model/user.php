@@ -3,10 +3,10 @@
 
     class User extends DataBase
     {
-        private $login;
-        private $mail;
-        private $password;
-        private $admin;
+        protected $login;
+        protected $mail;
+        protected $password;
+        protected $admin;
 
         public function __construct($login)
         {
