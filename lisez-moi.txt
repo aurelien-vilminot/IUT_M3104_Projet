@@ -1,0 +1,49 @@
+Projet PHP - M3104 Programmation web coté serveur
+
+Nom des membres du groupe :
+    Aurélien VILMINOT - Tom BERTOLONE - Célia HSIA - Samy KAMBOUI
+
+
+Lien du site web :
+    https://aurelien.alwaysdata.net/
+
+
+Présentation du projet :
+    Réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant
+    des messages participatifs au sein desquels chaque utilisateur ne peut ajouter qu’un ou deux mots.
+
+
+Choix technique :
+    Utilisation du MVC
+    Utilisation de la programmation orientée objet
+
+
+Configuration minimale requise :
+    mini
+
+
+Configuration recommandé :
+    recommandé
+
+
+Identifiant de connexion :
+
+    Utilisateur :
+        Login :
+        Mot de passe :
+
+    SuperAdmin :
+        Login :
+        Mot de passe :
+
+    Base de données :
+        Login : aurelien
+        Mot de passe : M3104_ASTC
+
+    Always Data :
+        Mail : messi.om13@yahoo.fr
+        Mot de passe : M3104_ASTC
+
+    Compte système de version :
+        Login :
+        Mot de passe :
