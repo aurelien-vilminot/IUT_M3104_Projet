@@ -126,6 +126,23 @@
             return $req->rowCount();
         }
 
+        public function deleteMessage($idMessage)
+        {
+            $tab = array('id' => $idMessage);
+            $sql = 'DELETE FROM USER_MESSAGE WHERE ID_MESSAGE = :id';
+            $this->executeRequete($sql, $tab);
+
+            $sql2 = 'DELETE FROM MESSAGE WHERE ID = :id';
+            $this->executeRequete($sql2, $tab);
+        }
+
+        public function isMessageExist($idMessage)
+        {
+            $sql = 'SELECT * FROM MESSAGE WHERE ID = \'' . $idMessage . '\'';
+            $req = $this->executeRequete($sql);
+            return $req->rowCount();
+        }
+
         public function __sleep()
         {
             return array('login', 'mail', 'password', 'admin');

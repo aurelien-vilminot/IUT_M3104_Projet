@@ -68,12 +68,33 @@
     if (isset($_GET['action']) && $_GET['action'] == 'close_discussion' && isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
     {
         $myDiscussion->setState(0);
+        unset($_GET['action']);
     }
 
     if (isset($_GET['action']) && $_GET['action'] == 'delete_discussion' && isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
     {
         $myDiscussion->delete();
+        unset($_GET['action']);
         header('Location: index.php');
+    }
+
+    if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']) && isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+    {
+        $myUser = unserialize($_SESSION['CurrentUser']);
+
+        if ($myUser->isMessageExist($_GET['id_message']) != 0)
+        {
+            $myUser->deleteMessage($_GET['id_message']);
+            unset($_GET['action']);
+            unset($_GET['id_message']);
+            header('Location : index.php');
+        }
+        else
+        {
+            unset($_GET['action']);
+            unset($_GET['id_message']);
+            header('Location : index.php');
+        }
     }
 
     $tabMessages = $myDiscussion->getAllMessages();

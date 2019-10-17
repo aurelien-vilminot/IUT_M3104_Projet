@@ -256,7 +256,7 @@ th, td{
 
 .message_state {
     display: flex;
-    align-items: end;
+    align-items: center;
     margin: 1vw;
 }
 

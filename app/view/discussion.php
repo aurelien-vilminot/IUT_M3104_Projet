@@ -1,5 +1,6 @@
 <div class="messages">
     <?php
+        $idPage = $_GET['id'];
         foreach ($tabMessages as &$message) {
             $content = $message['CONTENT'];
             echo <<<EOT
@@ -11,11 +12,19 @@
         <div>
              <a href=""><img src="media/infos.png" alt="Informations message" title="Informations du message"></a>
         </div>
-        <div>
-
 EOT;
+            if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+            {
+                $idMessage = $message['ID'];
+                echo <<<EOT
+        <div>
+            <a href="index.php?page=discussion&id=$idPage&action=delete_message&id_message=$idMessage"><img src="media/delete.png" alt="Delete Message"></a>
+        </div>
+EOT;
+            }
             if ($message['STATE'] == '1')
                 echo <<<EOT
+        <div>
             <img src="media/continue.png" alt="Continuer le message" title="Le message peut être complété">
         </div>
     </div>
@@ -23,6 +32,7 @@ EOT;
 EOT;
             else
                 echo <<<EOT
+        <div>
             <img src="media/close_message.png" alt="Message clos" title="Le message est clos">
         </div>
     </div>
@@ -56,7 +66,6 @@ EOT;
             <?php
                 if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
                 {
-                    $idPage = $_GET['id'];
                     echo <<<EOT
  <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">• Fermer la discussion •</a>
 EOT;
