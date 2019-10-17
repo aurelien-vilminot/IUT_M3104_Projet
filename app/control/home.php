@@ -31,5 +31,12 @@
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
 
+    if (isset($_POST['newDiscussion']))
+    {
+        $myHome->createDiscussion($_POST['titleDiscussion']);
+        $id = $myHome->lastDiscussion();
+        header('Location: index.php?page=discussion&id=' . $id);
+    }
+
 require '../app/view/home.php';
 

@@ -18,5 +18,17 @@ class Home extends DataBase
         $req = $this->executeRequete($sql);
         return $nbDiscussions = $req->rowCount();
     }
+
+    public function createDiscussion($title)
+    {
+        $tab = array('title' => $title, 'state' => 1);
+        $sql = 'INSERT INTO DISCUSSION(TITLE, STATE) VALUES (:title, :state)';
+        $this->executeRequete($sql, $tab);
+    }
+
+    public function lastDiscussion()
+    {
+        return $this->lastInsertId('DISUCSSION');
+    }
 }
 

@@ -29,9 +29,9 @@
             return $resulat;
         }
 
-        protected function lastInsertId()
+        protected function lastInsertId($table)
         {
-            return $this->getBdd()->lastInsertId('MESSAGE');
+            return $this->getBdd()->lastInsertId($table);
         }
 
         private function getBdd()

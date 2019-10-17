@@ -94,7 +94,7 @@
             $sql = 'INSERT INTO MESSAGE (CONTENT, STATE, ID_DISCUSSION) VALUES (:content, :state, :id_discussion)';
             $this->executeRequete($sql, $tab);
 
-            $id_message = $this->lastInsertId();
+            $id_message = $this->lastInsertId('MESSAGE');
 
             $tab3 = array('login' => $this->login, 'id' => $id_message);
             $sql3 = 'INSERT INTO USER_MESSAGE (ID_USER, ID_MESSAGE) VALUES (:login, :id)';
