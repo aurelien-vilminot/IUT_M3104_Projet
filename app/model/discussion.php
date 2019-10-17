@@ -74,7 +74,7 @@ class Discussion extends DataBase
         return $req->fetchAll();
     }
     
-    public getVote()
+    public function getVote()
     {
       $sql = 'SELECT VOTE FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
       $req = $this->executeRequete($sql);

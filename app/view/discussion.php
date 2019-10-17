@@ -36,9 +36,8 @@ EOT;
 <?php
     if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
     {
-        if ($stateDiscussion == 1)
-        {
-?>
+        if ($stateDiscussion == 1) {
+            ?>
             <form method="post">
                 <input type="text" placeholder="Entrer un ou deux mots" name="message">
                 <input type="submit" name="submit" value="Envoyer">
@@ -54,14 +53,14 @@ EOT;
 EOT;
                 ?>
             </form>
-<?php
-        }
-        else
-        {
+            <?php
+        } else
             echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
-        
-    
-            if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+    }
+    else
+        echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
+
+    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
     {
 ?>        
       <form method = 'post'>
@@ -69,8 +68,7 @@ EOT;
         <input type = 'submit' name = 'open_discussion' value = 'Ouvrir discussion'>
         <input type = 'submit' name= 'close_message' value = 'Fermer le message'>
         <input = 'submit' name = 'open_message' value = 'Ourvir le message'>
-<?php  
+<?php
     }
-    else
-        echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
+
 
