@@ -65,6 +65,7 @@
         }
     }
 
+
     if (isset($_GET['action']) && $_GET['action'] == 'close_discussion' && isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
     {
         $myDiscussion->setState(0);
@@ -81,15 +82,19 @@
         $myUser = unserialize($_SESSION['CurrentUser']);
 
         if ($myUser->isMessageExist($_GET['id_message']) != 0)
+        {
             $myUser->deleteMessage($_GET['id_message']);
+        }
         else
             header('Location : index.php');
     }
 
     $tabMessages = $myDiscussion->getAllMessages();
 
-    if (count($tabMessages) == $nbMessagesMax)
+    if (!isset($_GET['action']) && count($tabMessages) == $nbMessagesMax)
         $myDiscussion->setState(0);
+    elseif(isset($_GET['action']) && $_GET['action'] != 'close_discussion')
+        $myDiscussion->setState(1);
 
     $stateDiscussion = $myDiscussion->getState();
 

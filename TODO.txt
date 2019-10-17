@@ -19,7 +19,15 @@ sécurité injection sql...PDO bind
 
 
 
-(super) administrateur (tous les droits) ;
+(super) administrateur (tous les droits)
+
+
+
+systeme de like des discussions
+
+
+
+fichier de config .json
 
 
 
