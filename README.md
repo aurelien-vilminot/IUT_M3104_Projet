@@ -22,4 +22,5 @@ Récupérer données SQL :
 Variables à charger en tant que paramètre du site (.json) :
 
     $nbDiscussionsByPages //Dans 'app/control/home.php'
+    $nbMaxDiscussions //Dans 'app/control/home.php'
     $nbMessagesMax //Dans 'app/control/discussion.php'

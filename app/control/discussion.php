@@ -67,17 +67,6 @@
     }
 
     $tabMessages = $myDiscussion->getAllMessages();
-// a finir !
-//    foreach ($tabMessages as &$message)
-//    {
-//        $message['USERS'] = [$myDiscussion->getUsersMessage($message['ID'])[0][0]];
-//        for ($i = 1 ; $i < count($myDiscussion->getUsersMessage($message['ID'])) ; ++$i)
-//        {
-//            $message['USERS'] += [$myDiscussion->getUsersMessage($message['ID'])[0][$i]];
-//        }
-//    }
-//
-//    print_r($tabMessages);
 
     if (count($tabMessages) == $nbMessagesMax)
         $myDiscussion->setState(0);
