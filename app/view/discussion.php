@@ -63,4 +63,15 @@ EOT;
     }
     else
         echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
+?>
 
+<?php
+  if(isset($_SESSION['user']) && $_SESSION['admin'] == 1)
+  {
+?>
+    <form method = 'post'>
+      <input type = 'submit' name = 'discussion_close' value = 'Fermer la discussion'>
+      <input type = 'submit' name = 'discussion_open' value = 'Ouvrir la discussion'>
+      <input type = 'submit' name = 'message_close' value = 'Clore le message'>
+      <inout type = 'submit' name = 'message_open' value = 'Ouvrir le message'>
+    }

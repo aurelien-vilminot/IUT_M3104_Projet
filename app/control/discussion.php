@@ -74,3 +74,32 @@
     $stateDiscussion = $myDiscussion->getState();
 
     require '../app/view/discussion.php';
+
+    <input type = 'submit' name = 'discussion_close' value = 'Fermer la discussion'>
+    <input type = 'submit' name = 'discussion_open' value = 'Ouvrir la discussion'>
+    <input type = 'submit' name = 'message_close' value = 'Clore le message'>
+    <inout type = 'submit' name = 'message_open' value = 'Ouvrir le message'>
+    }
+
+
+    if (getAdmin())
+    {
+      if (isset[$_POST['message_open']])
+      {
+        ../model/message.php
+        open_message($id_message);
+      }
+      if (isset[$_POST['message_close']])
+      {
+        ../model/message.php
+        close_message($id_message);
+      }
+      if (isset[$_POST['discussion_close']])
+      {
+        close_discussion($id_discussion);
+      }
+      if (isset[$_POST['discussion_open']])
+      {
+        open_discussion($id_discussion)
+      }
+    }
