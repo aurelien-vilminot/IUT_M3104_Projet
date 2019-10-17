@@ -200,7 +200,7 @@ table {
 }
 
 table, th, td {
-    border: 1px solid #6a93ca;
+        border: 1px solid #6a93ca;
     border-radius: 4px;
 }
 th, td{
@@ -217,6 +217,27 @@ th, td{
 
 .prev_next img {
     width: 40%;
+}
+
+.newDiscussion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1vw;
+    border: 0.1vw solid #6a93ca;
+    border-radius: 0.5vw;
+    background: #6a93ca;
+}
+
+.newDiscussion img {
+    width: 10%;
+}
+
+.newDiscussion a {
+    color: white;
+}
+.newDiscussion a:hover {
+    transform: scale(1.01);
 }
 
 #imgWithoutLink {

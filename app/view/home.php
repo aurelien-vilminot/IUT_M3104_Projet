@@ -13,7 +13,6 @@
                 <th>Discussion</th>
                 <th>État</th>
             </tr>
-
             <?php
                 foreach ($tabDisc as &$discussion)
                 {
@@ -31,6 +30,23 @@
                 }
             ?>
         </table>
+        <?php
+        if (isset($_SESSION['user']) && $_SESSION['user'] == 1 && !isset($_GET['action']))
+        {
+            echo <<<EOT
+<div class="newDiscussion">
+    <img src="media/new.png">
+    <a href="index.php?page=home&action=newdiscussion">Nouvelle discussion</a>
+</div>
+EOT;
+        }
+        elseif (isset($_SESSION['user']) && $_SESSION['user'] == 1 && !isset($_GET['action']) == 'newdiscussion')
+        {
+            echo <<<EOT
+
+EOT;
+        }
+        ?>
         <div class="prev_next">
             <?php
                 if ($page_disc == 1)
@@ -57,5 +73,4 @@ EOT;
             ?>
         </div>
     </div>
-
 </div>
