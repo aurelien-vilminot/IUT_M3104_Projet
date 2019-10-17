@@ -12,6 +12,7 @@
              <a href=""><img src="media/infos.png" alt="Informations message" title="Informations du message"></a>
         </div>
         <div>
+
 EOT;
             if ($message['STATE'] == '1')
                 echo <<<EOT
@@ -62,3 +63,4 @@ EOT;
     }
     else
         echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
+
