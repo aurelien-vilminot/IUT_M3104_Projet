@@ -42,6 +42,8 @@ EOT;
                 <input type="text" placeholder="Entrer un ou deux mots" name="message">
                 <input type="submit" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
+                <input type = 'submit' name = 'like' src = 'media/like.png'>
+
                 <?php
                 if (isset($error_message))
                     echo <<<EOT
@@ -62,13 +64,10 @@ EOT;
 
     if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
     {
-?>        
+?>
       <form method = 'post'>
         <input type = 'submit' name = 'close_discussion' value = 'Fermer discussion'>
-        <input type = 'submit' name = 'open_discussion' value = 'Ouvrir discussion'>
-        <input type = 'submit' name= 'close_message' value = 'Fermer le message'>
-        <input = 'submit' name = 'open_message' value = 'Ourvir le message'>
+        <input type = 'submit' name = 'delete_discussion' value = 'Supprimer discussion'>
+
 <?php
     }
-
-
