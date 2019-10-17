@@ -59,7 +59,17 @@ EOT;
         else
         {
             echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
-        }
+        
+    
+            if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+    {
+?>        
+      <form method = 'post'>
+        <input type = 'submit' name = 'close_discussion' value = 'Fermer discussion'>
+        <input type = 'submit' name = 'open_discussion' value = 'Ouvrir discussion'>
+        <input type = 'submit' name= 'close_message' value = 'Fermer le message'>
+        <input = 'submit' name = 'open_message' value = 'Ourvir le message'>
+<?php  
     }
     else
         echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
