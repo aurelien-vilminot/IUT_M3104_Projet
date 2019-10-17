@@ -66,5 +66,12 @@ class Discussion extends DataBase
         $req = $this->executeRequete($sql);
         return $req->rowCount();
     }
+
+    public function getUsersMessage($id)
+    {
+        $sql = 'SELECT * FROM USER_MESSAGE WHERE ID_MESSAGE = \'' . $id . '\'';
+        $req = $this->executeRequete($sql);
+        return $req->fetchAll();
+    }
 }
 

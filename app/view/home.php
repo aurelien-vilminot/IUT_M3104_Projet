@@ -40,7 +40,7 @@
 </div>
 EOT;
         }
-        elseif (isset($_SESSION['user']) && $_SESSION['user'] == 1 && !isset($_GET['action']) == 'newdiscussion')
+        elseif (isset($_SESSION['user']) && $_SESSION['user'] == 1 && isset($_GET['action']) == 'newdiscussion')
         {
             echo <<<EOT
 <form action="" method="post">

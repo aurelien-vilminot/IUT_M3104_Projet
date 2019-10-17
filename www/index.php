@@ -15,6 +15,7 @@
     <title>FreeNote</title>
     <link rel="stylesheet" id="style" href="style/index.css" />
     <link rel="icon" type="image/png" href="media/favicon.png"/>
+    <script src="js/myjavascript.js"></script>
 </head>
 <body>
     <?php require '../app/view/layouts/menu.php' ?>

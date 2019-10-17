@@ -5,6 +5,7 @@
     if(isset($_POST['submit']))
     {
         require_once '../app/model/register.php';
+        require_once '../app/model/User.php';
 
         $login = trim($_POST['login']);
         $mail = trim($_POST['mail']);
