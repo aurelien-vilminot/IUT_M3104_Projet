@@ -1,7 +1,7 @@
 <?php
 require_once '../app/model/database.php';
 
-class discussion extends DataBase
+class discussion extends database
 {
     private $id_discussion;
     private $state;
