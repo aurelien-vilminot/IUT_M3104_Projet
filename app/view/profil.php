@@ -24,13 +24,9 @@ EOT;
                 <input type="password" placeholder="Entrez un nouveau mot de passe" name="password" required>
                 <input type="password" placeholder="Verifiez le nouveau mot de passe" name="check_password" required>
                 <?php
-                if (isset($error_login))
+                if (isset($error))
                     echo <<<EOT
-<p class="error">$error_login</p>
-EOT;
-                elseif (isset($error_password))
-                    echo <<<EOT
-<p class="error">$error_password</p>
+<p class="error">$error</p>
 EOT;
                 ?>
                 <input type="submit" name="submit_password" value="Modifier">
@@ -39,13 +35,9 @@ EOT;
     </div>
 
     <?php
-    if (isset($email_change))
+    if (isset($validate))
         echo <<<EOT
-<p class="validate">$email_change</p>
-EOT;
-    elseif (isset($password_change))
-        echo <<<EOT
-<p class="validate">$password_change</p>
+<p class="validate">$validate</p>
 EOT;
     ?>
 </div>

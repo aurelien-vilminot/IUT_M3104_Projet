@@ -15,12 +15,12 @@
             else
             {
                 if($myUser->email_taken($newMail) == 1)
-                    $error_email = 'L\'adresse email est déjà utilisée';
+                    $error = 'L\'adresse email est déjà utilisée';
                 else
                 {
                     $myUser->setMail($newMail);
                     $_SESSION['CurrentUser'] = serialize(new user($myUser->getLogin()));
-                    $email_change = 'Votre nouvel e-mail a bien été enregistré !';
+                    $validate = 'Votre nouvel e-mail a bien été enregistré !';
                 }
             }
         }
@@ -32,14 +32,14 @@
             $newCheckPassword = $myUser->clean(trim($_POST['check_password']));
 
             if (!password_verify($password, $myUser->getPassword()))
-                $error_login = 'L\' ancien mot de passe est erroné';
+                $error = 'L\' ancien mot de passe est erroné';
             else if (!password_verify($newCheckPassword, $newPassword))
-                $error_password = 'Les mots de passe ne correspondent pas';
+                $error = 'Les mots de passe ne correspondent pas';
             else
             {
                 $myUser->setPassword($newPassword);
                 $_SESSION['CurrentUser'] = serialize(new user($myUser->getLogin()));
-                $password_change = 'Votre nouveau mot de passe a bien été enregistré !';
+                $validate = 'Votre nouveau mot de passe a bien été enregistré !';
             }
         }
     }
