@@ -1,6 +1,4 @@
 <?php
-    require_once '../app/model/database.php';
-
     class user extends database
     {
         private $login;

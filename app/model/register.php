@@ -1,6 +1,4 @@
 <?php
-    require_once '../app/model/database.php';
-
     class register extends database
     {
         public function email_taken($email)

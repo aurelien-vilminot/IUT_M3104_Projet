@@ -1,6 +1,4 @@
 <?php
-    //require_once '../app/model/database.php';
-
     class login extends database
     {
         public function verif_user($login, $password)
