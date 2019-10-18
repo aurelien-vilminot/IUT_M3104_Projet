@@ -17,7 +17,7 @@
             else
             {
                 $myUser->setMail($newMail);
-                $_SESSION['CurrentUser'] = serialize(new User($myUser->getLogin()));
+                $_SESSION['CurrentUser'] = serialize(new user($myUser->getLogin()));
                 $email_change = 'Votre nouvel e-mail a bien été enregistré !';
             }
         }
@@ -39,7 +39,7 @@
             else
             {
                 $myUser->setPassword($newPassword);
-                $_SESSION['CurrentUser'] = serialize(new User($myUser->getLogin()));
+                $_SESSION['CurrentUser'] = serialize(new user($myUser->getLogin()));
                 $password_change = 'Votre nouveau mot de passe a bien été enregistré !';
             }
         }
