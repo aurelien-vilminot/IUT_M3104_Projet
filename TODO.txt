@@ -11,7 +11,7 @@ Lien temporaire par mail pour mdp oublié
 
 
 
-Sécurité injection sql...PDO bind
+PDO bind
 
 
 
