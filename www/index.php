@@ -1,6 +1,10 @@
 <?php
     session_start();
 
+    spl_autoload_register(function ($class) {
+        require_once('../app/model/' . $class . '.php');
+    });
+
     $pages = scandir('../app/control/');
 
     if(isset($_GET['page']) && !empty($_GET['page']) && in_array($_GET['page'].'.php',$pages))

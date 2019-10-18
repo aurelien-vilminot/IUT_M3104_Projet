@@ -31,7 +31,7 @@
             ?>
         </table>
         <?php
-        if (isset($_SESSION['user']) && $_SESSION['user'] == 1 && !isset($_GET['action']))
+        if (isset($_SESSION['CurrentUser']) && !isset($_GET['action']))
         {
             echo <<<EOT
 <div class="newDiscussion">
@@ -40,7 +40,7 @@
 </div>
 EOT;
         }
-        elseif (isset($_SESSION['user']) && $_SESSION['user'] == 1 && isset($_GET['action']) == 'newdiscussion')
+        elseif (isset($_SESSION['CurrentUser']) && isset($_GET['action']) == 'newdiscussion')
         {
             echo <<<EOT
 <form action="" method="post">

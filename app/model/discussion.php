@@ -4,6 +4,7 @@ require_once '../app/model/database.php';
 class Discussion extends DataBase
 {
     private $id_discussion;
+    private $state;
 
     public function __construct($id)
     {
@@ -17,7 +18,8 @@ class Discussion extends DataBase
         $sql = 'SELECT STATE FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
         $req = $this->executeRequete($sql);
         $resultat = $req->fetchAll();
-        return $resultat[0][0];
+        $this->state = $resultat[0][0];
+        return $this->state;
     }
 
     public function setState($state)

@@ -1,12 +1,7 @@
 <?php
-    require_once '../app/model/home.php';
-    require_once '../app/model/user.php';
+    //require_once '../app/model/home.php';
+    //require_once '../app/model/user.php';
 
-    if (isset($_SESSION['user']) && $_SESSION['user'] == 1)
-    {
-        $myUser = unserialize($_SESSION['CurrentUser']);
-        $userLogin = $myUser->getLogin();
-    }
     $nbDiscussionsByPages = 2;
     $nbMaxDiscussions = 10;
 
@@ -31,15 +26,21 @@
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
 
-    if (isset($_SESSION['user']) && $_SESSION['user'] == 1 && isset($_POST['newDiscussion']))
+    if (isset($_SESSION['CurrentUser']))
     {
-        if ($nbDiscussions + 1 > $nbMaxDiscussions)
-            $error_nb_discussions = 'Désolé, le nombre limite de discussions est atteint.';
-        else
+        $myUser = unserialize($_SESSION['CurrentUser']);
+        $userLogin = $myUser->getLogin();
+
+        if (isset($_POST['newDiscussion']))
         {
-            $myHome->createDiscussion($_POST['titleDiscussion']);
-            $id = $myHome->lastDiscussion();
-            header('Location: index.php?page=discussion&id=' . $id);
+            if ($nbDiscussions + 1 > $nbMaxDiscussions)
+                $error_nb_discussions = 'Désolé, le nombre limite de discussions est atteint.';
+            else
+            {
+                $myHome->createDiscussion($_POST['titleDiscussion']);
+                $id = $myHome->lastDiscussion();
+                header('Location: index.php?page=discussion&id=' . $id);
+            }
         }
     }
 

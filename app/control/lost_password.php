@@ -4,7 +4,7 @@
 
     if(isset($_POST['submit']))
     {
-        require_once '../app/model/lost_password.php';
+        //require_once '../app/model/lost_password.php';
         $lost_password_user = new Lost_Password_Manager($_SESSION['login']);
 
         $mail = trim($_POST['mail']);

@@ -1,11 +1,11 @@
 <?php
-    if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
+    if(isset($_SESSION['CurrentUser']))
         header('Location: index.php');
 
     if(isset($_POST['submit']))
     {
-        require_once '../app/model/login.php';
-        require_once '../app/model/user.php';
+        //require_once '../app/model/loginManager.php';
+        //require_once '../app/model/user.php';
 
         $loginUser = new LoginManager();
 
@@ -16,12 +16,7 @@
         {
             if ($loginUser->isAdmin($login))
             {
-                $_SESSION['user'] = 1;
                 $_SESSION['admin'] = 1;
-            }
-            else
-            {
-                $_SESSION['user'] = 1;
             }
             $_SESSION['CurrentUser'] = serialize(new User($login));
             header('Location: index.php?page=home');

@@ -15,7 +15,7 @@ EOT;
     <div class="middleMenuBorder"></div>
     <div class="pages">
         <?php
-            if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
+            if(isset($_SESSION['CurrentUser']))
                 echo <<<EOT
 <a href="index.php?page=profil">Mon profil</a>
 <a href="index.php?page=logout">Déconnexion</a>

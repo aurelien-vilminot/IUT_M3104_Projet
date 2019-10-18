@@ -3,10 +3,10 @@
 
     class User extends DataBase
     {
-        protected $login;
-        protected $mail;
-        protected $password;
-        protected $admin;
+        private $login;
+        private $mail;
+        private $password;
+        private $admin;
 
         public function __construct($login)
         {
@@ -141,6 +141,14 @@
             $sql = 'SELECT * FROM MESSAGE WHERE ID = \'' . $idMessage . '\'';
             $req = $this->executeRequete($sql);
             return $req->rowCount();
+        }
+
+        public function isAdmin()
+        {
+            if ($this->admin)
+                return 1;
+            else
+                return 0;
         }
 
         public function __sleep()

@@ -13,7 +13,7 @@
              <a href=""><img src="media/infos.png" alt="Informations message" title="Informations du message"></a>
         </div>
 EOT;
-            if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+            if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
             {
                 $idMessage = $message['ID'];
                 echo <<<EOT
@@ -37,14 +37,13 @@ EOT;
         </div>
     </div>
 </div>
-
 EOT;
         }
     ?>
 </div>
 
 <?php
-    if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
+    if(isset($_SESSION['CurrentUser']))
     {
         if ($stateDiscussion == 1) {
             ?>
@@ -64,7 +63,7 @@ EOT;
                 ?>
             </form>
             <?php
-                if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+                if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
                 {
                     echo <<<EOT
  <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">• Fermer la discussion •</a>
@@ -78,7 +77,7 @@ EOT;
     else
         echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
 
-    if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+    if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
     {
 ?>
         <a href="index.php?page=discussion&id=<?=$_GET['id']?>&action=delete_discussion" class="warning">• Supprimer la discussion •</a>

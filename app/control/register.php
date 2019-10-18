@@ -4,8 +4,8 @@
 
     if(isset($_POST['submit']))
     {
-        require_once '../app/model/register.php';
-        require_once '../app/model/User.php';
+        //require_once '../app/model/register.php';
+        //require_once '../app/model/User.php';
 
         $login = trim($_POST['login']);
         $mail = trim($_POST['mail']);
@@ -29,8 +29,6 @@
         else
         {
             $userRegister->register($login, $mail, $password, 0);
-            $_SESSION['user'] = 1;
-            //$_SESSION['CurrentUser'] = $login;
             $_SESSION['CurrentUser'] = serialize(new User($login));
             header('Location: index.php');
         }
