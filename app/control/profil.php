@@ -2,8 +2,6 @@
     if(!isset($_SESSION['CurrentUser']))
         header("Location: index.php?page=login");
 
-    //require '../app/model/user.php';
-
     $myUser = unserialize($_SESSION['CurrentUser']);
 
     if (isset($_SESSION['CurrentUser']))

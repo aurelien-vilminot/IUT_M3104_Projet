@@ -4,9 +4,6 @@
 
     if(isset($_POST['submit']))
     {
-        //require_once '../app/model/registerManager.php';
-        //require_once '../app/model/User.php';
-
         $login = trim($_POST['login']);
         $mail = trim($_POST['mail']);
         $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);

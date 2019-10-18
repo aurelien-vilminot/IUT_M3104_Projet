@@ -1,7 +1,4 @@
 <?php
-    //require_once '../app/model/home.php';
-    //require_once '../app/model/user.php';
-
     $nbDiscussionsByPages = 2;
     $nbMaxDiscussions = 10;
 

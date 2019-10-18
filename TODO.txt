@@ -3,10 +3,6 @@ moi.txt).
 
 
 
-autoload
-
-
-
 URL propre
 
 
@@ -15,7 +11,7 @@ Lien temporaire par mail pour mdp oublié
 
 
 
-sécurité injection sql...PDO bind
+Sécurité injection sql...PDO bind
 
 
 

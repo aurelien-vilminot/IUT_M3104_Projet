@@ -4,9 +4,6 @@
 
     if(isset($_POST['submit']))
     {
-        //require_once '../app/model/loginManager.php';
-        //require_once '../app/model/user.php';
-
         $loginUser = new loginManager();
 
         $login = trim($_POST['login']);

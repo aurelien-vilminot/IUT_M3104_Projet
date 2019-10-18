@@ -2,9 +2,6 @@
     if (!isset($_GET['id']))
         header('Location: index.php');
 
-    //require_once '../app/model/discussion.php';
-    //require_once '../app/model/user.php';
-
     $nbMessagesMax = 10;
 
     $myDiscussion = new discussion($_GET['id']);
