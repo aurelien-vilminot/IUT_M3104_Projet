@@ -1,7 +1,7 @@
 <?php
 require_once '../app/model/database.php';
 
-class Home extends DataBase
+class home extends DataBase
 {
     public function getDiscussions($firstDiscussion, $nbDiscussionsByPages)
     {

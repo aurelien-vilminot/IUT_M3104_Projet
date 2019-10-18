@@ -1,7 +1,7 @@
 <?php
     require_once '../app/model/database.php';
 
-    class Lost_Password_Manager extends DataBase
+    class lost_password extends DataBase
     {
         private $login;
         private $mail;

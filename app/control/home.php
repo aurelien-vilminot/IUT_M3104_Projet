@@ -5,7 +5,7 @@
     $nbDiscussionsByPages = 2;
     $nbMaxDiscussions = 10;
 
-    $myHome = new Home();
+    $myHome = new home();
     $nbDiscussions = $myHome->getNbDiscussions();
 
     $nbDiscussionsPages = ceil($nbDiscussions/$nbDiscussionsByPages);

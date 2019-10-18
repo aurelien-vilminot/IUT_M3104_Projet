@@ -4,7 +4,7 @@
 
     if(isset($_POST['submit']))
     {
-        //require_once '../app/model/register.php';
+        //require_once '../app/model/registerManager.php';
         //require_once '../app/model/User.php';
 
         $login = trim($_POST['login']);
@@ -12,7 +12,7 @@
         $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
         $check_password = trim($_POST['check_password']);
 
-        $userRegister = new RegisterManager();
+        $userRegister = new registerManager();
 
         if (!password_verify($check_password, $password))
         {
@@ -34,4 +34,4 @@
         }
     }
 
-    require '../app/view/register.php';
+    require '../app/view/registerManager.php';

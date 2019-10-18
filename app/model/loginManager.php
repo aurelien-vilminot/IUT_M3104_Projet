@@ -1,7 +1,7 @@
 <?php
     require_once '../app/model/database.php';
 
-    class LoginManager extends DataBase
+    class loginManager extends DataBase
     {
         public function verif_user($login, $password)
         {

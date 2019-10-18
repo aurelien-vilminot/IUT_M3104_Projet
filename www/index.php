@@ -3,6 +3,7 @@
 
     spl_autoload_register(function ($class) {
         require_once('../app/model/' . $class . '.php');
+        echo $class;
     });
 
     $pages = scandir('../app/control/');

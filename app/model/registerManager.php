@@ -1,7 +1,7 @@
 <?php
     require_once '../app/model/database.php';
 
-    class RegisterManager extends DataBase
+    class registerManager extends DataBase
     {
         public function email_taken($email)
         {

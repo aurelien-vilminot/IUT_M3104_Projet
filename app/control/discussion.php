@@ -7,7 +7,7 @@
 
     $nbMessagesMax = 10;
 
-    $myDiscussion = new Discussion($_GET['id']);
+    $myDiscussion = new discussion($_GET['id']);
 
     if($myDiscussion->isExist() == 0)
         header('Location: index.php');
