@@ -9,7 +9,7 @@
         $password = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
         $check_password = trim($_POST['check_password']);
 
-        $userRegister = new registerManager();
+        $userRegister = new register();
 
         if (!password_verify($check_password, $password))
         {
@@ -31,4 +31,4 @@
         }
     }
 
-    require '../app/view/registerManager.php';
+    require '../app/view/register.php';

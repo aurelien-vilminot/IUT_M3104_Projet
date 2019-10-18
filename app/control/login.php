@@ -4,7 +4,7 @@
 
     if(isset($_POST['submit']))
     {
-        $loginUser = new loginManager();
+        $loginUser = new login();
 
         $login = trim($_POST['login']);
         $password = trim($_POST['password']);
