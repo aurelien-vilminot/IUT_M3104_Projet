@@ -1,5 +1,5 @@
 <?php
-    require_once '../app/model/database.php';
+    //require_once '../app/model/database.php';
 
     class login extends DataBase
     {

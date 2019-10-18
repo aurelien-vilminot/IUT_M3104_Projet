@@ -17,7 +17,7 @@
             return $req->rowCount();
         }
 
-        public function register($login, $email, $password, $isAdmin)
+        public function registerUser($login, $email, $password, $isAdmin)
         {
             $tab = array('login' => $login, 'email' => $email, 'password' => $password, 'isAdmin' => $isAdmin);
             $sql = 'INSERT INTO USER (LOGIN,MAIL,PASSWORD,ADMIN) VALUES(:login,:email,:password,:isAdmin)';

@@ -25,7 +25,7 @@
         }
         else
         {
-            $userRegister->register($login, $mail, $password, 0);
+            $userRegister->registerUser($login, $mail, $password, 0);
             $_SESSION['CurrentUser'] = serialize(new User($login));
             header('Location: index.php');
         }
