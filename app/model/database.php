@@ -4,7 +4,7 @@
     define('dbUser', 'aurelien');
     define('dbPassword', 'M3104_ASTC');
 
-    abstract class DataBase {
+    abstract class database {
 
         private $bdd;
 
