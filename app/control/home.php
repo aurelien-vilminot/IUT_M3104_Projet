@@ -12,9 +12,7 @@
         $page_disc = $_GET['disc'];
 
         if($page_disc > $nbDiscussionsPages)
-        {
             $page_disc = $nbDiscussionsPages;
-        }
     }
     else
         $page_disc = 1;
@@ -28,15 +26,22 @@
         $myUser = unserialize($_SESSION['CurrentUser']);
         $userLogin = $myUser->getLogin();
 
-        if (isset($_POST['newDiscussion']))
+        if (isset($_POST['newDiscussion']) && !empty(trim($_POST['titleDiscussion'])))
         {
+            $title = $myUser->clean($_POST['titleDiscussion']);
+
             if ($nbDiscussions + 1 > $nbMaxDiscussions)
-                $error_nb_discussions = 'Désolé, le nombre limite de discussions est atteint.';
+                $error = 'Désolé, le nombre limite de discussions est atteint.';
             else
             {
-                $myHome->createDiscussion($_POST['titleDiscussion']);
-                $id = $myHome->lastDiscussion();
-                header('Location: index.php?page=discussion&id=' . $id);
+                if (preg_match('/^[a-zA-Z0-9\s._-]{2,15}$/', $title))
+                {
+                    $myHome->createDiscussion($title);
+                    $id = $myHome->lastDiscussion();
+                    header('Location: index.php?page=discussion&id=' . $id);
+                }
+                else
+                    $error = 'Le titre doit être composé de 2 à 15 caractères, sans caractères spéciaux';
             }
         }
     }

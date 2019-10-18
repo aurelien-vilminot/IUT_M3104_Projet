@@ -13,9 +13,9 @@
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
 
-        if (isset($_POST['submit']) || isset($_POST['submit_close']))
+        if (isset($_POST['submit']) || isset($_POST['submit_close']) && !empty(trim($_POST['message'])))
         {
-            $messageContent = $_POST['message'];
+            $messageContent = $myUser->clean($_POST['message']);
             $nbWord = explode(' ', $messageContent);
 
             if ($myDiscussion->isEmpty() != 0)
@@ -30,7 +30,7 @@
                             $myUser->create_message($messageContent, 0, $myDiscussion->getIdDiscussion());
                     }
                     else
-                        $error_message = 'Vous ne pouvez entrer qu\'un ou deux mots';
+                        $error = 'Vous ne pouvez entrer qu\'un ou deux mots';
                 }
                 else
                 {
@@ -44,10 +44,10 @@
                                 $myUser->update_close_message($myDiscussion->getLastMessage(), $messageContent);
                         }
                         else
-                            $error_message = 'Vous ne pouvez entrer qu\'un ou deux mots';
+                            $error = 'Vous ne pouvez entrer qu\'un ou deux mots';
                     }
                     else
-                        $error_user_message = 'Désolé, vous êtes déjà intervenus dans ce message';
+                        $error = 'Désolé, vous êtes déjà intervenus dans ce message';
                 }
             }
             else
@@ -60,16 +60,14 @@
                         $myUser->create_message($messageContent, 0, $myDiscussion->getIdDiscussion());
                 }
                 else
-                    $error_message = 'Vous ne pouvez entrer qu\'un ou deux mots';
+                    $error = 'Vous ne pouvez entrer qu\'un ou deux mots';
             }
         }
 
         if ($myUser->isAdmin())
         {
             if (isset($_GET['action']) && $_GET['action'] == 'close_discussion')
-            {
                 $myDiscussion->setState(0);
-            }
 
             if (isset($_GET['action']) && $_GET['action'] == 'delete_discussion')
             {
@@ -82,9 +80,7 @@
                 $myUser = unserialize($_SESSION['CurrentUser']);
 
                 if ($myUser->isMessageExist($_GET['id_message']) != 0)
-                {
                     $myUser->deleteMessage($_GET['id_message']);
-                }
                 else
                     header('Location : index.php');
             }

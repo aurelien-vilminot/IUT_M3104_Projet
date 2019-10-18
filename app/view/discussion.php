@@ -52,13 +52,9 @@ EOT;
                 <input type="submit" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
                 <?php
-                if (isset($error_message))
+                if (isset($error))
                     echo <<<EOT
-<p class="error">$error_message</p>
-EOT;
-                elseif (isset($error_user_message))
-                    echo <<<EOT
-<p class="error">$error_user_message</p>
+<p class="error">$error</p>
 EOT;
                 ?>
             </form>

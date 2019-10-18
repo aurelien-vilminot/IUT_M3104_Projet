@@ -153,6 +153,7 @@ input[type=submit]:hover {
 }
 
 .error {
+    text-align: center;
     color: #EE3831;
 }
 

@@ -12,17 +12,9 @@
     <input type="password" placeholder="Vérifiez le mot de passe" name="check_password" required>
 
     <?php
-        if (isset($error_login))
+        if (isset($error))
             echo <<<EOT
-<p class="error">$error_login</p>
-EOT;
-        elseif (isset($error_email))
-            echo <<<EOT
-<p class="error">$error_email</p>
-EOT;
-        elseif (isset($error_password))
-            echo <<<EOT
-<p class="error">$error_password</p>
+<p class="error">$error</p>
 EOT;
     ?>
 

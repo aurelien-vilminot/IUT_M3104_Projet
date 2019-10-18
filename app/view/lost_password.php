@@ -3,13 +3,9 @@
     <input type="text" placeholder="Entrez votre adresse email" name="mail" required>
 
     <?php
-    if (isset($error_user_not_found))
+    if (isset($error))
         echo <<<EOT
-<p class="error">$error_user_not_found</p>
-EOT;
-    elseif (isset($error_mail))
-        echo <<<EOT
-<p class="error">$error_mail</p>
+<p class="error">$error</p>
 EOT;
     ?>
 

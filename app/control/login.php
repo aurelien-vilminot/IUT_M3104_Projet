@@ -2,12 +2,12 @@
     if(isset($_SESSION['CurrentUser']))
         header('Location: index.php');
 
-    if(isset($_POST['submit']))
+    if(isset($_POST['submit']) && !empty(trim($_POST['login'])))
     {
         $loginUser = new login();
 
-        $login = trim($_POST['login']);
-        $password = trim($_POST['password']);
+        $login = $loginUser->clean(trim($_POST['login']));
+        $password = $loginUser->clean(trim($_POST['password']));
 
         if($loginUser->verif_user($login, $password) == 0)
         {
@@ -19,9 +19,9 @@
             header('Location: index.php?page=home');
         }
         elseif ($loginUser->verif_user($login, $password) == 2)
-            $error_user_not_found = 'L\'identifiant est incorrect';
+            $error = 'L\'identifiant est incorrect';
         else
-            $error_password = 'Le mot de passe est incorrect';
+            $error = 'Le mot de passe est incorrect';
     }
     elseif(isset($_POST['lost_password']))
     {

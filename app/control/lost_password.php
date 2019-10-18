@@ -2,11 +2,11 @@
     if(!isset($_SESSION['lost_password']) && $_SESSION['lost_password'] != 1)
         header('Location: index.php');
 
-    if(isset($_POST['submit']))
+    if(isset($_POST['submit']) && !empty(trim($_POST['mail'])))
     {
         $lost_password_user = new lost_password($_SESSION['login']);
 
-        $mail = trim($_POST['mail']);
+        $mail = $lost_password_user->clean(trim($_POST['mail']));
 
         if($lost_password_user->isExist() == 1)
         {
@@ -16,11 +16,11 @@
                 header('Location: index.php');
             }
             else
-                $error_mail = 'Le mail ne correspond pas à l\'identifiant saisi';
+                $error = 'Le mail ne correspond pas à l\'identifiant saisi';
         }
         else
         {
-            $error_user_not_found = 'L\'utilisateur n\'existe pas !';
+            $error = 'L\'utilisateur n\'existe pas !';
             unset($_SESSION['login']);
         }
 

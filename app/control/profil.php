@@ -6,36 +6,35 @@
 
     if (isset($_SESSION['CurrentUser']))
     {
-        if(isset($_POST['submit_mail']))
+        if(isset($_POST['submit_mail']) && !empty(trim($_POST['mail'])))
         {
-            $newMail = trim($_POST['mail']);
+            $newMail = $myUser->clean(trim($_POST['mail']));
 
-            if($myUser->email_taken($newMail) == 1)
-            {
-                $error_email = 'L\'adresse email est déjà utilisée';
-            }
+            if (!$myUser->regExpMail($newMail))
+                $error = 'Le format de l\'email n\'est pas valide';
             else
             {
-                $myUser->setMail($newMail);
-                $_SESSION['CurrentUser'] = serialize(new user($myUser->getLogin()));
-                $email_change = 'Votre nouvel e-mail a bien été enregistré !';
+                if($myUser->email_taken($newMail) == 1)
+                    $error_email = 'L\'adresse email est déjà utilisée';
+                else
+                {
+                    $myUser->setMail($newMail);
+                    $_SESSION['CurrentUser'] = serialize(new user($myUser->getLogin()));
+                    $email_change = 'Votre nouvel e-mail a bien été enregistré !';
+                }
             }
         }
 
-        if(isset($_POST['submit_password']))
+        if(isset($_POST['submit_password']) && !empty(trim($_POST['old_password'])) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
         {
-            $password = trim($_POST['old_password']);
-            $newPassword = password_hash(trim($_POST['password']), PASSWORD_DEFAULT);
-            $newCheckPassword = trim($_POST['check_password']);
+            $password = $myUser->clean(trim($_POST['old_password']));
+            $newPassword = password_hash($myUser->clean(trim($_POST['password'])), PASSWORD_DEFAULT);
+            $newCheckPassword = $myUser->clean(trim($_POST['check_password']));
 
             if (!password_verify($password, $myUser->getPassword()))
-            {
                 $error_login = 'L\' ancien mot de passe est erroné';
-            }
             else if (!password_verify($newCheckPassword, $newPassword))
-            {
                 $error_password = 'Les mots de passe ne correspondent pas';
-            }
             else
             {
                 $myUser->setPassword($newPassword);

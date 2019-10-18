@@ -48,6 +48,16 @@
             return $this->bdd;
         }
 
+        public function clean($var)
+        {
+            return htmlspecialchars($var, ENT_QUOTES, 'UTF-8', false);
+        }
+
+        public function regExpMail($mail)
+        {
+            return preg_match('/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+((-|\.)[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/', $mail);
+        }
+
         public function __sleep()
         {
             return array();

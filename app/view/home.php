@@ -44,13 +44,13 @@ EOT;
         {
             echo <<<EOT
 <form action="" method="post">
-    <input type="text" placeholder="Entrez le titre de la discussion" name="titleDiscussion">
+    <input type="text" placeholder="Entrez le titre de la discussion" name="titleDiscussion" required>
     <input type="submit" name="newDiscussion" value="Créer cette discussion">
 </form>
 EOT;
-            if (isset($error_nb_discussions))
+            if (isset($error))
                 echo <<<EOT
-<p class="error">$error_nb_discussions</p>
+<p class="error">$error</p>
 EOT;
         }
         ?>
