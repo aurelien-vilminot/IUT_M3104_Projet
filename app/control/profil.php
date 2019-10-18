@@ -11,11 +11,11 @@
             $newMail = $myUser->clean(trim($_POST['mail']));
 
             if (!$myUser->regExpMail($newMail))
-                $error = 'Le format de l\'email n\'est pas valide';
+                $error_email = 'Le format de l\'email n\'est pas valide';
             else
             {
                 if($myUser->email_taken($newMail) == 1)
-                    $error = 'L\'adresse email est déjà utilisée';
+                    $error_email = 'L\'adresse email est déjà utilisée';
                 else
                 {
                     $myUser->setMail($newMail);
@@ -32,9 +32,9 @@
             $newCheckPassword = $myUser->clean(trim($_POST['check_password']));
 
             if (!password_verify($password, $myUser->getPassword()))
-                $error = 'L\' ancien mot de passe est erroné';
+                $error_password = 'L\' ancien mot de passe est erroné';
             else if (!password_verify($newCheckPassword, $newPassword))
-                $error = 'Les mots de passe ne correspondent pas';
+                $error_password = 'Les mots de passe ne correspondent pas';
             else
             {
                 $myUser->setPassword($newPassword);

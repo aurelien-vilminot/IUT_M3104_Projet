@@ -24,9 +24,9 @@ EOT;
                 <input type="password" placeholder="Entrez un nouveau mot de passe" name="password" required>
                 <input type="password" placeholder="Verifiez le nouveau mot de passe" name="check_password" required>
                 <?php
-                if (isset($error))
+                if (isset($error_password))
                     echo <<<EOT
-<p class="error">$error</p>
+<p class="error">$error_password</p>
 EOT;
                 ?>
                 <input type="submit" name="submit_password" value="Modifier">
