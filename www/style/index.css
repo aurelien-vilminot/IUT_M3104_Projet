@@ -202,7 +202,7 @@ table {
 }
 
 table img {
-    width: 4vw;
+    width: 3.5vw;
 }
 
 table, th, td {
@@ -213,7 +213,7 @@ th, td{
     padding: 1vw;
 }
 
-.prev_next{
+.prev_next_discussions{
     display: flex;
     justify-content: space-around;
     margin: 1vw 0 2vw 0;
@@ -221,8 +221,21 @@ th, td{
     padding-left: 2%;
 }
 
-.prev_next img {
+.prev_next_discussions img {
     width: 2vw;
+}
+
+#imgWithoutLinkDiscussion {
+    width: 14%;
+    height: 90%;
+}
+
+.prev_next_users {
+    margin: 1vw 0 1vw 0;
+}
+
+.prev_next_users img {
+    width: 3vw;
 }
 
 .newDiscussion {
@@ -244,11 +257,6 @@ th, td{
 }
 .newDiscussion a:hover {
     transform: scale(1.01);
-}
-
-#imgWithoutLink {
-    width: 14%;
-    height: 90%;
 }
 
 .messages {

@@ -11,10 +11,6 @@
     <label>Vérification du mot de passe</label>
     <input type="password" placeholder="Vérifiez le mot de passe" name="check_password" required>
 
-    <div class="g-recaptcha"
-         data-sitekey="6Leaar4UAAAAABwX27rSs7g6PfQgW9Arxz8uu_7h">
-    </div>
-
     <?php
         if (isset($error))
             echo <<<EOT

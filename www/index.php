@@ -22,7 +22,6 @@
     <title>FreeNote</title>
     <link rel="stylesheet" id="style" href="style/index.css" />
     <link rel="icon" type="image/png" href="media/favicon.png"/>
-    <script src="https://www.google.com/recaptcha/api.js"></script>
     <script src="js/myjavascript.js"></script>
 </head>
 <body>

@@ -10,7 +10,7 @@
     <div class="discussions">
         <table>
             <tr>
-                <th>Discussion</th>
+                <th>Discussions</th>
                 <th>État</th>
             </tr>
             <?php
@@ -54,29 +54,26 @@ EOT;
 EOT;
         }
         ?>
-        <div class="prev_next">
+        <div class="prev_next_discussions">
             <?php
                 if ($page_disc == 1)
-                    echo <<<EOT
-<img src="media/prev_gray.png" alt="prev" id="imgWithoutLink">
-EOT;
-                else {
+                    echo '<img src="media/prev_gray.png" alt="prev" id="imgWithoutLinkDiscussion">';
+                else
+                {
                     $page_prev = $page_disc - 1;
                     echo <<<EOT
 <a href="index.php?page=home&disc=$page_prev"><img src="media/prev.png" alt="prev"  title="Afficher les discussions précédentes"></a>
 EOT;
                 }
-
-            if ($page_disc == $nbDiscussionsPages)
-                echo <<<EOT
-<img src="media/next_gray.png" alt="next" id="imgWithoutLink">
-EOT;
-            else {
-                $page_next = $page_disc + 1;
-                echo <<<EOT
+                if ($page_disc == $nbDiscussionsPages)
+                    echo '<img src="media/next_gray.png" alt="next" id="imgWithoutLinkDiscussion">';
+                else
+                {
+                    $page_next = $page_disc + 1;
+                    echo <<<EOT
 <a href="index.php?page=home&disc=$page_next"><img src="media/next.png" alt="next"  title="Afficher les discussions suivantes"></a>
 EOT;
-            }
+                }
             ?>
         </div>
     </div>
