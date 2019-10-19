@@ -15,10 +15,6 @@ PDO bind
 
 
 
-(super) administrateur (tous les droits)
-
-
-
 systeme de like des discussions
 
 
