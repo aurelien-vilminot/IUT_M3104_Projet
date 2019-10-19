@@ -16,10 +16,19 @@ EOT;
     <div class="pages">
         <?php
             if(isset($_SESSION['CurrentUser']))
+            {
                 echo <<<EOT
 <a href="index.php?page=profil">Mon profil</a>
+EOT;
+                if (isset($_SESSION['admin']) && $_SESSION['admin'] == 1)
+                    echo <<<EOT
+<a href="index.php?page=users">Liste des utilisateurs</a>
+<a href="index.php?page=setDatabase">Administration base de données</a>
+EOT;
+                echo <<<EOT
 <a href="index.php?page=logout">Déconnexion</a>
 EOT;
+            }
             else
                 echo <<<EOT
 <a href="index.php?page=login">Connexion</a>
