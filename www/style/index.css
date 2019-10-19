@@ -177,6 +177,12 @@ input[type=submit]:hover {
     justify-content: space-around;
 }
 
+.modifState {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
 .home {
     width: 100%;
     display: flex;

@@ -75,12 +75,11 @@
                 header('Location: index.php');
             }
 
-            if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']))
+            if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']) && !empty(trim($_GET['id_message'])))
             {
-                $myUser = unserialize($_SESSION['CurrentUser']);
-
-                if ($myUser->isMessageExist($_GET['id_message']) != 0)
-                    $myUser->deleteMessage($_GET['id_message']);
+                $idMessage = $myUser->clean(trim($_GET['id_message']));
+                if ($myUser->isMessageExist($idMessage) != 0)
+                    $myUser->deleteMessage($idMessage);
                 else
                     header('Location : index.php');
             }

@@ -8,12 +8,11 @@
 
         public function __construct($login)
         {
-            $this->login = $login;
-
-            $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $this->login . '\'';
+            $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
             $req = $this->executeRequete($sql);
             while($row = $req->fetch())
             {
+                $this->login = $row['LOGIN'];
                 $this->mail = $row['MAIL'];
                 $this->password = $row['PASSWORD'];
                 $this->admin = $row['ADMIN'];

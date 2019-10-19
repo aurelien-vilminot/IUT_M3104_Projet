@@ -7,9 +7,9 @@
 
     $nbDiscussionsPages = ceil($nbDiscussions/$nbDiscussionsByPages);
 
-    if(isset($_GET['disc']))
+    if(isset($_GET['disc']) && !empty($_GET['disc']) && preg_match('/^[0-9]*$/', $_GET['disc']))
     {
-        $page_disc = $_GET['disc'];
+        $page_disc = $myHome->clean(trim($_GET['disc']));
 
         if($page_disc > $nbDiscussionsPages)
             $page_disc = $nbDiscussionsPages;
