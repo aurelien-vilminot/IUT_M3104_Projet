@@ -4,12 +4,12 @@
         private $id_discussion;
         private $state;
 
-        public function __construct($id)
-        {
-            $this->id_discussion = $id;
-        }
-
         public function getIdDiscussion(){return $this->id_discussion;}
+
+        public function setId($id_discussion)
+        {
+            $this->id_discussion = $id_discussion;
+        }
 
         public function getState()
         {
@@ -29,7 +29,7 @@
 
         public function isExist()
         {
-            $sql = 'SELECT * FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
+            $sql = 'SELECT ID FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
             $req = $this->executeRequete($sql);
             return $req->rowCount();
         }

@@ -4,20 +4,20 @@
         Mail : <?=$mail?></p>
 
     <div class="modif">
-        <div class="modifMail">
+        <div>
             <h3>Modification de votre mail :<br></h3>
             <form action="" method="post">
-                <input type="text" placeholder="Entrez une nouvelle adresse mail" name="mail" required>
+                <input type="email" placeholder="Entrez une nouvelle adresse mail" name="mail" required>
                 <?php
                 if (isset($error_email))
                     echo <<<EOT
 <p class="error">$error_email</p>
 EOT;
                 ?>
-                <input type="submit" name="submit_mail" value="Modifier">
+                <input type="submit" id="littleSubmitBox" name="submit_mail" value="Modifier">
             </form>
         </div>
-        <div class="modifPwd">
+        <div>
             <h3>Modification de votre mot de passe :</h3>
             <form action="" method="post">
                 <input type="password" placeholder="Entrez votre mot de passe actuel" name="old_password" required>
@@ -29,7 +29,7 @@ EOT;
 <p class="error">$error_password</p>
 EOT;
                 ?>
-                <input type="submit" name="submit_password" value="Modifier">
+                <input type="submit" id="littleSubmitBox" name="submit_password" value="Modifier">
             </form>
         </div>
     </div>

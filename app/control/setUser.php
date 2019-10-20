@@ -1,7 +1,8 @@
 <?php
-    if (!isset($_SESSION['CurrentUser']))
+    if(!isset($_SESSION['CurrentUser']))
         header("Location: index.php?page=login");
-    else {
+    else
+    {
         $myUser = unserialize($_SESSION['CurrentUser']);
         if (!$myUser->isAdmin())
             header("Location: index.php");
@@ -36,6 +37,7 @@
             if (isset($_GET['action']) && $_GET['action'] == 'changeState' && isset($_GET['value']) && preg_match('/^[0-1]$/', $_GET['value']))
             {
                 $updateUser->setAdmin($updateUser->clean(trim($_GET['value'])));
+                $validate = 'Le statut de l\'utilisateur a bien été modifié';
             }
 
             $login = $updateUser->getLogin();

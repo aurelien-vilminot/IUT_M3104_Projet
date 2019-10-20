@@ -1,13 +1,12 @@
 <?php
-    $nbDiscussionsByPages = 2;
-    $nbMaxDiscussions = 10;
-
     $myHome = new home();
     $nbDiscussions = $myHome->getNbDiscussions();
+    $nbDiscussionsByPages = $myHome->ParseJSONFile('settings_website','nbDiscussionsByPage');
+    $nbMaxDiscussions = $myHome->ParseJSONFile('settings_website','nbMaxDiscussions');
 
     $nbDiscussionsPages = ceil($nbDiscussions/$nbDiscussionsByPages);
 
-    if(isset($_GET['disc']) && !empty($_GET['disc']) && preg_match('/^[0-9]*$/', $_GET['disc']))
+    if(isset($_GET['disc']) && !empty($_GET['disc']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['disc']))
     {
         $page_disc = $myHome->clean(trim($_GET['disc']));
 

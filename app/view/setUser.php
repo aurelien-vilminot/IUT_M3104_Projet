@@ -1,16 +1,11 @@
-<div>
-    <h3>Profil - <?=$login?></h3>
-</div>
-
-<div>
-    <p>Mail : <?=$mail?></p>
-</div>
+<h3>Profil - <?=$login?></h3>
+<p>Mail : <?=$mail?></p>
 
 <div class="modif">
     <div class="modifMail">
         <h3>Modification du mail de l'utilisateur :<br></h3>
-        <form action="" method="post">
-            <input type="text" placeholder="Entrez une nouvelle adresse mail" name="mail" required>
+        <form action="index.php?page=setUser&id=<?=$login?>" method="post">
+            <input type="email" placeholder="Entrez une nouvelle adresse mail" name="mail" required>
             <?php
             if (isset($error_email))
                 echo <<<EOT

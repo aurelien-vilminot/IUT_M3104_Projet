@@ -33,7 +33,9 @@
 
             if (!password_verify($password, $myUser->getPassword()))
                 $error_password = 'L\' ancien mot de passe est erroné';
-            else if (!password_verify($newCheckPassword, $newPassword))
+            elseif (!preg_match('/^(.|\S){8,}$/', $myUser->clean(trim($_POST['password']))))
+                $error_password = 'Le mot de passe doit avoir un minimum de 8 caractères';
+            elseif (!password_verify($newCheckPassword, $newPassword))
                 $error_password = 'Les mots de passe ne correspondent pas';
             else
             {

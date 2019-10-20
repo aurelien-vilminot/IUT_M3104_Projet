@@ -1,9 +1,4 @@
 <?php
-    define('dbHost', 'mysql-aurelien.alwaysdata.net');
-    define('dbName', 'aurelien_projet');
-    define('dbUser', 'aurelien');
-    define('dbPassword', 'M3104_ASTC');
-
     abstract class database {
 
         private $bdd;
@@ -38,8 +33,8 @@
         {
             if ($this->bdd == null)
             {
-                $dsn = 'mysql:host=' . dbHost . '; dbname=' . dbName;
-                $DataBase = new PDO($dsn, dbUser, dbPassword);
+                $dsn = 'mysql:host=' . $this->ParseJSONFile('Database','Host') . '; dbname=' . $this->ParseJSONFile('Database','Name');
+                $DataBase = new PDO($dsn, $this->ParseJSONFile('Database','User'), $this->ParseJSONFile('Database','Password'));
                 $DataBase->exec('SET CHARACTER SET utf8');
                 $DataBase->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
@@ -56,6 +51,13 @@
         public function regExpMail($mail)
         {
             return preg_match('/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+((-|\.)[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/', $mail);
+        }
+
+        public function ParseJSONFile($category, $object)
+        {
+            $configFile = file_get_contents('../app/files/config.json');
+            $parsed_json = json_decode($configFile);
+            return $parsed_json->{$category}->{$object};
         }
 
         public function __sleep()

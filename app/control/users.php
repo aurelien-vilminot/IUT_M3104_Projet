@@ -8,14 +8,13 @@
             header("Location: index.php");
     }
 
-    $nbUsersByPage = 5;
-
     $myUsers = new users();
     $nbUsers = $myUsers->getNbUsers();
+    $nbUsersByPage = $myUsers->ParseJSONFile('settings_website', 'nbUsersByPage');
 
     $nbUsersPage = ceil($nbUsers/$nbUsersByPage);
 
-    if(isset($_GET['users']) && !empty($_GET['users']) && preg_match('/^[0-9]*$/', $_GET['users']))
+    if(isset($_GET['users']) && !empty($_GET['users']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['users']))
     {
         $page_users = $myUser->clean(trim($_GET['users']));
 

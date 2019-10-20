@@ -2,11 +2,17 @@
     if (!isset($_GET['id']))
         header('Location: index.php');
 
-    $nbMessagesMax = 10;
+    $myDiscussion = new discussion();
 
-    $myDiscussion = new discussion($_GET['id']);
+    $nbMaxMessages = $myDiscussion->ParseJSONFile('settings_website', 'nbMaxMessages');
 
-    if($myDiscussion->isExist() == 0)
+    if (isset($_GET['id']) && !empty($_GET['id']) && preg_match('/^[1-9]+([0-9]+)*/', $_GET['id']))
+    {
+        $myDiscussion->setId($myDiscussion->clean(trim($_GET['id'])));
+        if($myDiscussion->isExist() == 0)
+            header('Location: index.php');
+    }
+    else
         header('Location: index.php');
 
     if (isset($_SESSION['CurrentUser']))
@@ -75,7 +81,7 @@
                 header('Location: index.php');
             }
 
-            if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']) && !empty(trim($_GET['id_message'])))
+            if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']) && !empty(trim($_GET['id_message'])) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['disc']))
             {
                 $idMessage = $myUser->clean(trim($_GET['id_message']));
                 if ($myUser->isMessageExist($idMessage) != 0)
@@ -88,7 +94,7 @@
 
     $tabMessages = $myDiscussion->getAllMessages();
 
-    if (!isset($_GET['action']) && count($tabMessages) == $nbMessagesMax)
+    if (!isset($_GET['action']) && count($tabMessages) == $nbMaxMessages)
         $myDiscussion->setState(0);
     elseif(isset($_GET['action']) && $_GET['action'] != 'close_discussion')
         $myDiscussion->setState(1);

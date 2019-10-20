@@ -1,0 +1,14 @@
+{
+  "Database": {
+    "Host": "mysql-aurelien.alwaysdata.net",
+    "Name": "aurelien_projet",
+    "User": "aurelien",
+    "Password": "M3104_ASTC"
+  },
+  "settings_website": {
+    "nbMaxDiscussions": "15",
+    "nbMaxMessages": "10",
+    "nbUsersByPage": "4",
+    "nbDiscussionsByPage": "4"
+  }
+}

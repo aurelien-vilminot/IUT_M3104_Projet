@@ -7,22 +7,25 @@
         $lost_password_user = new lost_password($_SESSION['login']);
 
         $mail = $lost_password_user->clean(trim($_POST['mail']));
-
-        if($lost_password_user->isExist() == 1)
+        if ($lost_password_user->regExpMail($mail))
         {
-            if ($lost_password_user->verifMail($mail) == 0)
+            if($lost_password_user->isExist() == 1)
             {
-                $lost_password_user->sendMail();
-                header('Location: index.php');
+                if ($lost_password_user->verifMail($mail) == 0)
+                {
+                    $lost_password_user->sendMail();
+                    header('Location: index.php');
+                }
+                else
+                    $error = 'Le mail ne correspond pas à l\'identifiant saisi';
             }
             else
-                $error = 'Le mail ne correspond pas à l\'identifiant saisi';
+            {
+                $error = 'L\'utilisateur n\'existe pas !';
+                unset($_SESSION['login']);
+            }
         }
         else
-        {
-            $error = 'L\'utilisateur n\'existe pas !';
-            unset($_SESSION['login']);
-        }
-
+            $error = 'Le format de l\'email n\'est pas valide';
     }
     require '../app/view/lost_password.php';

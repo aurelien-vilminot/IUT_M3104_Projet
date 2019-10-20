@@ -19,10 +19,6 @@ systeme de like des discussions
 
 
 
-fichier de config .json
-
-
-
 Jeu de test des discussions
 
 

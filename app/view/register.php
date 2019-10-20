@@ -1,9 +1,9 @@
-<form method="POST">
+<form method="post">
     <label>Nom d'utilisateur</label>
     <input type="text" placeholder="Entrez un nom d'utilisateur" name="login" required>
 
     <label>E-mail</label>
-    <input type="text" placeholder="Entrez un e-mail" name="mail" required>
+    <input type="email" placeholder="Entrez un e-mail" name="mail" required>
 
     <label>Mot de passe</label>
     <input type="password" placeholder="Entrez un mot de passe" name="password" required>
@@ -18,5 +18,5 @@
 EOT;
     ?>
 
-    <input type="submit" id="submit" name="submit" value="Inscription">
+    <input type="submit" id="littleSubmitBox" name="submit" value="Inscription">
 </form>

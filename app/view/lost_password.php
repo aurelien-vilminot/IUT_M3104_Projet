@@ -1,6 +1,6 @@
 <form action="" method="POST">
     <label>E-mail</label>
-    <input type="text" placeholder="Entrez votre adresse email" name="mail" required>
+    <input type="email" placeholder="Entrez votre adresse email" name="mail" required>
 
     <?php
     if (isset($error))
