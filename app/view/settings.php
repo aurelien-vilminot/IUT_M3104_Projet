@@ -13,7 +13,7 @@ EOT;
         </form>
 
         <form method="post">
-            <label>Nombre maximum de messages par discussions<br><br>Actuellement : <?=$nbMaxMessages?> messages créables</label>
+            <label>Nombre maximum de messages par discussion<br><br>Actuellement : <?=$nbMaxMessages?> messages créables</label>
             <input type="text" id="littleInputBox" name="nbMaxMessages" placeholder="Entrer un nombre maximum de messages" required>
             <?php
             if (isset($error_nbMaxMessages))
