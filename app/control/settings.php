@@ -70,11 +70,9 @@
         }
     }
 
-
     $nbMaxDiscussions = $mySettings->ParseJSONFile('settings_website','nbMaxDiscussions');
     $nbMaxMessages = $mySettings->ParseJSONFile('settings_website','nbMaxMessages');
     $nbUsersByPage = $mySettings->ParseJSONFile('settings_website','nbUsersByPage');
     $nbDiscussionsByPage = $mySettings->ParseJSONFile('settings_website','nbDiscussionsByPage');
-
 
     require '../app/view/settings.php';

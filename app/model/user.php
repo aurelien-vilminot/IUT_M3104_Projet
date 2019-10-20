@@ -148,6 +148,16 @@
                 return 0;
         }
 
+        public function delete()
+        {
+            $tab = array('login' => $this->login);
+            $sql = 'DELETE FROM USER_MESSAGE WHERE ID_USER = :login';
+            $this->executeRequete($sql, $tab);
+
+            $sql2 = 'DELETE FROM USER WHERE LOGIN = :login';
+            $this->executeRequete($sql2, $tab);
+        }
+
         public function __sleep()
         {
             return array('login', 'mail', 'password', 'admin');

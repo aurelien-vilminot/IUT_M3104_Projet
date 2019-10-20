@@ -47,6 +47,7 @@ EOT;
         </div>
     </div>
 </div>
+<a href="index.php?page=setUser&id=<?=$_GET['id']?>&action=delete_user" class="warning">• Supprimer cet utilisateur •</a>
 
 <?php
 if (isset($validate))

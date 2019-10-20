@@ -7,47 +7,56 @@
         if (!$myUser->isAdmin())
             header("Location: index.php");
     }
-
-    if (isset($_GET['id']) && !empty($_GET['id']))
+    if ($myUser->isAdmin())
     {
-        $id = $myUser->clean(trim($_GET['id']));
-        $mysetUser = new setUser($id);
-        if ($mysetUser->isExist())
+        if (isset($_GET['id']) && !empty($_GET['id']))
         {
-            $updateUser = new user($id);
-
-            if(isset($_POST['submit_mail']) && !empty(trim($_POST['mail'])))
+            $id = $myUser->clean(trim($_GET['id']));
+            $mysetUser = new setUser($id);
+            if ($mysetUser->isExist())
             {
-                $newMail = $updateUser->clean(trim($_POST['mail']));
+                $updateUser = new user($id);
 
-                if (!$updateUser->regExpMail($newMail))
-                    $error_email = 'Le format de l\'email n\'est pas valide';
-                else
+                if(isset($_POST['submit_mail']) && !empty(trim($_POST['mail'])))
                 {
-                    if($updateUser->email_taken($newMail) == 1)
-                        $error_email = 'L\'adresse email est déjà utilisée';
+                    $newMail = $updateUser->clean(trim($_POST['mail']));
+
+                    if (!$updateUser->regExpMail($newMail))
+                        $error_email = 'Le format de l\'email n\'est pas valide';
                     else
                     {
-                        $updateUser->setMail($newMail);
-                        $validate = 'Le nouvel e-mail a bien été enregistré !';
+                        if($updateUser->email_taken($newMail) == 1)
+                            $error_email = 'L\'adresse email est déjà utilisée';
+                        else
+                        {
+                            $updateUser->setMail($newMail);
+                            $validate = 'Le nouvel e-mail a bien été enregistré !';
+                        }
                     }
                 }
-            }
 
-            if (isset($_GET['action']) && $_GET['action'] == 'changeState' && isset($_GET['value']) && preg_match('/^[0-1]$/', $_GET['value']))
-            {
-                $updateUser->setAdmin($updateUser->clean(trim($_GET['value'])));
-                $validate = 'Le statut de l\'utilisateur a bien été modifié';
-            }
+                if (isset($_GET['action']) && $_GET['action'] == 'changeState' && isset($_GET['value']) && preg_match('/^[0-1]$/', $_GET['value']))
+                {
+                    $updateUser->setAdmin($updateUser->clean(trim($_GET['value'])));
+                    $validate = 'Le statut de l\'utilisateur a bien été modifié';
+                }
 
-            $login = $updateUser->getLogin();
-            $mail = $updateUser->getMail();
-            $admin = $updateUser->getAdmin();
+                if (isset($_GET['action']) && $_GET['action'] == 'delete_user')
+                {
+                    $updateUser->delete();
+                    header('Location: index.php?page=users');
+                }
+
+                $login = $updateUser->getLogin();
+                $mail = $updateUser->getMail();
+                $admin = $updateUser->getAdmin();
+            }
+            else
+                header('Location: index.php?page=users');
         }
         else
             header('Location: index.php?page=users');
     }
-    else
-        header('Location: index.php?page=users');
+
 
     require '../app/view/setUser.php';
