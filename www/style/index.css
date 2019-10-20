@@ -318,6 +318,10 @@ th, td{
     font-size: 1vw;
 }
 
+#like {
+    width: 4.5vw;
+}
+
 .warning {
     color: #EE3831;
     margin-bottom: 1vw;

@@ -12,19 +12,25 @@
             <tr>
                 <th>Discussions</th>
                 <th>État</th>
+                <th>Likes</th>
             </tr>
             <?php
                 foreach ($tabDisc as &$discussion)
                 {
                     echo '<tr>';
-                    for ($i = 1 ; $i < 3 ; ++$i)
+                    for ($i = 1 ; $i < 4 ; ++$i)
                     {
-                        if ($discussion[$i] == '0')
-                            echo '<td><img src="media/close.png" alt="close" title="Cette discussion est close"></td>';
-                        elseif ($discussion[$i] == '1')
-                            echo '<td><img src="media/open.png" alt="open" title="Cette discussion est ouverte"></td>';
+                        if ($i == 1)
+                            echo '<td><a href="index.php?page=discussion&id=' . $discussion[0] . '">' . $discussion['TITLE'] . '</a></td>';
+                        elseif ($i == 2)
+                        {
+                            if ($discussion['STATE'] == '0')
+                                echo '<td><img src="media/close.png" alt="close" title="Cette discussion est close"></td>';
+                            elseif ($discussion['STATE'] == '1')
+                                echo '<td><img src="media/open.png" alt="open" title="Cette discussion est ouverte"></td>';
+                        }
                         else
-                            echo '<td><a href="index.php?page=discussion&id=' . $discussion[0] . '">' . $discussion[$i] . '</a></td>';
+                            echo '<td>' . $discussion['NB_LIKE'] . '</td>';
                     }
                     echo '</tr>';
                 }

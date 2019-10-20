@@ -80,19 +80,32 @@
             $this->executeRequete($sql3, $tab);
         }
 
-        public function getUsersMessage($id)
+        public function isLiked($login)
         {
-            $sql = 'SELECT * FROM USER_MESSAGE WHERE ID_MESSAGE = \'' . $id . '\'';
+            $sql = 'SELECT * FROM LIKE_DISCUSSION WHERE ID_USER = \'' . $login . '\' AND ID_DISCUSSION = \'' . $this->id_discussion . '\'';
             $req = $this->executeRequete($sql);
-            return $req->fetchAll();
+            return $req->rowCount();
         }
 
-        public function getVote()
+        public function like($login)
         {
-          $sql = 'SELECT VOTE FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
-          $req = $this->executeRequete($sql);
-          $resultat = $req->fetchAll();
-          return $resultat[0][0];
+            $tab = array('login' => $login, 'id_discussion' => $this->id_discussion);
+            $sql = 'INSERT INTO LIKE_DISCUSSION (ID_USER, ID_DISCUSSION) VALUES (:login, :id_discussion)';
+            $this->executeRequete($sql, $tab);
+
+            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE + 1 WHERE ID = \'' . $this->id_discussion . '\'';
+            $this->executeRequete($sql2);
         }
+
+        public function unlike($login)
+        {
+            $tab = array('login' => $login, 'id_discussion' => $this->id_discussion);
+            $sql = 'DELETE FROM LIKE_DISCUSSION WHERE ID_DISCUSSION = :id_discussion AND ID_USER = :login';
+            $this->executeRequete($sql, $tab);
+
+            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE - 1 WHERE ID = \'' . $this->id_discussion . '\'';
+            $this->executeRequete($sql2);
+        }
+
     }
 

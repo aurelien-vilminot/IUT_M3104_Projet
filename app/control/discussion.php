@@ -8,7 +8,8 @@
 
     if (isset($_GET['id']) && !empty($_GET['id']) && preg_match('/^[1-9]+([0-9]+)*/', $_GET['id']))
     {
-        $myDiscussion->setId($myDiscussion->clean(trim($_GET['id'])));
+        $idPage = $myDiscussion->clean(trim($_GET['id']));
+        $myDiscussion->setId($idPage);
         if($myDiscussion->isExist() == 0)
             header('Location: index.php');
     }
@@ -70,6 +71,16 @@
             }
         }
 
+        if(isset($_GET['action']) && $_GET['action'] == 'changeLikeSate')
+        {
+            if($myDiscussion->isLiked($myUser->getLogin()))
+            {
+                $myDiscussion->unlike($myUser->getLogin());
+            }
+            else
+                $myDiscussion->like($myUser->getLogin());
+        }
+
         if ($myUser->isAdmin())
         {
             if (isset($_GET['action']) && $_GET['action'] == 'close_discussion')
@@ -100,5 +111,6 @@
         $myDiscussion->setState(1);
 
     $stateDiscussion = $myDiscussion->getState();
+    $like = $myDiscussion->isLiked($myUser->getLogin());
 
     require '../app/view/discussion.php';

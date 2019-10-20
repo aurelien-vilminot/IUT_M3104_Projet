@@ -20,6 +20,7 @@
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
 
+
     if (isset($_SESSION['CurrentUser']))
     {
         $myUser = unserialize($_SESSION['CurrentUser']);

@@ -1,6 +1,5 @@
 <div class="messages">
     <?php
-        $idPage = $_GET['id'];
         foreach ($tabMessages as &$message) {
             $content = $message['CONTENT'];
             echo <<<EOT
@@ -45,11 +44,12 @@ EOT;
 <?php
     if(isset($_SESSION['CurrentUser']))
     {
-        if ($stateDiscussion == 1) {
+        if ($stateDiscussion == 1)
+        {
             ?>
             <form action="index.php?page=discussion&id=<?=$idPage?>" method="post">
                 <input type="text" placeholder="Entrer un ou deux mots" name="message">
-                <input type="submit" name="submit" value="Envoyer">
+                <input type="submit" id="littleSubmitBox" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
                 <?php
                 if (isset($error))
@@ -59,15 +59,22 @@ EOT;
                 ?>
             </form>
             <?php
-                if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
+                if($like)
+                    echo <<<EOT
+<a href="index.php?page=discussion&id=$idPage&action=changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
+EOT;
+                else
+                    echo <<<EOT
+<a href="index.php?page=discussion&id=$idPage&action=changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
+EOT;
+            if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
                 {
                     echo <<<EOT
  <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">• Fermer la discussion •</a>
 EOT;
                 }
-            ?>
-            <?php
-        } else
+        }
+        else
             echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
     }
     else

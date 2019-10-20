@@ -3,11 +3,13 @@
     {
         public function getDiscussions($firstDiscussion, $nbDiscussionsByPages)
         {
-            $sql = 'SELECT * FROM DISCUSSION ORDER BY ID LIMIT :second, :first';
+            $sql = 'SELECT * FROM DISCUSSION_SORTED ORDER BY NB_LIKE DESC LIMIT :second, :first';
             $req = $this->executeLIMITRequete($sql, $nbDiscussionsByPages, $firstDiscussion);
-            $row = $req->fetchAll();
+            $tab = $req->fetchAll();
+            $nbLike  = array_column($tab, 'NB_LIKE');
+            array_multisort($nbLike, SORT_DESC, $tab);
 
-            return $row;
+            return $tab;
         }
 
         public function getNbDiscussions()
@@ -19,8 +21,8 @@
 
         public function createDiscussion($title)
         {
-            $tab = array('title' => $title, 'state' => 1);
-            $sql = 'INSERT INTO DISCUSSION(TITLE, STATE) VALUES (:title, :state)';
+            $tab = array('title' => $title, 'state' => 1, 'nbLike' => 0);
+            $sql = 'INSERT INTO DISCUSSION(TITLE, STATE, NB_LIKE) VALUES (:title, :state, :nbLike)';
             $this->executeRequete($sql, $tab);
         }
 
