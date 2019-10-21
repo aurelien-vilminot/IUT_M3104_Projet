@@ -53,11 +53,14 @@
             return preg_match('/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+((-|\.)[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/', $mail);
         }
 
-        public function ParseJSONFile($category, $object)
+        public function ParseJSONFile($category, $object, $param = null)
         {
             $configFile = file_get_contents('../app/files/config.json');
             $parsed_json = json_decode($configFile);
-            return $parsed_json->{$category}->{$object};
+            if ($param == null)
+                return $parsed_json->{$category}->{$object};
+            else
+                return $parsed_json->{$category}->{$object}->{$param};
         }
 
         public function __sleep()

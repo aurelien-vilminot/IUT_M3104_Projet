@@ -53,4 +53,18 @@
                         ORDER BY NB_LIKE DESC;';
             $this->executeRequete($sql2);
         }
+
+        public function sendUser($login, $email, $password, $isAdmin)
+        {
+            $tab = array('login' => $login, 'email' => $email, 'password' => $password, 'isAdmin' => $isAdmin);
+            $sql = 'INSERT INTO USER (LOGIN,MAIL,PASSWORD,ADMIN) VALUES(:login,:email,:password,:isAdmin)';
+            $this->executeRequete($sql, $tab);
+        }
+
+        public function sendDiscussion($title)
+        {
+            $tab = array('title' => $title, 'state' => 1, 'nbLike' => 0);
+            $sql = 'INSERT INTO DISCUSSION(TITLE, STATE, NB_LIKE) VALUES (:title, :state, :nbLike)';
+            $this->executeRequete($sql, $tab);
+        }
     }

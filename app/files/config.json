@@ -1,7 +1,7 @@
 {
   "Database": {
     "Host": "mysql-aurelien.alwaysdata.net",
-    "Name": "aurelien_projet",
+    "Name": "aurelien_test",
     "User": "aurelien",
     "Password": "M3104_ASTC"
   },
@@ -10,5 +10,75 @@
     "nbMaxMessages": "10",
     "nbUsersByPage": "4",
     "nbDiscussionsByPage": "2"
+  },
+  "Users": {
+    "0": {
+      "Login": "userRoot",
+      "Mail": "root@root.com",
+      "Password": "root",
+      "Admin": "1"
+    },
+    "1": {
+      "Login": "user1",
+      "Mail": "user1@fai.com",
+      "Password": "password1",
+      "Admin": "0"
+    },
+    "2": {
+      "Login": "user2",
+      "Mail": "user2@fai.com",
+      "Password": "password2",
+      "Admin": "0"
+    },
+    "3": {
+      "Login": "user3",
+      "Mail": "user3@fai.com",
+      "Password": "password3",
+      "Admin": "0"
+    },
+    "4": {
+      "Login": "user4",
+      "Mail": "user4@fai.com",
+      "Password": "password4",
+      "Admin": "0"
+    },
+    "5": {
+      "Login": "user5",
+      "Mail": "user5@fai.com",
+      "Password": "password5",
+      "Admin": "0"
+    }
+  },
+  "Discussions": {
+    "0": {
+      "Title": "Discussion 1"
+    },
+    "1": {
+      "Title": "Discussion 2"
+    },
+    "2": {
+      "Title": "Discussion 3"
+    },
+    "3": {
+      "Title": "Discussion 4"
+    },
+    "4": {
+      "Title": "Discussion 5"
+    },
+    "5": {
+      "Title": "Discussion 6"
+    },
+    "6": {
+      "Title": "Discussion 7"
+    },
+    "7": {
+      "Title": "Discussion 8"
+    },
+    "8": {
+      "Title": "Discussion 9"
+    },
+    "9": {
+      "Title": "Discussion 10"
+    }
   }
 }

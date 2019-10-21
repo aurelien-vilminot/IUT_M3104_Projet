@@ -4,19 +4,29 @@
     $nbDiscussionsByPages = $myHome->ParseJSONFile('settings_website','nbDiscussionsByPage');
     $nbMaxDiscussions = $myHome->ParseJSONFile('settings_website','nbMaxDiscussions');
 
-    $nbDiscussionsPages = ceil($nbDiscussions/$nbDiscussionsByPages);
-
-    if(isset($_GET['disc']) && !empty($_GET['disc']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['disc']))
+    if ($nbDiscussions != 0)
     {
-        $page_disc = $myHome->clean(trim($_GET['disc']));
+        $nbDiscussionsPages = ceil($nbDiscussions/$nbDiscussionsByPages);
 
-        if($page_disc > $nbDiscussionsPages)
-            $page_disc = $nbDiscussionsPages;
+        if(isset($_GET['disc']) && !empty($_GET['disc']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['disc']))
+        {
+            $page_disc = $myHome->clean(trim($_GET['disc']));
+
+            if($page_disc > $nbDiscussionsPages)
+                $page_disc = $nbDiscussionsPages;
+        }
+        else
+            $page_disc = 1;
+
+        $firstDiscussion = ($page_disc - 1) * $nbDiscussionsByPages;
     }
     else
+    {
+        $firstDiscussion = 0;
+        $nbDiscussionsPages = 1;
         $page_disc = 1;
 
-    $firstDiscussion = ($page_disc - 1) * $nbDiscussionsByPages;
+    }
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);
 

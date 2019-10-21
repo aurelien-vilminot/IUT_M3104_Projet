@@ -327,7 +327,10 @@ th, td{
     margin-bottom: 1vw;
 }
 
-
+#alertBD{
+    text-align: center;
+    margin: 2vw;
+}
 
 footer {
     display: flex;
