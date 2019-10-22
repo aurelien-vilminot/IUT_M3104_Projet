@@ -6,16 +6,16 @@
     "Password": "M3104_ASTC"
   },
   "settings_website": {
-    "nbMaxDiscussions": "15",
+    "nbMaxDiscussions": "10",
     "nbMaxMessages": "10",
     "nbUsersByPage": "4",
-    "nbDiscussionsByPage": "2"
+    "nbDiscussionsByPage": "10"
   },
   "Users": {
     "0": {
-      "Login": "userRoot",
+      "Login": "aurelien1",
       "Mail": "root@root.com",
-      "Password": "root",
+      "Password": "aurelien",
       "Admin": "1"
     },
     "1": {
@@ -83,44 +83,34 @@
   },
   "Messages": {
     "0": {
-      "Content": "Discussion 1",
-      "Discussion": "1"
+      "Content": "Salut comment ça va"
     },
     "1": {
-      "Content": "Discussion 2",
-      "Discussion": "1"
+      "Content": "Bien et toi ?"
     },
     "2": {
-      "Content": "Discussion 3",
-      "Discussion": "1"
+      "Content": "Super merci !"
     },
     "3": {
-      "Content": "Discussion 4",
-      "Discussion": "1"
+      "Content": "Tu as vu le match hier?"
     },
     "4": {
-      "Title": "Discussion 5",
-      "Discussion": "1"
+      "Content": "Et oui !"
     },
     "5": {
-      "Content": "Discussion 6",
-      "Discussion": "1"
+      "Content": "C'était du beau jeu de ballon"
     },
     "6": {
-      "Content": "Discussion 7",
-      "Discussion": "1"
+      "Content": "Et ma foi c'est l'OM!"
     },
     "7": {
-      "Content": "Discussion 8",
-      "Discussion": "1"
+      "Content": "Bon, allez j'y vais."
     },
     "8": {
-      "Content": "Discussion 9",
-      "Discussion": "1"
+      "Content": "Ok a+"
     },
     "9": {
-      "Content": "Discussion 10",
-      "Discussion": "1"
+      "Content": "Ciao :)"
     }
   }
 }

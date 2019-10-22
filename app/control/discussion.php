@@ -19,7 +19,6 @@
     if (isset($_SESSION['CurrentUser']))
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
-        $like = $myDiscussion->isLiked($myUser->getLogin());
 
         if (isset($_POST['submit']) || isset($_POST['submit_close']) && !empty(trim($_POST['message'])))
         {
@@ -93,7 +92,7 @@
                 header('Location: index.php');
             }
 
-            if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']) && !empty(trim($_GET['id_message'])) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['disc']))
+            if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']) && !empty(trim($_GET['id_message'])) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['id']))
             {
                 $idMessage = $myUser->clean(trim($_GET['id_message']));
                 if ($myUser->isMessageExist($idMessage) != 0)
@@ -102,6 +101,8 @@
                     header('Location : index.php');
             }
         }
+
+        $like = $myDiscussion->isLiked($myUser->getLogin());
     }
 
     $tabMessages = $myDiscussion->getAllMessages();

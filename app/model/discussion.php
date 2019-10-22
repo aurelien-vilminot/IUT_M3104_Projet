@@ -76,8 +76,11 @@
             $sql2 = 'DELETE FROM MESSAGE WHERE ID_DISCUSSION = :id';
             $this->executeRequete($sql2, $tab);
 
-            $sql3 = 'DELETE FROM DISCUSSION WHERE ID = :id';
+            $sql3 = 'DELETE FROM LIKE_DISCUSSION WHERE ID_DISCuSSION = :id';
             $this->executeRequete($sql3, $tab);
+
+            $sql4 = 'DELETE FROM DISCUSSION WHERE ID = :id';
+            $this->executeRequete($sql4, $tab);
         }
 
         public function isLiked($login)
