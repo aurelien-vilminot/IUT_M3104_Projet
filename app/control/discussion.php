@@ -19,6 +19,7 @@
     if (isset($_SESSION['CurrentUser']))
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
+        $like = $myDiscussion->isLiked($myUser->getLogin());
 
         if (isset($_POST['submit']) || isset($_POST['submit_close']) && !empty(trim($_POST['message'])))
         {
@@ -111,6 +112,5 @@
         $myDiscussion->setState(1);
 
     $stateDiscussion = $myDiscussion->getState();
-    $like = $myDiscussion->isLiked($myUser->getLogin());
 
     require '../app/view/discussion.php';
