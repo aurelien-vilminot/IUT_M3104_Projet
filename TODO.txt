@@ -15,11 +15,16 @@ PDO bind
 
 
 
-systeme de like des discussions
+Réglage pagination accueil
 
 
 
-Jeu de test des discussions
+
+Admin : modif un message totalement
+
+
+
+Message bulle info expéditeurs
 
 
 

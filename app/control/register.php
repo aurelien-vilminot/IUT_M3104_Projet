@@ -11,7 +11,9 @@
         $password = password_hash($userRegister->clean(trim($_POST['password'])), PASSWORD_DEFAULT);
         $check_password = $userRegister->clean(trim($_POST['check_password']));
 
-        if (!$userRegister->regExpMail($mail))
+        if (!preg_match('/^(.|\S){0,15}$/', $login))
+            $error = 'L\'identifiant ne peut excéder 15 caractères';
+        elseif (!$userRegister->regExpMail($mail))
             $error = 'Le format de l\'email n\'est pas valide';
         elseif (!preg_match('/^(.|\S){8,}$/', $userRegister->clean(trim($_POST['password']))))
             $error = 'Le mot de passe doit avoir un minimum de 8 caractères';

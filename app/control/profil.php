@@ -6,6 +6,26 @@
 
     if (isset($_SESSION['CurrentUser']))
     {
+
+        if($myUser->isAdmin())
+        {
+            if(isset($_POST['submit_login']) && !empty(trim($_POST['login'])))
+            {
+                $newLogin = $myUser->clean(trim($_POST['login']));
+
+                if (!preg_match('/^(.|\S){0,15}$/', $newLogin))
+                    $error_login = 'L\'identifiant ne peut excéder 15 caractères';
+                elseif ($myUser->login_taken($newLogin) == 1)
+                    $error_login = 'L\'identifiant est déjà utilisé';
+                else
+                {
+                    $myUser->setLogin($newLogin);
+                    $_SESSION['CurrentUser'] = serialize(new user($myUser->getLogin()));
+                    $validate = 'Votre nouvel indentifiant a bien été enregistré !';
+                }
+            }
+        }
+
         if(isset($_POST['submit_mail']) && !empty(trim($_POST['mail'])))
         {
             $newMail = $myUser->clean(trim($_POST['mail']));
