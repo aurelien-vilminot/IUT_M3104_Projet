@@ -19,11 +19,6 @@ Réglage pagination accueil
 
 
 
-
-Admin : modif un message totalement
-
-
-
 Message bulle info expéditeurs
 
 

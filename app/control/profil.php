@@ -6,7 +6,6 @@
 
     if (isset($_SESSION['CurrentUser']))
     {
-
         if($myUser->isAdmin())
         {
             if(isset($_POST['submit_login']) && !empty(trim($_POST['login'])))

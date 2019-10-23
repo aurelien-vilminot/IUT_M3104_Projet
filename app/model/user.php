@@ -93,6 +93,13 @@
             $this->executeRequete($sql3, $tab3);
         }
 
+        public function modify_message($idMessage, $content)
+        {
+            $tab = array('idMessage' => $idMessage, 'content' => $content);
+            $sql = 'UPDATE MESSAGE SET CONTENT = :content WHERE ID = :idMessage';
+            $this->executeRequete($sql, $tab);
+        }
+
         public function update_message ($idMessage, $content)
         {
             $sql = 'SELECT CONTENT FROM MESSAGE WHERE ID = \'' . $idMessage . '\'';

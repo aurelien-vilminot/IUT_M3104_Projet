@@ -1,6 +1,7 @@
 <div class="messages">
     <?php
-        foreach ($tabMessages as &$message) {
+        foreach ($tabMessages as &$message)
+        {
             $content = $message['CONTENT'];
             echo <<<EOT
 <div class="message_state">
@@ -17,7 +18,8 @@ EOT;
                 $idMessage = $message['ID'];
                 echo <<<EOT
         <div>
-            <a href="index.php?page=discussion&id=$idPage&action=delete_message&id_message=$idMessage"><img src="media/delete.png" alt="Delete Message"></a>
+            <a href="index.php?page=discussion&id=$idPage&action=modify_message&id_message=$idMessage"><img src="media/modify.png" title="Modifier le message" alt="Modifier le message"></a>
+            <a href="index.php?page=discussion&id=$idPage&action=delete_message&id_message=$idMessage"><img src="media/delete.png" title=""Supprimer le message alt="Supprimer le message"></a>
         </div>
 EOT;
             }
@@ -37,6 +39,18 @@ EOT;
     </div>
 </div>
 EOT;
+            if (isset($_GET['id_message']) && $message['ID'] == $_GET['id_message'])
+            {
+                if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin() && isset($_GET['action']) &&  $_GET['action'] == 'modify_message')
+                {
+                    echo <<<EOT
+<form action="index.php?page=discussion&id=$idPage&id_message=$idMessage" method="post">
+    <input type="text" placeholder="Entrez le nouveau contenu" name="messageContent" required>
+    <input type="submit" name="modify_message" value="Modifier ce message">
+</form>
+EOT;
+                }
+            }
         }
     ?>
 </div>

@@ -92,16 +92,25 @@
                 header('Location: index.php');
             }
 
-            if (isset($_GET['action']) && $_GET['action'] == 'delete_message' && isset($_GET['id_message']) && !empty(trim($_GET['id_message'])) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['id']))
+            if (isset($_GET['id_message']) && !empty(trim($_GET['id_message'])) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['id_message']))
             {
                 $idMessage = $myUser->clean(trim($_GET['id_message']));
+
                 if ($myUser->isMessageExist($idMessage) != 0)
-                    $myUser->deleteMessage($idMessage);
-                else
-                    header('Location : index.php');
+                {
+                    if (isset($_POST['modify_message']) && !empty(trim($_POST['messageContent'])))
+                    {
+                        $messageContent = $myUser->clean(trim($_POST['messageContent']));
+                        $myUser->modify_message($idMessage, $messageContent);
+                    }
+
+                    if (isset($_GET['action']) && $_GET['action'] == 'delete_message')
+                    {
+                        $myUser->deleteMessage($idMessage);
+                    }
+                }
             }
         }
-
         $like = $myDiscussion->isLiked($myUser->getLogin());
     }
 

@@ -1,5 +1,5 @@
 # IUT Informatique - Projet M3104
-###Site Web PHP en MVC
+ * Site Web PHP en MVC *
 
 Récupérer données SQL :
 
@@ -19,9 +19,3 @@ Récupérer données SQL :
             $this->admin = $row['ADMIN'];
         }
         $req->closeCursor();
-Variables à charger en tant que paramètre du site (.json) :
-
-    $nbMaxDiscussions //Dans 'app/control/home.php'
-    $nbMessagesMax //Dans 'app/control/discussion.php'
-    $nbUsersByPage = 5; //Dans 'app/control/users.php'
-    $nbDiscussionsByPages //Dans 'app/control/home.php'
