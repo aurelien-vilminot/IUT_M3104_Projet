@@ -116,6 +116,11 @@
 
     $tabMessages = $myDiscussion->getAllMessages();
 
+    foreach ($tabMessages as $usersMessage)
+    {
+        $tabUsersMessage[$usersMessage['ID']] =$myDiscussion->getUsersMessage($usersMessage['ID']);
+    }
+
     if (!isset($_GET['action']) && count($tabMessages) == $nbMaxMessages)
         $myDiscussion->setState(0);
     elseif(isset($_GET['action']) && $_GET['action'] != 'close_discussion')

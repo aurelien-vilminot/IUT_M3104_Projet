@@ -38,9 +38,7 @@
         {
             $sql = 'SELECT * FROM MESSAGE WHERE ID_DISCUSSION = \'' . $this->id_discussion . '\'';
             $req = $this->executeRequete($sql);
-            $row = $req->fetchAll();
-
-            return $row;
+            return $req->fetchAll();
         }
 
         public function getLastMessage()
@@ -49,6 +47,13 @@
             $req = $this->executeRequete($sql);
             $resultat = $req->fetchAll();
             return $resultat[0][0];
+        }
+
+        public function getUsersMessage($idMessage)
+        {
+            $sql = 'SELECT ID_USER FROM USER_MESSAGE WHERE ID_MESSAGE = \'' . $idMessage . '\'';
+            $req = $this->executeRequete($sql);
+            return $req->fetchAll();
         }
 
         public function isLastMessageClose()

@@ -9,10 +9,23 @@
         <p>$content</p>
     </div>
     <div class="infos">
-        <div>
-             <a href=""><img src="media/infos.png" alt="Informations message" title="Informations du message"></a>
-        </div>
 EOT;
+            $UsersForThisMessage = $tabUsersMessage[$message['ID']];
+            foreach ($UsersForThisMessage as &$Users)
+            {
+                if (!isset($users))
+                    $users = 'Message envoyé par : ' . $Users['ID_USER'];
+                else
+                    $users = $users . ', ' .$Users['ID_USER'];
+            }
+
+            echo <<<EOT
+<div>
+     <img src="media/infos.png" alt="Informations message" title="$users">
+</div>
+EOT;
+            unset($users);
+
             if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
             {
                 $idMessage = $message['ID'];

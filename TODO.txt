@@ -19,10 +19,6 @@ Réglage pagination accueil
 
 
 
-Message bulle info expéditeurs
-
-
-
 le code source (sans ressources binaires) correctement commenté
 
 
