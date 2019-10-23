@@ -26,6 +26,7 @@
 </head>
 <body>
     <?php require '../app/view/layouts/menu.php' ?>
+
     <main>
         <div class="topMainBorder"></div>
 
@@ -35,6 +36,7 @@
         </section>
 
         <?php require '../app/view/layouts/footer.php' ?>
+
     </main>
 </body>
 </html>
