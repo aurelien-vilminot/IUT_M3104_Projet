@@ -161,8 +161,11 @@
             $sql = 'DELETE FROM USER_MESSAGE WHERE ID_USER = :login';
             $this->executeRequete($sql, $tab);
 
-            $sql2 = 'DELETE FROM USER WHERE LOGIN = :login';
+            $sql2 = 'DELETE FROM LIKE_DISCUSSION WHERE ID_USER = :login';
             $this->executeRequete($sql2, $tab);
+
+            $sql3 = 'DELETE FROM USER WHERE LOGIN = :login';
+            $this->executeRequete($sql3, $tab);
         }
 
         public function __sleep()
