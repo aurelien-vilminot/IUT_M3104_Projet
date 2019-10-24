@@ -16,6 +16,8 @@
     else
         header('Location: home');
 
+    var_dump($_GET['action']);
+
     if (isset($_SESSION['CurrentUser']))
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
