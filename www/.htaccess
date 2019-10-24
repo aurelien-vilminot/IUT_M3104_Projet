@@ -3,6 +3,7 @@ Options +FollowSymlinks
 
 # Activation du module de réécriture d'URL :
 RewriteEngine on
+Options -MultiViews
 
 #--------------------------------------------------
 # Règles de réécriture d'URL :
