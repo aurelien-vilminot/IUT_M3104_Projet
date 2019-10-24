@@ -15,7 +15,7 @@
             return $resultat;
         }
 
-        protected function executeLIMITRequete($sql, $first, $second)   // Pour les requêtes sql contiennant order by et limit
+        protected function executeLIMITRequete($sql, $first, $second)   // Pour les requêtes sql contennant order by et limit
         {
             $resulat = $this->getBdd()->prepare($sql);
             $resulat->bindValue(':first', intval($first), PDO::PARAM_INT);
