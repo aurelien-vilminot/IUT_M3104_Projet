@@ -14,7 +14,7 @@ RewriteEngine on
 # Règles de réécriture d'URL :
 #--------------------------------------------------
 
-RewriteRule ^([a-zA-Z]+)$   index.php?page=$1 [L]
+RewriteRule ^([a-zA-Z_]+)$   index.php?page=$1 [L]
 RewriteRule ^(discussion)-([1-9]+([0-9]+)*)$   index.php?page=$1&id=$2 [L]
 RewriteRule ^(home)-([0-9]+)$   index.php?page=$1&disc=$2 [L]
 RewriteRule ^([a-z]+)-([1-9]+[0-9]*)-([a-zA-Z_]+)$   index.php?page=$1&id=$2&action=$3 [L]
