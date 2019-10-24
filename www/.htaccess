@@ -9,4 +9,5 @@ RewriteEngine on
 #--------------------------------------------------
 
 RewriteRule ^([a-zA-Z]+)$   /index.php?page=$1 [L]
-RewriteRule ^([a-z]+)-([1-9]+([0-9]+)*)$   /index.php?page=$1&id=$2 [L]
+RewriteRule ^([a-z]+)\/([1-9]+([0-9]+)*)$   /index.php?page=$1&id=$2 [L]
+RewriteRule ^([a-z]+)\/([1-9]+([0-9]+)*)\/([a-z]+)$   /index.php?page=$1&id=$2&action=$3 [L]
