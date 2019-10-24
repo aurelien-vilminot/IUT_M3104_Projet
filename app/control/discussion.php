@@ -22,7 +22,7 @@
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
 
-        if (isset($_POST['submit']) || isset($_POST['submit_close']) && !empty(trim($_POST['message'])))
+        if ((isset($_POST['submit']) || isset($_POST['submit_close'])) && !empty(trim($_POST['message'])))
         {
             $messageContent = $myUser->clean($_POST['message']);
             $nbWord = explode(' ', $messageContent);

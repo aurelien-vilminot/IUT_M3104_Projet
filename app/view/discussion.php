@@ -110,6 +110,6 @@ EOT;
     if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
     {
 ?>
-        <a href="index.php?page=discussion&id=<?=$id?>&action=delete_discussion" class="warning">• Supprimer la discussion •</a>
+        <a href="discussion-<?=$_GET['id']?>-delete_discussion" class="warning">• Supprimer la discussion •</a>
 <?php
     }
