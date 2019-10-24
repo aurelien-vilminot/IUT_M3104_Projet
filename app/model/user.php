@@ -6,7 +6,7 @@
         private $password;
         private $admin;
 
-        public function __construct($login)
+        public function __construct($login)             //Constructeur de la classe user
         {
             $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
             $req = $this->executeRequete($sql);
@@ -20,15 +20,15 @@
             $req->closeCursor();
         }
 
-        public function getLogin(){return $this->login;}
+        public function getLogin(){return $this->login;}            //Renvoie le login
 
-        public function getMail(){return $this->mail;}
+        public function getMail(){return $this->mail;}              //Renvoie le mail
 
-        public function getPassword(){return $this->password;}
+        public function getPassword(){return $this->password;}      //Renvoie le mot de passe
 
-        public function getAdmin(){return $this->admin;}
+        public function getAdmin(){return $this->admin;}            //Renvoie si l'utilisateur est admin
 
-        public function setLogin($login)
+        public function setLogin($login)                            //Permet de modifier le login
         {
             if ($this->login_taken($login) == 1)
                 return;
@@ -39,7 +39,7 @@
             $this->login = $login;
         }
 
-        public function setMail($mail)
+        public function setMail($mail)                              //Permet de modifier le mail
         {
             if ($this->email_taken($mail) == 1)
                 return;
@@ -50,7 +50,7 @@
             $this->mail = $mail;
         }
 
-        public function setPassword($password)
+        public function setPassword($password)                      //Permet de modifier le mot de passe
         {
             $tab = array('password' => $password);
             $sql = 'UPDATE USER SET PASSWORD = :password  WHERE LOGIN = \'' . $this->login . '\'';
@@ -58,7 +58,7 @@
             $this->password = $password;
         }
 
-        public function setAdmin($admin)
+        public function setAdmin($admin)                            //Permet de modifier si un utilisateur est admin
         {
             $tab = array('admin' => $admin);
             $sql = 'UPDATE USER SET ADMIN = :admin  WHERE LOGIN = \'' . $this->login . '\'';
@@ -66,21 +66,21 @@
             $this->admin = $admin;
         }
 
-        public function email_taken($email)
+        public function email_taken($email)                         //Vérifie si l'email est déjà utilisé
     {
         $sql = 'SELECT * FROM USER WHERE MAIL = \'' . $email . '\'';
         $req = $this->executeRequete($sql);
         return $req->rowCount();
     }
 
-        public function login_taken($login)
+        public function login_taken($login)                         //Vérifie si le login est déjà utilisé
         {
             $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
             $req = $this->executeRequete($sql);
             return $req->rowCount();
         }
 
-        public function create_message ($content, $state, $id_discussion)
+        public function create_message ($content, $state, $id_discussion)       //Créé une discussion
         {
             $tab = array('content' => $content, 'state' =>$state, 'id_discussion' => $id_discussion);
             $sql = 'INSERT INTO MESSAGE (CONTENT, STATE, ID_DISCUSSION) VALUES (:content, :state, :id_discussion)';
@@ -93,14 +93,14 @@
             $this->executeRequete($sql3, $tab3);
         }
 
-        public function modify_message($idMessage, $content)
+        public function modify_message($idMessage, $content)                    //Modifie le contenue du message
         {
             $tab = array('idMessage' => $idMessage, 'content' => $content);
             $sql = 'UPDATE MESSAGE SET CONTENT = :content WHERE ID = :idMessage';
             $this->executeRequete($sql, $tab);
         }
 
-        public function update_message ($idMessage, $content)
+        public function update_message ($idMessage, $content)                   //Met à jour un message en cours d'écriture
         {
             $sql = 'SELECT CONTENT FROM MESSAGE WHERE ID = \'' . $idMessage . '\'';
             $req = $this->executeRequete($sql);
@@ -116,21 +116,21 @@
             $this->executeRequete($sql3, $tab);
         }
 
-        public function update_close_message($idMessage, $content)
+        public function update_close_message($idMessage, $content)              //Met à jour et ferme un message en cours d'écriture
         {
             $this->update_message($idMessage, $content);
             $sql = 'UPDATE MESSAGE SET STATE = 0 WHERE ID = \'' . $idMessage . '\'';
             $this->executeRequete($sql);
         }
 
-        public function authorizedUpdateMessage ($idMessage)
+        public function authorizedUpdateMessage ($idMessage)                    //Vérifie si l'utilisateur a déjà envoyé un message dans le message courant
         {
             $sql = 'SELECT * FROM USER_MESSAGE WHERE ID_USER = \'' . $this->login . '\'  AND ID_MESSAGE = \'' . $idMessage . '\'';
             $req = $this->executeRequete($sql);
             return $req->rowCount();
         }
 
-        public function deleteMessage($idMessage)
+        public function deleteMessage($idMessage)                               //Supprime un message
         {
             $tab = array('id' => $idMessage);
             $sql = 'DELETE FROM USER_MESSAGE WHERE ID_MESSAGE = :id';
@@ -140,14 +140,14 @@
             $this->executeRequete($sql2, $tab);
         }
 
-        public function isMessageExist($idMessage)
+        public function isMessageExist($idMessage)      //Vérifie si un message existe
         {
             $sql = 'SELECT * FROM MESSAGE WHERE ID = \'' . $idMessage . '\'';
             $req = $this->executeRequete($sql);
             return $req->rowCount();
         }
 
-        public function isAdmin()
+        public function isAdmin()               //Booléen permettant de savoir si un utilisateur est admin
         {
             if ($this->admin)
                 return 1;
@@ -155,7 +155,7 @@
                 return 0;
         }
 
-        public function delete()
+        public function delete()                //Supprime un utilisateur
         {
             $tab = array('login' => $this->login);
             $sql = 'DELETE FROM USER_MESSAGE WHERE ID_USER = :login';
