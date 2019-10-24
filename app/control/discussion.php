@@ -1,6 +1,6 @@
 <?php
     if (!isset($_GET['id']))
-        header('Location: index.php');
+        header('Location: home');
 
     $myDiscussion = new discussion();
 
@@ -10,11 +10,11 @@
     {
         $idPage = $myDiscussion->clean(trim($_GET['id']));
         $myDiscussion->setId($idPage);
-        if($myDiscussion->isExist() == 0)
-            header('Location: index.php');
+        if(!$myDiscussion->isExist())
+            header('Location: home');
     }
     else
-        header('Location: index.php');
+        header('Location: home');
 
     if (isset($_SESSION['CurrentUser']))
     {
@@ -89,7 +89,7 @@
             if (isset($_GET['action']) && $_GET['action'] == 'delete_discussion')
             {
                 $myDiscussion->delete();
-                header('Location: index.php');
+                header('Location: home');
             }
 
             if (isset($_GET['id_message']) && !empty(trim($_GET['id_message'])) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['id_message']))
