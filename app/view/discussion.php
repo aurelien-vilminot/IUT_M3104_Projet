@@ -74,7 +74,7 @@ EOT;
         if ($stateDiscussion == 1)
         {
             ?>
-            <form action="discussion-<?=$idPage?>" method="post">
+            <form action="index.php?page=discussion&id=<?=$idPage?>" method="post">
                 <input type="text" placeholder="Entrer un ou deux mots" name="message" required>
                 <input type="submit" id="littleSubmitBox" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
@@ -88,16 +88,16 @@ EOT;
             <?php
                 if($like)
                     echo <<<EOT
-<a href="discussion-$idPage-changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
+<a href="index.php?page=discussion&id=$idPage&action=changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
 EOT;
                 else
                     echo <<<EOT
-<a href="discussion-$idPage-changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
+<a href="index.php?page=discussion&id=$idPage&action=changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
 EOT;
             if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
                 {
                     echo <<<EOT
- <a href="discussion-$idPage-close_discussion" class="warning">• Fermer la discussion •</a>
+ <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">• Fermer la discussion •</a>
 EOT;
                 }
         }
@@ -105,11 +105,11 @@ EOT;
             echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
     }
     else
-        echo '<p><a href="register">Inscrivez-vous</a> ou <a href="login">connectez-vous</a> si vous souhaitez participer à cette discusion';
+        echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
 
     if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
     {
 ?>
-        <a href="discussion-<?=$idPage?>-delete_discussion" class="warning">• Supprimer la discussion •</a>
+        <a href="index.php?page=discussion&id=<?=$id?>&action=delete_discussion" class="warning">• Supprimer la discussion •</a>
 <?php
     }
