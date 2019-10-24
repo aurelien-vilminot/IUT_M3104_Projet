@@ -11,30 +11,43 @@ Lien du site web :
 Présentation du projet :
     Réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant
     des messages participatifs au sein desquels chaque utilisateur ne peut ajouter qu’un ou deux mots.
+    Différentes choses sont paramétrables sur le site pour modifier certaines fonctionnalitées
 
 
 Choix technique :
     Utilisation du MVC
     Utilisation de la programmation orientée objet
+    Autoload
+    PDO Bind
+    Système de like
+    Possibilité de changer son login pour un Admin
 
 
 Configuration minimale requise :
-    mini
+    Google chrome 29.0
+    Internet explorer / Edge 11.0
+    Mozilla Firefox 22.0
+    Safari 10
+    Opéra 48
 
 
 Configuration recommandé :
-    recommandé
+    Google chrome 76.0
+    Internet explorer / Edge 44.1
+    Mozilla Firefox 70
+    Safari 13.0
+    Opéra 63.0
 
 
 Identifiant de connexion :
 
     Utilisateur :
-        Login :
-        Mot de passe :
+        Login : user1
+        Mot de passe : password1
 
     SuperAdmin :
-        Login :
-        Mot de passe :
+        Login : aurelien1
+        Mot de passe : aurelien
 
     Base de données :
         Login : aurelien
@@ -43,7 +56,3 @@ Identifiant de connexion :
     Always Data :
         Mail : messi.om13@yahoo.fr
         Mot de passe : M3104_ASTC
-
-    Compte système de version :
-        Login :
-        Mot de passe :
