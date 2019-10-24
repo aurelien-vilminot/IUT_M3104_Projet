@@ -3,12 +3,11 @@ Options +FollowSymlinks
 
 # Activation du module de réécriture d'URL :
 RewriteEngine on
-Options -MultiViews
 
 #--------------------------------------------------
 # Règles de réécriture d'URL :
 #--------------------------------------------------
 
 RewriteRule ^([a-zA-Z]+)$   index.php?page=$1 [L]
-RewriteRule ^([a-z]+).([1-9]+([0-9]+)*)$   index.php?page=$1&id=$2 [L]
-RewriteRule ^([a-z]+)-([1-9]+([0-9]+)*)-([a-zA-Z_]+)$   index.php?page=$1&id=$2&action=$3 [L]
+RewriteRule ^([a-z]+)-([1-9]+([0-9]+)*)$   index.php?page=$1&id=$2 [L]
+RewriteRule ^([a-z]+)-([1-9]+[0-9]*)-([a-zA-Z_]+)$   index.php?page=$1&id=$2&action=$3 [L]

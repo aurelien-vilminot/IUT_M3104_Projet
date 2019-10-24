@@ -88,16 +88,16 @@ EOT;
             <?php
                 if($like)
                     echo <<<EOT
-<a href="index.php?page=discussion&id=$idPage&action=changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
+<a href="discussion-$idPage-changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
 EOT;
                 else
                     echo <<<EOT
-<a href="index.php?page=discussion&id=$idPage&action=changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
+<a href="discussion-$idPage-changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
 EOT;
             if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
                 {
                     echo <<<EOT
- <a href="index.php?page=discussion&id=$idPage&action=close_discussion" class="warning">• Fermer la discussion •</a>
+ <a href="discussion-$idPage-close_discussion" class="warning">• Fermer la discussion •</a>
 EOT;
                 }
         }
@@ -105,7 +105,7 @@ EOT;
             echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
     }
     else
-        echo '<p><a href="index.php?page=register">Inscrivez-vous</a> ou <a href="index.php?page=login">connectez-vous</a> si vous souhaitez participer à cette discusion';
+        echo '<p><a href="register">Inscrivez-vous</a> ou <a href="login">connectez-vous</a> si vous souhaitez participer à cette discusion';
 
     if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
     {
