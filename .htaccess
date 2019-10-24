@@ -1,2 +1,0 @@
-RewriteEngine on
-RewriteRule ^zozo.html$ Projet/www/index.php [L]
