@@ -43,7 +43,7 @@
             return $this->bdd;
         }
 
-        public function clean($var)  // permet de convertir les caractères spéciaux en entités html
+        public function clean($var)  // empêche les insertions de script et sql en "nettoyant" la variable passé en paramètre
         {
             return htmlspecialchars($var, ENT_QUOTES, 'UTF-8', false);
         }
