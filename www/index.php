@@ -20,7 +20,7 @@
     <meta name="description" content="FreeNote - Réseau Social">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>FreeNote</title>
-    <link rel="stylesheet" id="style" href="style/index.css" />
+    <link rel="stylesheet" id="style" href="/www/style/index.css" />
     <link rel="icon" type="image/png" href="media/favicon.png"/>
     <script src="js/myjavascript.js"></script>
 </head>
