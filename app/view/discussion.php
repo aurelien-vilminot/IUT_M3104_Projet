@@ -88,11 +88,11 @@ EOT;
             <?php
                 if($like)
                     echo <<<EOT
-<a href="discussion.$idPage.changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
+<a href="discussion-$idPage-changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
 EOT;
                 else
                     echo <<<EOT
-<a href="discussion.$idPage.changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
+<a href="discussion-$idPage-changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
 EOT;
             if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
                 {
