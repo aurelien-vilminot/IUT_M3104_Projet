@@ -86,7 +86,7 @@
             if (isset($_GET['action']) && $_GET['action'] == 'close_discussion')
                 $myDiscussion->setState(0);
 
-            if (isset($_GET['action']) && $_GET['action'] == 'deletediscussion')
+            if (isset($_GET['action']) && $_GET['action'] == 'delete_discussion')
             {
                 $myDiscussion->delete();
                 header('Location: home');
