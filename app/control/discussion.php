@@ -73,6 +73,7 @@
 
         if(isset($_GET['action']) && $_GET['action'] == 'changeLikeSate')
         {
+            echo 'et oué';
             if($myDiscussion->isLiked($myUser->getLogin()))
             {
                 $myDiscussion->unlike($myUser->getLogin());
