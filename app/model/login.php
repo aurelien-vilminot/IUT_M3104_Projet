@@ -1,7 +1,7 @@
 <?php
     class login extends database
     {
-        public function verif_user($login, $password)
+        public function verif_user($login, $password)   // verifie si l'utilisateur à rentrer le bon mot de passe
         {
             $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
             $requete = $this->executeRequete($sql);
@@ -24,7 +24,7 @@
             return $result;
         }
 
-        public function isAdmin($login)
+        public function isAdmin($login)  // vérifie si c'est c'est un administrateur
         {
             $sql = 'SELECT ADMIN FROM USER WHERE LOGIN = \'' . $login . '\'';
             $req = $this->executeRequete($sql);
