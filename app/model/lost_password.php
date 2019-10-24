@@ -9,7 +9,7 @@
             $this->login = $login;
         }
 
-        public function isExist()
+        public function isExist()   //vérifie si l'utilisateur existe 
         {
             $tab = array('login' => $this->login);
             $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
@@ -19,7 +19,7 @@
             return $isExist;
         }
 
-        private function setMail()
+        private function setMail()  
         {
             $sql = 'SELECT MAIL FROM USER WHERE LOGIN = \'' . $this->login . '\'';
             $req = $this->executeRequete($sql);
@@ -27,7 +27,7 @@
             $this->mail = $row[0][0];
         }
 
-        public function verifMail($mail)
+        public function verifMail($mail)  // vérifie si c'est un mail
         {
             $this->setMail();
             if ($this->mail == $mail)
@@ -36,7 +36,7 @@
                 return 1;
         }
 
-        public function setNewPassword()
+        public function setNewPassword()   // pour changer les mots de passe
         {
             $newPassword = uniqid();
             $newPasswordHash = password_hash($newPassword,PASSWORD_DEFAULT);
@@ -46,7 +46,7 @@
             return $newPassword;
         }
 
-        public function sendMail()
+        public function sendMail()   //envoie d'un mail avec le nouveau mot de passe 
         {
             $message = 'Bonjour ' . $this->login . ', ' . "\n" . "\n";
             $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici vos identifiants temporaires : ' . "\n";
