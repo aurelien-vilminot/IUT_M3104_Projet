@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
-        header("Location: index.php");
+        header('Location: home');
 
     if(isset($_POST['submit']) && !empty(trim($_POST['login'])) && !empty(trim($_POST['mail'])) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
     {
@@ -27,7 +27,7 @@
         {
             $userRegister->registerUser($login, $mail, $password, 0);
             $_SESSION['CurrentUser'] = serialize(new user($login));
-            header('Location: index.php');
+            header('Location: home');
         }
     }
 

@@ -1,11 +1,11 @@
 <?php
     if(!isset($_SESSION['CurrentUser']))
-        header("Location: index.php?page=login");
+        header('Location: login');
     else
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
         if (!$myUser->isAdmin())
-            header("Location: index.php");
+            header('Location: home');
     }
     if ($myUser->isAdmin())
     {
@@ -44,7 +44,7 @@
                 if (isset($_GET['action']) && $_GET['action'] == 'delete_user')
                 {
                     $updateUser->delete();
-                    header('Location: index.php?page=users');
+                    header('Location: users');
                 }
 
                 $login = $updateUser->getLogin();
@@ -52,10 +52,10 @@
                 $admin = $updateUser->getAdmin();
             }
             else
-                header('Location: index.php?page=users');
+                header('Location: users');
         }
         else
-            header('Location: index.php?page=users');
+            header('Location: users');
     }
 
 

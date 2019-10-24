@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION['CurrentUser']))
-        header("Location: index.php?page=login");
+        header('Location: login');
 
     $myUser = unserialize($_SESSION['CurrentUser']);
 

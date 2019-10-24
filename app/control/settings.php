@@ -1,11 +1,11 @@
 <?php
     if(!isset($_SESSION['CurrentUser']))
-        header("Location: index.php?page=login");
+        header('Location: login');
     else
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
         if (!$myUser->isAdmin())
-            header("Location: index.php");
+            header('Location: home');
     }
 
     $mySettings = new settings();

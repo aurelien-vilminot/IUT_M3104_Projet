@@ -1,6 +1,6 @@
 <?php
     if(!isset($_SESSION['lost_password']) && $_SESSION['lost_password'] != 1)
-        header('Location: index.php');
+        header('Location: home');
 
     if(isset($_POST['submit']) && !empty(trim($_POST['mail'])))
     {
@@ -14,7 +14,7 @@
                 if ($lost_password_user->verifMail($mail) == 0)
                 {
                     $lost_password_user->sendMail();
-                    header('Location: index.php');
+                    header('Location: home');
                 }
                 else
                     $error = 'Le mail ne correspond pas à l\'identifiant saisi';

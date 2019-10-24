@@ -1,6 +1,6 @@
 <?php
     if(isset($_SESSION['CurrentUser']))
-        header('Location: index.php');
+        header('Location: home');
 
     if(isset($_POST['submit']) && !empty(trim($_POST['login'])))
     {
@@ -16,7 +16,7 @@
                 $_SESSION['admin'] = 1;
             }
             $_SESSION['CurrentUser'] = serialize(new user($login));
-            header('Location: index.php?page=home');
+            header('Location: home');
         }
         elseif ($loginUser->verif_user($login, $password) == 2)
             $error = 'L\'identifiant est incorrect';
@@ -27,7 +27,7 @@
     {
         $_SESSION['login'] = trim($_POST['login']);
         $_SESSION['lost_password'] = 1;
-        header('Location: index.php?page=lost_password');
+        header('Location: lost_password');
     }
 
     require '../app/view/login.php';
