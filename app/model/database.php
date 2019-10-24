@@ -29,7 +29,7 @@
             return $this->getBdd()->lastInsertId($table);
         }
 
-        private function getBdd()
+        private function getBdd()     // renvoie la base de donnée
         {
             if ($this->bdd == null)
             {
@@ -53,7 +53,7 @@
             return preg_match('/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+((-|\.)[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/', $mail);
         }
 
-        public function ParseJSONFile($category, $object, $param = null)  
+        public function ParseJSONFile($category, $object, $param = null)   // parcour le fichier json et renvoie les valeur en fonction des paramètres
         {
             $configFile = file_get_contents('../app/files/config.json');
             $parsed_json = json_decode($configFile);

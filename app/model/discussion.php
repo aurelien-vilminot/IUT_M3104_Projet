@@ -4,14 +4,14 @@
         private $id_discussion;
         private $state;
 
-        public function getIdDiscussion(){return $this->id_discussion;}
+        public function getIdDiscussion(){return $this->id_discussion;}    // renvoie l'identifiant de la discussion
 
-        public function setId($id_discussion)
+        public function setId($id_discussion)  // affecte une valeur à l'identifiant de la discussion
         {
             $this->id_discussion = $id_discussion;
         }
 
-        public function getState()
+        public function getState()  // renvoie l'état de la discussion si elle est ouverte ou close
         {
             $sql = 'SELECT STATE FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
             $req = $this->executeRequete($sql);
@@ -20,7 +20,7 @@
             return $this->state;
         }
 
-        public function setState($state)
+        public function setState($state)   //change le statut de la discussion dans la base de donnée
         {
             $tab = array('id' => $this->id_discussion, 'state' => $state);
             $sql = 'UPDATE DISCUSSION SET STATE = :state WHERE ID = :id';
