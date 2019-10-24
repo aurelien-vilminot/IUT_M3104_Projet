@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^zozo.html$ index.php [L]
