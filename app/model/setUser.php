@@ -3,7 +3,7 @@ class setUser extends database
 {
     private $id;
 
-    public function __construct($id)
+    public function __construct($id)  //constructeur de la classe setUser
     {
         $this->id = $id;
     }

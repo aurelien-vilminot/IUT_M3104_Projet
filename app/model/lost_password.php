@@ -4,7 +4,7 @@
         private $login;
         private $mail;
 
-        public function __construct($login)
+        public function __construct($login)  //constructeur de la classe lost_password
         {
             $this->login = $login;
         }
@@ -19,7 +19,7 @@
             return $isExist;
         }
 
-        private function getMail()
+        private function getMail()  //trouve un mail dans la base de donnée
         {
             $sql = 'SELECT MAIL FROM USER WHERE LOGIN = \'' . $this->login . '\'';
             $req = $this->executeRequete($sql);
@@ -27,7 +27,7 @@
             $this->mail = $row[0][0];
         }
 
-        public function verifMail($mail)  // vérifie si c'est un mail
+        public function verifMail($mail)  // vérifie si ce mail existe
         {
             $this->getMail();
             if ($this->mail == $mail)
