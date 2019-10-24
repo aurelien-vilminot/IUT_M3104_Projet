@@ -48,7 +48,7 @@
                 {
                     $myHome->createDiscussion($title);
                     $id = $myHome->lastDiscussion();
-                    header('Location: discussion/' . $id);
+                    header('Location: discussion-' . $id);
                 }
                 else
                     $error = 'Le titre doit être composé de 2 à 15 caractères, sans caractères spéciaux';

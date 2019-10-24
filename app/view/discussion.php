@@ -74,7 +74,7 @@ EOT;
         if ($stateDiscussion == 1)
         {
             ?>
-            <form action="discussion/<?=$idPage?>" method="post">
+            <form action="discussion-<?=$idPage?>" method="post">
                 <input type="text" placeholder="Entrer un ou deux mots" name="message">
                 <input type="submit" id="littleSubmitBox" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
@@ -88,16 +88,16 @@ EOT;
             <?php
                 if($like)
                     echo <<<EOT
-<a href="discussion/$idPage/changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
+<a href="discussion-$idPage-changeLikeSate"><img src="media/like.png" alt="Logo like" id="like"></a>
 EOT;
                 else
                     echo <<<EOT
-<a href="discussion/$idPage/changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
+<a href="discussion-$idPage-changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
 EOT;
             if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
                 {
                     echo <<<EOT
- <a href="discussion/$idPage/close_discussion" class="warning">• Fermer la discussion •</a>
+ <a href="discussion-$idPage-close_discussion" class="warning">• Fermer la discussion •</a>
 EOT;
                 }
         }
@@ -110,6 +110,6 @@ EOT;
     if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
     {
 ?>
-        <a href="discussion/<?=$idPage?>/delete_discussion" class="warning">• Supprimer la discussion •</a>
+        <a href="discussion-<?=$idPage?>-delete_discussion" class="warning">• Supprimer la discussion •</a>
 <?php
     }
