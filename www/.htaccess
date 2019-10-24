@@ -8,4 +8,4 @@ RewriteEngine on
 # Règles de réécriture d'URL :
 #--------------------------------------------------
 
-RewriteRule ^([a-z]+).html$   /index.php?page=$1 [L]
+RewriteRule ^test-([a-z]+).html$   /index.php?page=$1 [L]
