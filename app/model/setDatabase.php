@@ -1,7 +1,7 @@
 <?php
     class setDatabase extends database
     {
-        public function resetDB()
+        public function resetDB()               //Réinitialise la base de données
         {
             $sql = 'DROP VIEW DISCUSSION_SORTED;'
                 . 'DROP TABLE USER_MESSAGE;'
@@ -54,35 +54,35 @@
             $this->executeRequete($sql2);
         }
 
-        public function sendUser($login, $email, $password, $isAdmin)
+        public function sendUser($login, $email, $password, $isAdmin)       //Insère dans la BD un utilisateur
         {
             $tab = array('login' => $login, 'email' => $email, 'password' => $password, 'isAdmin' => $isAdmin);
             $sql = 'INSERT INTO USER (LOGIN,MAIL,PASSWORD,ADMIN) VALUES(:login,:email,:password,:isAdmin)';
             $this->executeRequete($sql, $tab);
         }
 
-        public function sendDiscussion($title)
+        public function sendDiscussion($title)                              //Insère dans la BD une discussion
         {
             $tab = array('title' => $title, 'state' => 1, 'nbLike' => 0);
             $sql = 'INSERT INTO DISCUSSION(TITLE, STATE, NB_LIKE) VALUES (:title, :state, :nbLike)';
             $this->executeRequete($sql, $tab);
         }
 
-        public function sendMessage($content, $state, $id_discussion)
+        public function sendMessage($content, $state, $id_discussion)       //Insère dans la BD un message
         {
             $tab = array('content' => $content, 'state' =>$state, 'id_discussion' => $id_discussion);
             $sql = 'INSERT INTO MESSAGE (CONTENT, STATE, ID_DISCUSSION) VALUES (:content, :state, :id_discussion)';
             $this->executeRequete($sql, $tab);
         }
 
-        public function setUserMessageDB($login, $id_message)
+        public function setUserMessageDB($login, $id_message)               //Insère dans la BD un message selon l'utilisateur
         {
             $tab = array('login' => $login, 'id' => $id_message);
             $sql = 'INSERT INTO USER_MESSAGE (ID_USER, ID_MESSAGE) VALUES (:login, :id)';
             $this->executeRequete($sql, $tab);
         }
 
-        public function sendLike($login, $id_discussion)
+        public function sendLike($login, $id_discussion)                    //Insère dans la BD un like dans une discussion
         {
             $tab = array('login' => $login, 'id_discussion' => $id_discussion);
             $sql = 'INSERT INTO LIKE_DISCUSSION (ID_USER, ID_DISCUSSION) VALUES (:login, :id_discussion)';
