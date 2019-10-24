@@ -21,7 +21,7 @@
                     for ($i = 1 ; $i < 4 ; ++$i)
                     {
                         if ($i == 1)
-                            echo '<td><a href="discussion-' . $discussion[0] . '">' . $discussion['TITLE'] . '</a></td>';
+                            echo '<td><a href="discussion/' . $discussion[0] . '">' . $discussion['TITLE'] . '</a></td>';
                         elseif ($i == 2)
                         {
                             if ($discussion['STATE'] == '0')
