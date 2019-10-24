@@ -75,7 +75,7 @@ EOT;
         {
             ?>
             <form action="discussion-<?=$idPage?>" method="post">
-                <input type="text" placeholder="Entrer un ou deux mots" name="message">
+                <input type="text" placeholder="Entrer un ou deux mots" name="message" required>
                 <input type="submit" id="littleSubmitBox" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
                 <?php
@@ -110,6 +110,6 @@ EOT;
     if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
     {
 ?>
-        <a href="discussion-<?=$idPage?>-delete_discussion" class="warning">• Supprimer la discussion •</a>
+        <a href="discussion-<?=$idPage?>-deletediscussion" class="warning">• Supprimer la discussion •</a>
 <?php
     }
