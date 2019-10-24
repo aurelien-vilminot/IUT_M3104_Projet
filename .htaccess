@@ -1,2 +1,2 @@
 RewriteEngine on
-RewriteRule ^zozo.html$ index.php [L]
+RewriteRule ^zozo.html$ /index.php [L]
