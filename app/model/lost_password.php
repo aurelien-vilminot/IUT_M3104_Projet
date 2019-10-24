@@ -19,7 +19,7 @@
             return $isExist;
         }
 
-        private function setMail()  
+        private function getMail()
         {
             $sql = 'SELECT MAIL FROM USER WHERE LOGIN = \'' . $this->login . '\'';
             $req = $this->executeRequete($sql);
@@ -29,7 +29,7 @@
 
         public function verifMail($mail)  // vérifie si c'est un mail
         {
-            $this->setMail();
+            $this->getMail();
             if ($this->mail == $mail)
                 return 0;
             else
