@@ -1,2 +1,11 @@
+# Le serveur doit suivre les liens symboliques :
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'URL :
 RewriteEngine on
-RewriteRule ^zozo.html$ index.php [L]
+
+#--------------------------------------------------
+# Règles de réécriture d'URL :
+#--------------------------------------------------
+
+RewriteRule ^([a-z]+)$   /index.php?page=$1 [L]

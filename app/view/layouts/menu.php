@@ -32,8 +32,8 @@ EOT;
             }
             else
                 echo <<<EOT
-<a href="index.php?page=login">Connexion</a>
-<a href="index.php?page=register">Inscription</a>
+<a href="connexion">Connexion</a>
+<a href="inscription">Inscription</a>
 EOT;
             ?>
     </div>
