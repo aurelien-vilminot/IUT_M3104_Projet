@@ -1,7 +1,13 @@
+#--------------------------------------------------
 # Le serveur doit suivre les liens symboliques :
+#--------------------------------------------------
+
 Options +FollowSymlinks
 
+#--------------------------------------------------
 # Activation du module de réécriture d'URL :
+#--------------------------------------------------
+
 RewriteEngine on
 
 #--------------------------------------------------
@@ -9,7 +15,12 @@ RewriteEngine on
 #--------------------------------------------------
 
 RewriteRule ^([a-zA-Z]+)$   index.php?page=$1 [L]
-RewriteRule ^([a-z]+)-([1-9]+([0-9]+)*)$   index.php?page=$1&id=$2 [L]
+RewriteRule ^(discussion)-([1-9]+([0-9]+)*)$   index.php?page=$1&id=$2 [L]
+RewriteRule ^(home)-([0-9]+)$   index.php?page=$1&disc=$2 [L]
 RewriteRule ^([a-z]+)-([1-9]+[0-9]*)-([a-zA-Z_]+)$   index.php?page=$1&id=$2&action=$3 [L]
+
+#--------------------------------------------------
+# Gestion de l'erreur 404 NOT FOUND
+#--------------------------------------------------
 
 ErrorDocument 404 /index.php?page=home

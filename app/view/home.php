@@ -68,7 +68,7 @@ EOT;
                 {
                     $page_prev = $page_disc - 1;
                     echo <<<EOT
-<a href="index.php?page=home&disc=$page_prev"><img src="media/prev.png" alt="prev"  title="Afficher les discussions précédentes"></a>
+<a href="home-$page_prev"><img src="media/prev.png" alt="prev"  title="Afficher les discussions précédentes"></a>
 EOT;
                 }
                 if ($page_disc == $nbDiscussionsPages)
@@ -77,7 +77,7 @@ EOT;
                 {
                     $page_next = $page_disc + 1;
                     echo <<<EOT
-<a href="index.php?page=home&disc=$page_next"><img src="media/next.png" alt="next"  title="Afficher les discussions suivantes"></a>
+<a href="home-$page_next"><img src="media/next.png" alt="next"  title="Afficher les discussions suivantes"></a>
 EOT;
                 }
             ?>
