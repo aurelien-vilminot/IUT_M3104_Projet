@@ -6,7 +6,7 @@
 
     $nbMaxMessages = $myDiscussion->ParseJSONFile('settings_website', 'nbMaxMessages');
 
-    if (isset($_GET['id']) && !empty($_GET['id']) && preg_match('/^[1-9]+([0-9]+)*/', $_GET['id']))
+    if (isset($_GET['id']) && !empty($_GET['id']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['id']))
     {
         $idPage = $myDiscussion->clean(trim($_GET['id']));
         $myDiscussion->setId($idPage);
