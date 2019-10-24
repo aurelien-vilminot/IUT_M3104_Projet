@@ -3,13 +3,9 @@
     {
         public function getDiscussions($firstDiscussion, $nbDiscussionsByPages)  // retourne les discussions entre fonction du nombre de like
         {
-            $sql = 'SELECT * FROM DISCUSSION_SORTED ORDER BY NB_LIKE DESC LIMIT :second, :first';
+            $sql = 'SELECT * FROM DISCUSSION ORDER BY NB_LIKE DESC, ID LIMIT :second, :first';
             $req = $this->executeLIMITRequete($sql, $nbDiscussionsByPages, $firstDiscussion);
-            $tab = $req->fetchAll();
-            $nbLike  = array_column($tab, 'NB_LIKE');
-            array_multisort($nbLike, SORT_DESC, $tab);
-
-            return $tab;
+            return $req->fetchAll();
         }
 
         public function getNbDiscussions()  // renvoie toutes les discussions

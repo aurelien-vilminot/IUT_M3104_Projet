@@ -3,8 +3,7 @@
     {
         public function resetDB()               //Réinitialise la base de données
         {
-            $sql = 'DROP VIEW DISCUSSION_SORTED;'
-                . 'DROP TABLE USER_MESSAGE;'
+            $sql = 'DROP TABLE USER_MESSAGE;'
                 . 'DROP TABLE LIKE_DISCUSSION;'
                 . 'DROP TABLE MESSAGE;'
                 . 'DROP TABLE DISCUSSION;'
@@ -46,11 +45,7 @@
                         ID_DISCUSSION INT NOT NULL,
                         CONSTRAINT C4 FOREIGN KEY(ID_USER) REFERENCES USER(LOGIN),
                         CONSTRAINT C5 FOREIGN KEY(ID_DISCUSSION) REFERENCES DISCUSSION(ID)
-                    );'
-                . 'CREATE VIEW DISCUSSION_SORTED AS
-                        SELECT *
-                        FROM DISCUSSION
-                        ORDER BY NB_LIKE DESC;';
+                    );';
             $this->executeRequete($sql2);
         }
 

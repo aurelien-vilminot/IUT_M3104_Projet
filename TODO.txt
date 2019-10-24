@@ -15,10 +15,6 @@ PDO bind
 
 
 
-Réglage pagination accueil
-
-
-
 le code source (sans ressources binaires) correctement commenté
 
 
