@@ -73,7 +73,6 @@
 
         if(isset($_GET['action']) && $_GET['action'] == 'changeLikeSate')
         {
-            echo 'et oué';
             if($myDiscussion->isLiked($myUser->getLogin()))
             {
                 $myDiscussion->unlike($myUser->getLogin());
@@ -128,5 +127,7 @@
         $myDiscussion->setState(1);
 
     $stateDiscussion = $myDiscussion->getState();
+
+    echo $_GET['page'] .PHP_EOL .  $_GET['id'] .PHP_EOL . $_GET['action'] .PHP_EOL ;
 
     require '../app/view/discussion.php';
