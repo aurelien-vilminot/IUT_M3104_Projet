@@ -9,7 +9,7 @@
         echo '<tr>';
             if ($user[0] != $myUser->getLogin())
                 echo <<<EOT
-<td><a href="index.php?page=setUser&id=$user[0]">$user[0]</a></td>
+<td><a href="setUser-$user[0]">$user[0]</a></td>
 EOT;
             else
                 echo '<td>' . $user[0] . '</td>';
@@ -29,7 +29,7 @@ EOT;
         {
             $page_prev = $page_users - 1;
             echo <<<EOT
-<a href="index.php?page=users&users=$page_prev"><img src="media/prev.png" alt="prev"  title="Afficher les utilisateurs précédents"></a>
+<a href="users-$page_prev"><img src="media/prev.png" alt="prev"  title="Afficher les utilisateurs précédents"></a>
 EOT;
         }
         if ($page_users == $nbUsersPage)
@@ -38,7 +38,7 @@ EOT;
         {
             $page_next = $page_users + 1;
             echo <<<EOT
-<a href="index.php?page=users&users=$page_next"><img src="media/next.png" alt="next" title="Afficher les utilisateurs suivants"></a>
+<a href="users-$page_next"><img src="media/next.png" alt="next" title="Afficher les utilisateurs suivants"></a>
 EOT;
         }
     ?>

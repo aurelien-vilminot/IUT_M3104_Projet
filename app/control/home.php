@@ -8,9 +8,9 @@
     {
         $nbDiscussionsPages = ceil($nbDiscussions/$nbDiscussionsByPages);
 
-        if(isset($_GET['disc']) && !empty($_GET['disc']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['disc']))
+        if(isset($_GET['pages']) && !empty($_GET['pages']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['pages']))
         {
-            $page_disc = $myHome->clean(trim($_GET['disc']));
+            $page_disc = $myHome->clean(trim($_GET['pages']));
 
             if($page_disc > $nbDiscussionsPages)
                 $page_disc = $nbDiscussionsPages;
@@ -25,7 +25,6 @@
         $firstDiscussion = 0;
         $nbDiscussionsPages = 1;
         $page_disc = 1;
-
     }
 
     $tabDisc = $myHome->getDiscussions($firstDiscussion, $nbDiscussionsByPages);

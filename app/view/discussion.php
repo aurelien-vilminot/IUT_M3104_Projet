@@ -25,14 +25,13 @@ EOT;
 </div>
 EOT;
             unset($users);
-
             if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
             {
                 $idMessage = $message['ID'];
                 echo <<<EOT
         <div>
-            <a href="index.php?page=discussion&id=$idPage&action=modify_message&id_message=$idMessage"><img src="media/modify.png" title="Modifier le message" alt="Modifier le message"></a>
-            <a href="index.php?page=discussion&id=$idPage&action=delete_message&id_message=$idMessage"><img src="media/delete.png" title=""Supprimer le message alt="Supprimer le message"></a>
+            <a href="discussion-$idPage-modify_message-$idMessage"><img src="media/modify.png" title="Modifier le message" alt="Modifier le message"></a>
+            <a href="discussion-$idPage-delete_message-$idMessage"><img src="media/delete.png" title="Supprimer le message" alt="Supprimer le message"></a>
         </div>
 EOT;
             }
@@ -57,7 +56,7 @@ EOT;
                 if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin() && isset($_GET['action']) &&  $_GET['action'] == 'modify_message')
                 {
                     echo <<<EOT
-<form action="index.php?page=discussion&id=$idPage&id_message=$idMessage" method="post">
+<form action="discussion-$idPage-modify-$idMessage" method="post">
     <input type="text" placeholder="Entrez le nouveau contenu" name="messageContent" required>
     <input type="submit" name="modify_message" value="Modifier ce message">
 </form>
@@ -74,7 +73,7 @@ EOT;
         if ($stateDiscussion == 1)
         {
             ?>
-            <form action="index.php?page=discussion&id=<?=$idPage?>" method="post">
+            <form action="discussion-<?=$idPage?>" method="post">
                 <input type="text" placeholder="Entrer un ou deux mots" name="message" required>
                 <input type="submit" id="littleSubmitBox" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">

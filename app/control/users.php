@@ -14,9 +14,9 @@
 
     $nbUsersPage = ceil($nbUsers/$nbUsersByPage);
 
-    if(isset($_GET['users']) && !empty($_GET['users']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['users']))
+    if(isset($_GET['pages']) && !empty($_GET['pages']) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['pages']))
     {
-        $page_users = $myUser->clean(trim($_GET['users']));
+        $page_users = $myUser->clean(trim($_GET['pages']));
 
         if($page_users > $nbUsersPage)
             $page_users = $nbUsersPage;

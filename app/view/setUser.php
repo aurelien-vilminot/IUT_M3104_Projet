@@ -4,7 +4,7 @@
 <div class="modif">
     <div class="modifMail">
         <h3>Modification du mail de l'utilisateur :<br></h3>
-        <form action="index.php?page=setUser&id=<?=$login?>" method="post">
+        <form action="setUser-<?=$login?>" method="post">
             <input type="email" placeholder="Entrez une nouvelle adresse mail" name="mail" required>
             <?php
             if (isset($error_email))
@@ -27,7 +27,7 @@ EOT;
 EOT;
                     else
                         echo <<<EOT
-<a href="index.php?page=setUser&id=$login&action=changeState&value=1"><img src="media/admin.png" alt="Logo admin" style="width: 5vw"></a>
+<a href="setUser-$login-changeState-1"><img src="media/admin.png" alt="Logo admin" style="width: 5vw"></a>
 EOT;
                 ?>
             </div>
@@ -40,14 +40,14 @@ EOT;
 EOT;
                     else
                         echo <<<EOT
-<a href="index.php?page=setUser&id=$login&action=changeState&value=0"><img src="media/user.png" alt="Logo utilisateur" style="width: 5vw"></a>
+<a href="setUser-$login-changeState-0"><img src="media/user.png" alt="Logo utilisateur" style="width: 5vw"></a>
 EOT;
                 ?>
             </div>
         </div>
     </div>
 </div>
-<a href="index.php?page=setUser&id=<?=$_GET['id']?>&action=delete_user" class="warning">• Supprimer cet utilisateur •</a>
+<a href="setUser-<?=$_GET['id']?>-delete_user" class="warning">• Supprimer cet utilisateur •</a>
 
 <?php
 if (isset($validate))

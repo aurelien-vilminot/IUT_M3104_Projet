@@ -28,15 +28,15 @@
 
         public function getAdmin(){return $this->admin;}            //Renvoie si l'utilisateur est admin
 
-        public function setLogin($login)                            //Permet de modifier le login
+        public function setLogin($newLogin)                            //Permet de modifier le login
         {
-            if ($this->login_taken($login) == 1)
+            if ($this->login_taken($newLogin) == 1)
                 return;
 
-            $tab = array('login' => $login);
-            $sql = 'UPDATE USER SET LOGIN = :login  WHERE LOGIN = \'' . $this->login . '\'';
+            $tab = array('newLogin' => $newLogin);
+            $sql = 'UPDATE USER SET LOGIN = :newLogin  WHERE LOGIN = \'' . $this->login . '\'';
             $this->executeRequete($sql, $tab);
-            $this->login = $login;
+            $this->login = $newLogin;
         }
 
         public function setMail($mail)                              //Permet de modifier le mail

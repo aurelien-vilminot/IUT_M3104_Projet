@@ -42,7 +42,7 @@
             echo <<<EOT
 <div class="newDiscussion">
     <img src="media/new.png">
-    <a href="index.php?page=home&disc=$page_disc&action=newdiscussion">Nouvelle discussion</a>
+    <a href="home-$page_disc-newdiscussion">Nouvelle discussion</a>
 </div>
 EOT;
         }

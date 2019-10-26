@@ -12,7 +12,7 @@
 
             $sql2 = 'CREATE TABLE `USER`
                     (
-                        LOGIN VARCHAR(15) PRIMARY KEY NOT NULL,
+                        LOGIN VARCHAR(15) PRIMARY KEY NOT NULL COLLATE utf8mb4_bin,
                         MAIL VARCHAR(50) NOT NULL,
                         PASSWORD VARCHAR(255) NOT NULL,
                         ADMIN BOOLEAN NOT NULL
@@ -34,16 +34,16 @@
                     );'
                 . 'CREATE TABLE USER_MESSAGE
                     (
-                        ID_USER VARCHAR(15) NOT NULL,
+                        ID_USER VARCHAR(15) NOT NULL COLLATE utf8mb4_bin,
                         ID_MESSAGE INT NOT NULL,
-                        CONSTRAINT C2 FOREIGN KEY (ID_USER) REFERENCES USER(LOGIN),
+                        CONSTRAINT C2 FOREIGN KEY (ID_USER) REFERENCES USER(LOGIN) ON DELETE RESTRICT ON UPDATE CASCADE,
                         CONSTRAINT C3 FOREIGN KEY (ID_MESSAGE) REFERENCES MESSAGE(ID)
                     );'
                 . 'CREATE TABLE LIKE_DISCUSSION
                     (
-                        ID_USER VARCHAR(15) NOT NULL,
+                        ID_USER VARCHAR(15) NOT NULL COLLATE utf8mb4_bin,
                         ID_DISCUSSION INT NOT NULL,
-                        CONSTRAINT C4 FOREIGN KEY(ID_USER) REFERENCES USER(LOGIN),
+                        CONSTRAINT C4 FOREIGN KEY(ID_USER) REFERENCES USER(LOGIN) ON DELETE RESTRICT ON UPDATE CASCADE,
                         CONSTRAINT C5 FOREIGN KEY(ID_DISCUSSION) REFERENCES DISCUSSION(ID)
                     );';
             $this->executeRequete($sql2);
