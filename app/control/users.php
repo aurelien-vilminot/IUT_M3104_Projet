@@ -28,7 +28,7 @@
 
     $tabUsers = $myUsers->getUsers($firstUser, $nbUsersByPage);
 
-    if (isset($_GET['action']) && $_GET['action'] == 'validation' && isset($_GET['object']) && !empty($_GET['object']))
+    if (isset($_GET['action'], $_GET['object']) && $_GET['action'] == 'validation' && !empty($_GET['object']))
     {
         $subject = 'Confirmation';
 

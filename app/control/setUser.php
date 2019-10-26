@@ -35,7 +35,7 @@
                     }
                 }
 
-                if (isset($_GET['action']) && $_GET['action'] == 'changeState' && isset($_GET['value']) && preg_match('/^[0-1]$/', $_GET['value']))
+                if (isset($_GET['action'], $_GET['value']) && $_GET['action'] == 'changeState' && preg_match('/^[0-1]$/', $_GET['value']))
                 {
                     $updateUser->setAdmin($updateUser->clean(trim($_GET['value'])));
                     $validate = 'Le statut de l\'utilisateur a bien été modifié';
