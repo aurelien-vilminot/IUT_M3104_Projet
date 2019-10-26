@@ -1,5 +1,5 @@
 # IUT Informatique - Projet M3104
- * Site Web PHP en MVC *
+ • Site Web PHP en MVC •
 
 Récupérer données SQL :
 
