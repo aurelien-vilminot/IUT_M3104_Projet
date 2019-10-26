@@ -43,3 +43,22 @@ EOT;
         }
     ?>
 </div>
+
+<?php
+if (isset($subject))
+{
+    ?>
+    <div id="validation" class="overlay">
+        <div class="popup">
+            <div class="head">
+                <h2><?=$subject?></h2>
+                <a class="close" href="#">&times;</a>
+            </div>
+            <div class="content">
+                <p><?=$object?></p>
+            </div>
+        </div>
+    </div>
+    <?php
+}
+?>

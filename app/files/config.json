@@ -11,6 +11,11 @@
     "nbUsersByPage": "4",
     "nbDiscussionsByPage": "2"
   },
+  "Confirmations": {
+    "mail" : "Votre e-mail de demande de récupération de mot de passe a bien été envoyée.",
+    "suppr_discussion": "La discussion a bien été supprimée.",
+    "suppr_user": "L'utilisateur a bien été supprimé."
+  },
   "Users": {
     "0": {
       "Login": "aurelien1",

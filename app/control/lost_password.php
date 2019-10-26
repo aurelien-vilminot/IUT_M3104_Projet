@@ -14,7 +14,7 @@
                 if ($lost_password_user->verifMail($mail) == 0)
                 {
                     $lost_password_user->sendMail();
-                    header('Location: home');
+                    header('Location: home-validation-mail#validation');
                 }
                 else
                     $error = 'Le mail ne correspond pas à l\'identifiant saisi';

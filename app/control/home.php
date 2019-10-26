@@ -55,5 +55,15 @@
         }
     }
 
+    if (isset($_GET['action']) && $_GET['action'] == 'validation' && isset($_GET['object']) && !empty($_GET['object']))
+    {
+        $subject = 'Confirmation';
+
+        if ($_GET['object'] == 'mail')
+            $object = $myHome->ParseJSONFile('Confirmations', 'mail');
+        elseif ($_GET['object'] == 'suppr_disc')
+            $object = $myHome->ParseJSONFile('Confirmations', 'suppr_discussion');
+    }
+
     require '../app/view/home.php';
 

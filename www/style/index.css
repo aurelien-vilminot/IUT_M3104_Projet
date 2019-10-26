@@ -327,6 +327,68 @@ th, td{
     margin-bottom: 1vw;
 }
 
+.overlay
+{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: opacity 500ms;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.overlay:target
+{
+    visibility: visible;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 2;
+}
+
+.popup
+{
+    margin: 9vw auto;
+    padding: 2vw;
+    background: #ffffff;
+    border-radius: 1vw;
+    width: 30%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.head {
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup h2
+{
+    margin-top: 0;
+    color: #6a93ca;
+}
+
+.popup .close
+{
+    font-size: 2vw;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.popup .close:hover
+{
+    color: #6a93ca;
+}
+
+.popup .content
+{
+    max-height: 30%;
+    font-size: 1vw;
+}
+
 #backHome {
     margin: 0 0 2vw 0;
     padding: 0.5vw;

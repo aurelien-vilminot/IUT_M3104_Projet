@@ -28,4 +28,12 @@
 
     $tabUsers = $myUsers->getUsers($firstUser, $nbUsersByPage);
 
+    if (isset($_GET['action']) && $_GET['action'] == 'validation' && isset($_GET['object']) && !empty($_GET['object']))
+    {
+        $subject = 'Confirmation';
+
+        if ($_GET['object'] == 'suppr_user')
+            $object = $myUsers->ParseJSONFile('Confirmations', 'suppr_user');
+    }
+
     require '../app/view/users.php';

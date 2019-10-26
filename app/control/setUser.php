@@ -44,7 +44,7 @@
                 if (isset($_GET['action']) && $_GET['action'] == 'delete_user')
                 {
                     $updateUser->delete();
-                    header('Location: users');
+                    header('Location: users-validation-suppr_user#validation');
                 }
 
                 $login = $updateUser->getLogin();

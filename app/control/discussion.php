@@ -89,7 +89,7 @@
             if (isset($_GET['action']) && $_GET['action'] == 'delete_discussion')
             {
                 $myDiscussion->delete();
-                header('Location: home');
+                header('Location: home-validation-suppr_disc#validation');
             }
 
             if (isset($_GET['id_message']) && !empty(trim($_GET['id_message'])) && preg_match('/^[1-9]+([0-9]+)*$/', $_GET['id_message']))
