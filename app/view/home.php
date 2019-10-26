@@ -2,7 +2,7 @@
     <div class="presentation">
         <p>
             Bienvenue sur FreeNote<b><?php if (isset($userLogin)) echo ' ' . $userLogin;?></b>,<br><br>
-            Ce réseau social a pour vocation d'être inutile... Mais bon on n'a pas le choix de le faire, désolé les gars :(<br><br>
+            Ce réseau social a pour vocation d'être inutile... Mais bon, nous n'avions pas le choix, désolé les gars :(<br><br>
             Plus sérieusement, réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant des messages participatifs au sein desquels chaque utilisateur ne peut ajouter qu’un ou deux mots.
         </p>
     </div>
@@ -40,8 +40,8 @@
         if (isset($_SESSION['CurrentUser']) && !isset($_GET['action']))
         {
             echo <<<EOT
-<div class="newDiscussion">
-    <img src="media/new.png">
+<div class="newButton">
+    <img src="media/new.png" alt="Logo nouvelle discussion">
     <a href="home-$page_disc-newdiscussion">Nouvelle discussion</a>
 </div>
 EOT;

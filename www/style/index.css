@@ -262,7 +262,7 @@ th, td{
     width: 3vw;
 }
 
-.newDiscussion {
+.newButton {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -273,14 +273,14 @@ th, td{
     max-width: 50%;
 }
 
-.newDiscussion img {
+.newButton img {
     width: 10%;
 }
 
-.newDiscussion a {
+.newButton a {
     color: white;
 }
-.newDiscussion a:hover {
+.newButton a:hover {
     transform: scale(1.01);
 }
 
@@ -327,7 +327,13 @@ th, td{
     margin-bottom: 1vw;
 }
 
-#alertBD{
+#backHome {
+    margin: 0 0 2vw 0;
+    padding: 0.5vw;
+    justify-content: space-evenly;
+}
+
+#alertBD {
     text-align: center;
     margin: 2vw;
 }
