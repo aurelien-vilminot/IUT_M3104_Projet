@@ -1,10 +1,11 @@
 <?php
 class users extends database
 {
-    public function getUsers($firstDiscussion, $nbDiscussionsByPages)       //Renvoie tout les utilisateurs
+    public function getUsers($firstUser, $nbUsersByPages)       //Renvoie tout les utilisateurs
     {
+        $tab = array('first' => $nbUsersByPages, 'second' => $firstUser);
         $sql = 'SELECT * FROM USER ORDER BY LOGIN LIMIT :second, :first';
-        $req = $this->executeLIMITRequete($sql, $nbDiscussionsByPages, $firstDiscussion);
+        $req = $this->executeRequete($sql, $tab);
         $row = $req->fetchAll();
         return $row;
     }

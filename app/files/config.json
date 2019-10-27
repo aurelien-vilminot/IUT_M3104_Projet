@@ -8,8 +8,8 @@
   "settings_website": {
     "nbMaxDiscussions": "12",
     "nbMaxMessages": "10",
-    "nbUsersByPage": "4",
-    "nbDiscussionsByPage": "2"
+    "nbUsersByPage": 4,
+    "nbDiscussionsByPage": 2
   },
   "Confirmations": {
     "mail" : "Votre e-mail de demande de récupération de mot de passe a bien été envoyé.",
