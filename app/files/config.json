@@ -6,8 +6,8 @@
     "Password": "M3104_ASTC"
   },
   "settings_website": {
-    "nbMaxDiscussions": "12",
-    "nbMaxMessages": "10",
+    "nbMaxDiscussions": 12,
+    "nbMaxMessages": 10,
     "nbUsersByPage": 4,
     "nbDiscussionsByPage": 2
   },
@@ -21,37 +21,37 @@
       "Login": "aurelien1",
       "Mail": "root@root.com",
       "Password": "aurelien",
-      "Admin": "1"
+      "Admin": 1
     },
     "1": {
       "Login": "user1",
       "Mail": "user1@fai.com",
       "Password": "password1",
-      "Admin": "0"
+      "Admin": 0
     },
     "2": {
       "Login": "user2",
       "Mail": "user2@fai.com",
       "Password": "password2",
-      "Admin": "0"
+      "Admin": 0
     },
     "3": {
       "Login": "user3",
       "Mail": "user3@fai.com",
       "Password": "password3",
-      "Admin": "0"
+      "Admin": 0
     },
     "4": {
       "Login": "user4",
       "Mail": "user4@fai.com",
       "Password": "password4",
-      "Admin": "0"
+      "Admin": 0
     },
     "5": {
       "Login": "user5",
       "Mail": "user5@fai.com",
       "Password": "password5",
-      "Admin": "0"
+      "Admin": 0
     }
   },
   "Discussions": {

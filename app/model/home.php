@@ -5,7 +5,6 @@
         {
             $tab = array('first' => $nbDiscussionsByPages, 'second' => $firstDiscussion);
             $sql = 'SELECT * FROM DISCUSSION ORDER BY NB_LIKE DESC, ID LIMIT :second, :first';
-            //$req = $this->executeLIMITRequete($sql, $nbDiscussionsByPages, $firstDiscussion);
             $req = $this->executeRequete($sql, $tab);
             return $req->fetchAll();
         }

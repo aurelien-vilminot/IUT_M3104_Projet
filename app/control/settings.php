@@ -18,8 +18,8 @@
             if (preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbMaxDiscussions']))
             {
                 $nbMaxDiscussions = $mySettings->clean(trim($_POST['nbMaxDiscussions']));
-                $changeJSON = str_replace('"nbMaxDiscussions": "' . $mySettings->ParseJSONFile('settings_website','nbMaxDiscussions') . '"',
-                    '"nbMaxDiscussions": "' . $nbMaxDiscussions .'"', $strConfigFile);
+                $changeJSON = str_replace('"nbMaxDiscussions": ' . $mySettings->ParseJSONFile('settings_website','nbMaxDiscussions'),
+                    '"nbMaxDiscussions": ' . $nbMaxDiscussions, $strConfigFile);
                 $mySettings->setJSONFile($changeJSON);
                 $validate = 'La valeur a bien été changée';
             }
@@ -32,8 +32,8 @@
             if(preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbMaxMessages']))
             {
                 $newNbMaxMessages = $mySettings->clean(trim($_POST['nbMaxMessages']));
-                $changeJSON = str_replace('"nbMaxMessages": "' . $mySettings->ParseJSONFile('settings_website','nbMaxMessages') . '"',
-                    '"nbMaxMessages": "' . $newNbMaxMessages .'"', $strConfigFile);
+                $changeJSON = str_replace('"nbMaxMessages": ' . $mySettings->ParseJSONFile('settings_website','nbMaxMessages'),
+                    '"nbMaxMessages": ' . $newNbMaxMessages, $strConfigFile);
                 $mySettings->setJSONFile($changeJSON);
                 $validate = 'La valeur a bien été changée';
             }
@@ -46,8 +46,8 @@
             if(preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbUsersByPage']))
             {
                 $newNbUsersByPage = $mySettings->clean(trim($_POST['nbUsersByPage']));
-                $changeJSON = str_replace('"nbUsersByPage": "' . $mySettings->ParseJSONFile('settings_website','nbUsersByPage') . '"',
-                    '"nbUsersByPage": "' . $newNbUsersByPage .'"', $strConfigFile);
+                $changeJSON = str_replace('"nbUsersByPage": ' . $mySettings->ParseJSONFile('settings_website','nbUsersByPage'),
+                    '"nbUsersByPage": ' . $newNbUsersByPage, $strConfigFile);
                 $mySettings->setJSONFile($changeJSON);
                 $validate = 'La valeur a bien été changée';
             }
@@ -60,8 +60,8 @@
             if(preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbDiscussionsByPage']))
             {
                 $newNbDiscussionsByPage = $mySettings->clean(trim($_POST['nbDiscussionsByPage']));
-                $changeJSON = str_replace('"nbDiscussionsByPage": "' . $mySettings->ParseJSONFile('settings_website','nbDiscussionsByPage') . '"',
-                    '"nbDiscussionsByPage": "' . $newNbDiscussionsByPage .'"', $strConfigFile);
+                $changeJSON = str_replace('"nbDiscussionsByPage": ' . $mySettings->ParseJSONFile('settings_website','nbDiscussionsByPage'),
+                    '"nbDiscussionsByPage": ' . $newNbDiscussionsByPage, $strConfigFile);
                 $mySettings->setJSONFile($changeJSON);
                 $validate = 'La valeur a bien été changée';
             }
