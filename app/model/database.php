@@ -58,7 +58,7 @@
 
         public function clean($var)  // empêche les insertions de script et sql en "nettoyant" la variable passée en paramètre
         {
-            //$myVar = str_replace(array("\n","\r",PHP_EOL),'', $var);
+            str_replace(array("\n","\r",PHP_EOL),'', $var);
             return htmlspecialchars($var, ENT_QUOTES, 'UTF-8', false);
         }
 

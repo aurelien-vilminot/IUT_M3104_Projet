@@ -50,7 +50,7 @@ EOT;
         {
             echo <<<EOT
 <form action="" method="post">
-    <input type="text" placeholder="Entrez le titre de la discussion" name="titleDiscussion" required>
+    <input type="text" placeholder="Entrez le titre de la discussion" name="titleDiscussion" pattern=".{2,15}" required>
     <input type="submit" name="newDiscussion" value="Créer cette discussion">
 </form>
 EOT;

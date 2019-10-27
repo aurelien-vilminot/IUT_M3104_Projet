@@ -11,7 +11,7 @@
             ?>
             <h3>Modification de votre identifiant :<br></h3>
             <form action="" method="post">
-                <input type="text" placeholder="Entrez un nouvel identifiant" name="login" required>
+                <input type="text" placeholder="Entrez un nouvel identifiant" name="login" pattern=".{0,15}" required>
                 <?php
                 if (isset($error_login))
                     echo <<<EOT
@@ -38,9 +38,9 @@ EOT;
         <div>
             <h3>Modification de votre mot de passe :</h3>
             <form action="" method="post">
-                <input type="password" placeholder="Entrez votre mot de passe actuel" name="old_password" required>
-                <input type="password" placeholder="Entrez un nouveau mot de passe" name="password" required>
-                <input type="password" placeholder="Verifiez le nouveau mot de passe" name="check_password" required>
+                <input type="password" placeholder="Entrez votre mot de passe actuel" name="old_password" pattern=".{8,}" required>
+                <input type="password" placeholder="Entrez un nouveau mot de passe" name="password" pattern=".{8,}" required>
+                <input type="password" placeholder="Verifiez le nouveau mot de passe" name="check_password" pattern=".{8,}" required>
                 <?php
                 if (isset($error_password))
                     echo <<<EOT
