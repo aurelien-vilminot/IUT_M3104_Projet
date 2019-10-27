@@ -10,8 +10,9 @@ class setUser extends database
 
     public function isExist()       //Vérifie si le login existe déjà
     {
-        $sql = 'SELECT LOGIN FROM USER WHERE LOGIN = \'' . $this->id . '\'';
-        $req = $this->executeRequete($sql);
+        $tab = array('login' => $this->id);
+        $sql = 'SELECT LOGIN FROM USER WHERE LOGIN = :login';
+        $req = $this->executeRequete($sql, $tab);
         return $req->rowCount();
     }
 }

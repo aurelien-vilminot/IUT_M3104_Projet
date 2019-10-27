@@ -83,7 +83,8 @@
             $sql = 'INSERT INTO LIKE_DISCUSSION (ID_USER, ID_DISCUSSION) VALUES (:login, :id_discussion)';
             $this->executeRequete($sql, $tab);
 
-            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE + 1 WHERE ID = \'' . $id_discussion . '\'';
-            $this->executeRequete($sql2);
+            $tab2 = array('id_discussion' => $id_discussion);
+            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE + 1 WHERE ID = :id_discussion';
+            $this->executeRequete($sql2, $tab2);
         }
     }

@@ -12,17 +12,16 @@
         public function isExist()   //vérifie si l'utilisateur existe 
         {
             $tab = array('login' => $this->login);
-            $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
+            $sql = 'SELECT LOGIN FROM USER WHERE LOGIN = :login';
             $requete = $this->executeRequete($sql, $tab);
-
-            $isExist = $requete->rowCount($sql);
-            return $isExist;
+            return $requete->rowCount();
         }
 
         private function getMail()  //trouve un mail dans la base de donnée
         {
-            $sql = 'SELECT MAIL FROM USER WHERE LOGIN = \'' . $this->login . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('login' =>  $this->login);
+            $sql = 'SELECT MAIL FROM USER WHERE LOGIN = :login';
+            $req = $this->executeRequete($sql, $tab);
             $row = $req->fetchAll();
             $this->mail = $row[0][0];
         }

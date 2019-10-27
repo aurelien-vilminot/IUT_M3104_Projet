@@ -3,15 +3,17 @@
     {
         public function email_taken($email)             //Vérifie si l'email est déjà utilisé
         {
-            $sql = 'SELECT * FROM USER WHERE MAIL = \'' . $email . '\'';
-            $req = $this->executeRequete($sql);
-            return $req->rowCount($sql);
+            $tab = array('email' => $email);
+            $sql = 'SELECT LOGIN FROM USER WHERE MAIL = :email';
+            $req = $this->executeRequete($sql, $tab);
+            return $req->rowCount();
         }
 
         public function login_taken($login)             //Vérifie si le login est déjà utilisé
         {
-            $sql = 'SELECT * FROM USER WHERE LOGIN = \'' . $login . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('login' => $login);
+            $sql = 'SELECT LOGIN FROM USER WHERE LOGIN = :login';
+            $req = $this->executeRequete($sql, $tab);
             return $req->rowCount();
         }
 

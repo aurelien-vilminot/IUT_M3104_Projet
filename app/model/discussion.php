@@ -13,8 +13,9 @@
 
         public function getState()  // renvoie l'état de la discussion si elle est ouverte ou close
         {
-            $sql = 'SELECT STATE FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('id' => $this->id_discussion);
+            $sql = 'SELECT STATE FROM DISCUSSION WHERE ID = :id';
+            $req = $this->executeRequete($sql, $tab);
             $resultat = $req->fetchAll();
             $this->state = $resultat[0][0];
             return $this->state;
@@ -29,46 +30,52 @@
 
         public function isExist()      // vérifie si la discussion existe
         {
-            $sql = 'SELECT ID FROM DISCUSSION WHERE ID = \'' . $this->id_discussion . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('id' => $this->id_discussion);
+            $sql = 'SELECT ID FROM DISCUSSION WHERE ID =:id';
+            $req = $this->executeRequete($sql, $tab);
             return $req->rowCount();
         }
 
         public function getAllMessages()  //renvoie tous les messages
         {
-            $sql = 'SELECT * FROM MESSAGE WHERE ID_DISCUSSION = \'' . $this->id_discussion . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('id' => $this->id_discussion);
+            $sql = 'SELECT * FROM MESSAGE WHERE ID_DISCUSSION = :id';
+            $req = $this->executeRequete($sql, $tab);
             return $req->fetchAll();
         }
 
         public function getLastMessage()      //renvoie le dernier message de la discussion 
         {
-            $sql = 'SELECT MAX(ID) FROM MESSAGE WHERE ID_DISCUSSION = \'' . $this->id_discussion . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('id' => $this->id_discussion);
+            $sql = 'SELECT MAX(ID) FROM MESSAGE WHERE ID_DISCUSSION = :id';
+            $req = $this->executeRequete($sql, $tab);
             $resultat = $req->fetchAll();
             return $resultat[0][0];
         }
 
         public function getUsersMessage($idMessage)     //renvoie les personnes ayant ecrit dans ce message 
         {
-            $sql = 'SELECT ID_USER FROM USER_MESSAGE WHERE ID_MESSAGE = \'' . $idMessage . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('id' => $idMessage);
+            $sql = 'SELECT ID_USER FROM USER_MESSAGE WHERE ID_MESSAGE = :id';
+            $req = $this->executeRequete($sql, $tab);
             return $req->fetchAll();
         }
 
         public function isLastMessageClose()    // ferme le dernier message
         {
             $lastMessage = $this->getLastMessage();
-            $sql = 'SELECT STATE FROM MESSAGE WHERE ID = \'' . $lastMessage . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('lastMessage' => $lastMessage);
+            $sql = 'SELECT STATE FROM MESSAGE WHERE ID = :lastMessage';
+            $req = $this->executeRequete($sql, $tab);
             $resultat = $req->fetchAll();
             return $resultat[0][0];
         }
 
         public function isEmpty()      // verifie si la discussion contient des messages
         {
-            $sql = 'SELECT * FROM MESSAGE WHERE ID_DISCUSSION = \'' . $this->id_discussion . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('id' => $this->id_discussion);
+            $sql = 'SELECT * FROM MESSAGE WHERE ID_DISCUSSION = :id';
+            $req = $this->executeRequete($sql, $tab);
             return $req->rowCount();
         }
 
@@ -81,7 +88,7 @@
             $sql2 = 'DELETE FROM MESSAGE WHERE ID_DISCUSSION = :id';
             $this->executeRequete($sql2, $tab);
 
-            $sql3 = 'DELETE FROM LIKE_DISCUSSION WHERE ID_DISCuSSION = :id';
+            $sql3 = 'DELETE FROM LIKE_DISCUSSION WHERE ID_DISCUSSION = :id';
             $this->executeRequete($sql3, $tab);
 
             $sql4 = 'DELETE FROM DISCUSSION WHERE ID = :id';
@@ -90,8 +97,9 @@
 
         public function isLiked($login)     // retourne l'identifiant de l'utiliser et celui de la discussion en fonction de si ils ont aimé
         {
-            $sql = 'SELECT * FROM LIKE_DISCUSSION WHERE ID_USER = \'' . $login . '\' AND ID_DISCUSSION = \'' . $this->id_discussion . '\'';
-            $req = $this->executeRequete($sql);
+            $tab = array('id' => $this->id_discussion, 'login' => $login);
+            $sql = 'SELECT * FROM LIKE_DISCUSSION WHERE ID_USER = :login AND ID_DISCUSSION = :id';
+            $req = $this->executeRequete($sql, $tab);
             return $req->rowCount();
         }
 
@@ -101,8 +109,9 @@
             $sql = 'INSERT INTO LIKE_DISCUSSION (ID_USER, ID_DISCUSSION) VALUES (:login, :id_discussion)';
             $this->executeRequete($sql, $tab);
 
-            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE + 1 WHERE ID = \'' . $this->id_discussion . '\'';
-            $this->executeRequete($sql2);
+            $tab2 = array('id' => $this->id_discussion);
+            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE + 1 WHERE ID = :id';
+            $this->executeRequete($sql2, $tab2);
         }
 
         public function unlike($login)     //décremente le nombre de like
@@ -111,9 +120,9 @@
             $sql = 'DELETE FROM LIKE_DISCUSSION WHERE ID_DISCUSSION = :id_discussion AND ID_USER = :login';
             $this->executeRequete($sql, $tab);
 
-            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE - 1 WHERE ID = \'' . $this->id_discussion . '\'';
-            $this->executeRequete($sql2);
+            $tab2 = array('id' => $this->id_discussion);
+            $sql2 = 'UPDATE DISCUSSION SET NB_LIKE = NB_LIKE - 1 WHERE ID = :id';
+            $this->executeRequete($sql2, $tab2);
         }
-
     }
 

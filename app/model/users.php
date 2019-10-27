@@ -11,7 +11,7 @@ class users extends database
 
     public function getNbUsers()        //Renvoie le nombre d'utilisateurs
     {
-        $sql = 'SELECT * FROM USER';
+        $sql = 'SELECT LOGIN FROM USER';
         $req = $this->executeRequete($sql);
         return $req->rowCount();
     }
