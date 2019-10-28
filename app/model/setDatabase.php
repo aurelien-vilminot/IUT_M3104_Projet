@@ -5,6 +5,7 @@
         {
             $sql = 'DROP TABLE USER_MESSAGE;'
                 . 'DROP TABLE LIKE_DISCUSSION;'
+                . 'DROP TABLE TOKEN_USER;'
                 . 'DROP TABLE MESSAGE;'
                 . 'DROP TABLE DISCUSSION;'
                 . 'DROP TABLE `USER`;';
@@ -45,6 +46,13 @@
                         ID_DISCUSSION INT NOT NULL,
                         CONSTRAINT C4 FOREIGN KEY(ID_USER) REFERENCES USER(LOGIN) ON DELETE RESTRICT ON UPDATE CASCADE,
                         CONSTRAINT C5 FOREIGN KEY(ID_DISCUSSION) REFERENCES DISCUSSION(ID)
+                    );'
+                . 'CREATE TABLE TOKEN_USER
+                    (
+                        ID_USER VARCHAR(15) NOT NULL COLLATE utf8mb4_bin,
+                        TOKEN VARCHAR(40) NOT NULL COLLATE utf8mb4_bin,
+                        DATE DATE NOT NULL,
+                        CONSTRAINT C6 FOREIGN KEY(ID_USER) REFERENCES USER(LOGIN) ON DELETE RESTRICT ON UPDATE CASCADE
                     );';
             $this->executeRequete($sql2);
         }

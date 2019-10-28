@@ -9,6 +9,11 @@
             $this->login = $login;
         }
 
+        public function setLogin($login)
+        {
+            $this->login = $login;
+        }
+
         public function isExist()   //vérifie si l'utilisateur existe 
         {
             $tab = array('login' => $this->login);
@@ -35,22 +40,50 @@
                 return 1;
         }
 
-        public function setNewPassword()   // pour changer les mots de passe
+        private function generateToken()
         {
-            $newPassword = uniqid();
-            $newPasswordHash = password_hash($newPassword,PASSWORD_DEFAULT);
-            $tab = array('password' => $newPasswordHash);
-            $sql = 'UPDATE USER SET PASSWORD = :password  WHERE LOGIN = \'' . $this->login . '\'';
+            $token = substr(bin2hex(password_hash(microtime(), PASSWORD_DEFAULT)),  rand(0,20), 40);
+            $date = date('Y-m-d');
+            $tab = array('login' => $this->login, 'token' => $token, 'date' => $date);
+            $sql = 'INSERT INTO TOKEN_USER (ID_USER, TOKEN, DATE) VALUES (:login, :token, :date)';
             $this->executeRequete($sql, $tab);
-            return $newPassword;
+            return $token;
+        }
+
+        public function verifToken($token)
+        {
+            $tab = array('token' => $token);
+            $sql = 'SELECT * FROM TOKEN_USER WHERE TOKEN = :token';
+            $req = $this->executeRequete($sql, $tab);
+
+            if (!$req->rowCount())
+                return 1;
+            else
+            {
+                $row = $req->fetchAll();
+                $dateToken = $row[2];
+
+                $formatDateNow = explode('-',  date('Y-m-d'));
+                $formatDateToken = explode('-', $dateToken);
+
+                if ($formatDateNow[0] == $formatDateToken[0])
+                    if ($formatDateNow[1] == $formatDateToken[1])
+                        if (($formatDateNow[2] - $formatDateToken[2]) < 1)
+                            return $row[0];
+                        else
+                            return 2;
+                    else
+                        return 2;
+                else
+                    return 2;
+            }
         }
 
         public function sendMail()   //envoie d'un mail avec le nouveau mot de passe 
         {
             $message = 'Bonjour ' . $this->login . ', ' . "\n" . "\n";
-            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici vos identifiants temporaires : ' . "\n";
-            $message .= 'Identifiant : ' . $this->login . "\n";
-            $message .= 'Mot de passe : ' . $this->setNewPassword() . "\n" . "\n";
+            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici un lien qui vous permttra de réinitialiser votre mot de passe : ' . "\n";
+            $message .= 'aurelien.alwaysdata.net/lost_password-' . $this->generateToken() . "\n" . "\n";
             $message .= 'Pour modifier votre mot de passe, allez sur votre profil puis saisissez votre nouveau mot de passe.' . "\n" . "\n";
             $message .= 'L\'équipe FreeNote.';
 

@@ -20,6 +20,7 @@ RewriteRule ^([a-zA-Z]+)-(validation)-([a-zA-Z_]+)$   index.php?page=$1&action=$
 RewriteRule ^(home)-(\d+)-([a-zA-Z_]+)$   index.php?page=$1&pages=$2&action=$3 [L]
 RewriteRule ^([a-zA-Z]+)-([^-\s]+)-([a-zA-Z_]+)$   index.php?page=$1&id=$2&action=$3 [L]
 RewriteRule ^(discussion|setUser)-([^-\s]+)$   index.php?page=$1&id=$2 [L]
+RewriteRule ^(lost_password)-([a-zA-Z0-9]{40})$   index.php?page=$1&token=$2 [L]
 RewriteRule ^(setDatabase)-([a-zA-Z]+)$   index.php?page=$1&action=$2 [L]
 RewriteRule ^([a-z]+)-([0-9]+)$   index.php?page=$1&pages=$2 [L]
 RewriteRule ^([a-zA-Z_]+)$   index.php?page=$1 [L]
