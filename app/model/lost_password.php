@@ -43,7 +43,7 @@
         public function isTokenExist()
         {
             $tab = array('login' =>  $this->login);
-            $sql = 'SELECT ID_USER FROM TOKEN_USER WHERE LOGIN = :login';
+            $sql = 'SELECT ID_USER FROM TOKEN_USER WHERE ID_USER = :login';
             $req = $this->executeRequete($sql, $tab);
             return $req->rowCount();
         }

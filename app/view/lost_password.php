@@ -29,7 +29,7 @@ EOT;
             ?>
             <form action="" method="POST">
                 <label>E-mail</label>
-                <input type="email" placeholder="Entrez votre adresse email" name="mail" required>
+                <input type="email" placeholder="Entrez votre adresse e-mail" name="mail" required>
 
                 <?php
                 if (isset($error))

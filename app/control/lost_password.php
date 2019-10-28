@@ -20,7 +20,7 @@
                             header('Location: home-validation-mail#validation');
                         }
                         else
-                            $error = 'Un e-mail de récupération de mot de passe a déjà été envoyé à ce mail';
+                            $error = 'Un e-mail de récupération de mot de passe a déjà été envoyé à cette adresse';
                     }
                     else
                         $error = 'Le mail ne correspond pas à l\'identifiant saisi';
@@ -32,7 +32,7 @@
                 }
             }
             else
-                $error = 'Le format de l\'email n\'est pas valide';
+                $error = 'Le format de l\'e-mail n\'est pas valide';
         }
     }
     elseif (isset($_GET['token']) && !empty($_GET['token']) && preg_match('/^[a-zA-Z0-9]{40}$/', $_GET['token']))
