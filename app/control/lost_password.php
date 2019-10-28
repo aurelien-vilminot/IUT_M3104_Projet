@@ -13,7 +13,7 @@
                 {
                     if ($lostPasswordUser->verifMail($mail) == 0)
                     {
-                        if (!$lostPasswordUser->isTokenExist())
+                        if ($lostPasswordUser->isTokenExist() == 0)
                         {
                             $lostPasswordUser->sendMail();
                             unset($_SESSION['lost_password']);
