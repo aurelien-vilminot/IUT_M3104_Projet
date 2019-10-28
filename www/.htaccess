@@ -30,3 +30,10 @@ RewriteRule ^([a-zA-Z_]+)$   index.php?page=$1 [L]
 #--------------------------------------------------
 
 ErrorDocument 404 /index.php?page=error
+
+#--------------------------------------------------
+# Gestion du temps de vie des données en session
+#--------------------------------------------------
+
+php_value session.cookie_lifetime 1800
+php_value session.gc_maxlifetime 1800

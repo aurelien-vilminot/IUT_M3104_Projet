@@ -4,7 +4,7 @@
     else
     {
         $myUser = unserialize($_SESSION['CurrentUser']);
-        if (!$myUser->isAdmin())
+        if (!$myUser->isAdmin() || ($myUser->isAdmin() && $_GET['id'] == $myUser->getLogin()))
             header('Location: home');
     }
     if ($myUser->isAdmin())

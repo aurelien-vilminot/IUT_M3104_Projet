@@ -40,6 +40,14 @@
                 return 1;
         }
 
+        public function isTokenExist()
+        {
+            $tab = array('login' =>  $this->login);
+            $sql = 'SELECT LOGIN FROM TOKEN_USER WHERE LOGIN = :login';
+            $req = $this->executeRequete($sql, $tab);
+            return $req->rowCount();
+        }
+
         private function generateToken()
         {
             $token = substr(bin2hex(password_hash(microtime(), PASSWORD_DEFAULT)),  rand(0,20), 40);

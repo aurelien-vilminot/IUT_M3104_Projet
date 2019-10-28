@@ -13,9 +13,14 @@
                 {
                     if ($lostPasswordUser->verifMail($mail) == 0)
                     {
-                        $lostPasswordUser->sendMail();
-                        unset($_SESSION['lost_password']);
-                        header('Location: home-validation-mail#validation');
+                        if (!$lostPasswordUser->isTokenExist())
+                        {
+                            $lostPasswordUser->sendMail();
+                            unset($_SESSION['lost_password']);
+                            header('Location: home-validation-mail#validation');
+                        }
+                        else
+                            $error = 'Un e-mail de récupération de mot de passe a déjà été envoyé à ce mail';
                     }
                     else
                         $error = 'Le mail ne correspond pas à l\'identifiant saisi';
