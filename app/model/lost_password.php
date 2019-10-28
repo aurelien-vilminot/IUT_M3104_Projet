@@ -89,9 +89,9 @@
         public function sendMail()   //envoie d'un mail avec le nouveau mot de passe 
         {
             $message = 'Bonjour ' . $this->login . ', ' . "\n\n";
-            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici un lien qui vous permttra de réinitialiser votre mot de passe : ' . "\n\n";
+            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici un lien qui vous permettra de réinitialiser votre mot de passe : ' . "\n\n";
             $message .= 'https://aurelien.alwaysdata.net/lost_password-' . $this->generateToken() . "\n\n";
-            $message .= 'Pour modifier votre mot de passe, allez sur votre profil puis saisissez votre nouveau mot de passe.' . "\n\n";
+            $message .= 'Ce lien est valide 24H. Si vous n\'êtes pas à l\'origine de cette demande, merci de ne pas tenir compte de ce mail' . "\n\n";
             $message .= 'L\'équipe FreeNote.';
 
             $header = 'From: FreeNote <reset.password@freenote.fr>' . "\n";
