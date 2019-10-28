@@ -79,12 +79,19 @@
             }
         }
 
+        public function destroyToken($token)
+        {
+            $tab = array('token' => $token);
+            $sql = 'DELETE FROM TOKEN_USER WHERE TOKEN = :token';
+            $this->executeRequete($sql, $tab);
+        }
+
         public function sendMail()   //envoie d'un mail avec le nouveau mot de passe 
         {
-            $message = 'Bonjour ' . $this->login . ', ' . "\n" . "\n";
-            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici un lien qui vous permttra de réinitialiser votre mot de passe : ' . "\n";
-            $message .= 'aurelien.alwaysdata.net/lost_password-' . $this->generateToken() . "\n" . "\n";
-            $message .= 'Pour modifier votre mot de passe, allez sur votre profil puis saisissez votre nouveau mot de passe.' . "\n" . "\n";
+            $message = 'Bonjour ' . $this->login . ', ' . "\n\n";
+            $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici un lien qui vous permttra de réinitialiser votre mot de passe : ' . "\n\n";
+            $message .= 'https://aurelien.alwaysdata.net/lost_password-' . $this->generateToken() . "\n\n";
+            $message .= 'Pour modifier votre mot de passe, allez sur votre profil puis saisissez votre nouveau mot de passe.' . "\n\n";
             $message .= 'L\'équipe FreeNote.';
 
             $header = 'From: FreeNote <reset.password@freenote.fr>' . "\n";

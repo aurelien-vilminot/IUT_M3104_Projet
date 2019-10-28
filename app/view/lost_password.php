@@ -1,7 +1,7 @@
 <?php
     if (!isset($error_token))
     {
-        if ($setNewPassword)
+        if ($setNewPassword == 1)
         {
             ?>
             <form action="" method="POST">
@@ -20,11 +20,11 @@
 EOT;
                 ?>
 
-                <input type="submit" name="submitNewPassword" value="Modifier">
+                <input type="submit" id="littleSubmitBox" name="submitNewPassword" value="Modifier">
             </form>
             <?php
         }
-        else
+        elseif (!$setNewPassword)
         {
             ?>
             <form action="" method="POST">
@@ -42,6 +42,8 @@ EOT;
             </form>
             <?php
         }
+        else
+            echo '<p>Votre motre de passe a bien été modifié. Allez sur la page d\'<a href="home">accueil</a> et vous serez automatiquement connecté.</p>';
     }
     else
         echo <<<EOT

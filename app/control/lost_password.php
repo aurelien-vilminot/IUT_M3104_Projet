@@ -41,7 +41,7 @@
         {
             if ($login != 2)
             {
-                if(isset($_POST['submitNewPassword']) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
+                if (isset($_POST['submitNewPassword']) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
                 {
                     $lostPasswordUser->setLogin($login);
                     $password = password_hash($lostPasswordUser->clean(trim($_POST['password'])), PASSWORD_DEFAULT);
@@ -53,16 +53,19 @@
                         $error = 'Les mots de passe ne correspondent pas';
                     else
                     {
-                        echo 'c bon';
                         $myUser = new user($login);
                         $myUser->setPassword($password);
+                        $lostPasswordUser->destroyToken($token);
                         $_SESSION['CurrentUser'] = serialize($myUser);
-                        header('Location : login');
+                        $setNewPassword = 2;
                     }
                 }
             }
             else
+            {
+                $lostPasswordUser->destroyToken($token);
                 $error_token = 'Le token a expiré';
+            }
         }
         else
             $error_token = 'Le token est invalide';
