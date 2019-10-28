@@ -56,7 +56,7 @@
             $sql = 'SELECT * FROM TOKEN_USER WHERE TOKEN = :token';
             $req = $this->executeRequete($sql, $tab);
 
-            if (!$req->rowCount())
+            if ($req->rowCount() == 0)
                 return 1;
             else
             {

@@ -64,7 +64,6 @@
         }
         else
             $error_token = 'Le token est invalide';
-
     }
     else
         header('Location: home');
