@@ -20,7 +20,7 @@
 EOT;
                 ?>
 
-                <input type="submit" name="submit" value="Envoyer un e-mail de récupération de mot de passe">
+                <input type="submit" name="submitNewPassword" value="Modifier">
             </form>
             <?php
         }

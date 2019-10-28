@@ -61,7 +61,7 @@
             else
             {
                 $row = $req->fetchAll();
-                $dateToken = $row[2];
+                $dateToken = $row[0][2];
 
                 $formatDateNow = explode('-',  date('Y-m-d'));
                 $formatDateToken = explode('-', $dateToken);
@@ -69,7 +69,7 @@
                 if ($formatDateNow[0] == $formatDateToken[0])
                     if ($formatDateNow[1] == $formatDateToken[1])
                         if (($formatDateNow[2] - $formatDateToken[2]) < 1)
-                            return $row[0];
+                            return $row[0][0];
                         else
                             return 2;
                     else

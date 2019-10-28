@@ -35,14 +35,14 @@
         $setNewPassword = 1;
         $lostPasswordUser = new lost_password(null);
         $token = $lostPasswordUser->clean(trim($_GET['token']));
+        $login = $lostPasswordUser->verifToken($token);
 
-        if ($lostPasswordUser->verifToken($token) != 1)
+        if ($login != 1)
         {
-            if ($lostPasswordUser->verifToken($token) != 2)
+            if ($login != 2)
             {
                 if(isset($_POST['submitNewPassword']) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
                 {
-                    $login = $lostPasswordUser->verifToken($token);
                     $lostPasswordUser->setLogin($login);
                     $password = password_hash($lostPasswordUser->clean(trim($_POST['password'])), PASSWORD_DEFAULT);
                     $check_password = $lostPasswordUser->clean(trim($_POST['check_password']));
@@ -53,9 +53,11 @@
                         $error = 'Les mots de passe ne correspondent pas';
                     else
                     {
+                        echo 'c bon';
                         $myUser = new user($login);
                         $myUser->setPassword($password);
                         $_SESSION['CurrentUser'] = serialize($myUser);
+                        header('Location : login');
                     }
                 }
             }
@@ -65,8 +67,5 @@
         else
             $error_token = 'Le token est invalide';
     }
-    else
-        header('Location: home');
-
 
     require '../app/view/lost_password.php';
