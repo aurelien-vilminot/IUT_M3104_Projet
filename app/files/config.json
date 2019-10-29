@@ -18,9 +18,9 @@
   },
   "Users": {
     "0": {
-      "Login": "aurelien1",
+      "Login": "root",
       "Mail": "root@root.com",
-      "Password": "aurelien",
+      "Password": "passwordRoot",
       "Admin": 1
     },
     "1": {

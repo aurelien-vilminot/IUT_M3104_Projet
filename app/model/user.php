@@ -163,9 +163,8 @@
             $sql = 'DELETE FROM USER_MESSAGE WHERE ID_USER = :login';
             $this->executeRequete($sql, $tab);
 
-            $tab2 = array('login' => $this->login);
             $sql2 = 'SELECT ID_DISCUSSION FROM LIKE_DISCUSSION WHERE ID_USER = :login';
-            $req = $this->executeRequete($sql2, $tab2);
+            $req = $this->executeRequete($sql2, $tab);
             $resultat = $req->fetchAll();
 
             foreach ($resultat as &$id_discussion)
@@ -179,8 +178,11 @@
             $sql4 = 'DELETE FROM LIKE_DISCUSSION WHERE ID_USER = :login';
             $this->executeRequete($sql4, $tab);
 
-            $sql5 = 'DELETE FROM USER WHERE LOGIN = :login';
+            $sql5 = 'DELETE FROM TOKEN_USER WHERE ID_USER = :login';
             $this->executeRequete($sql5, $tab);
+
+            $sql6 = 'DELETE FROM USER WHERE LOGIN = :login';
+            $this->executeRequete($sql6, $tab);
         }
 
         public function __sleep()
