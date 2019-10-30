@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['CurrentUser']))
+    if(!isset($_SESSION['CurrentUser']))            // Si l'utilisateur n'est pas connecté, redirection vers la page d'accueil
         header('Location: login');
 
     $myUser = unserialize($_SESSION['CurrentUser']);
@@ -8,7 +8,7 @@
     {
         if($myUser->isAdmin())
         {
-            if(isset($_POST['submit_login']) && !empty(trim($_POST['login'])))
+            if(isset($_POST['submit_login']) && !empty(trim($_POST['login'])))          // Changement d'identifiant (uniquement pour l'administrateur lui-même)
             {
                 $newLogin = $myUser->clean(trim($_POST['login']));
 
@@ -25,7 +25,7 @@
             }
         }
 
-        if(isset($_POST['submit_mail']) && !empty(trim($_POST['mail'])))
+        if(isset($_POST['submit_mail']) && !empty(trim($_POST['mail'])))            // Changement de mail
         {
             $newMail = $myUser->clean(trim($_POST['mail']));
 
@@ -44,7 +44,7 @@
             }
         }
 
-        if(isset($_POST['submit_password']) && !empty(trim($_POST['old_password'])) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
+        if(isset($_POST['submit_password']) && !empty(trim($_POST['old_password'])) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))          // Changement de mot de passe
         {
             $password = $myUser->clean(trim($_POST['old_password']));
             $newPassword = password_hash($myUser->clean(trim($_POST['password'])), PASSWORD_DEFAULT);
@@ -65,6 +65,7 @@
         }
     }
 
+    // Récuprération du login et du mail pour l'affichage
     $id = $myUser->getLogin();
     $mail = $myUser->getMail();
 

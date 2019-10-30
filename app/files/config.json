@@ -6,7 +6,7 @@
     "Password": "M3104_ASTC"
   },
   "settings_website": {
-    "nbMaxDiscussions": 12,
+    "nbMaxDiscussions": 10,
     "nbMaxMessages": 10,
     "nbUsersByPage": 4,
     "nbDiscussionsByPage": 2

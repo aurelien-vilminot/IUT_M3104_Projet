@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['CurrentUser']))
+    if(!isset($_SESSION['CurrentUser']))            // Si l'utilisateur n'est pas connecté, redirection vers la page de connexion
         header('Location: login');
     else
     {
@@ -9,11 +9,11 @@
     }
 
     $mySettings = new settings();
-    $strConfigFile = $mySettings->JSONtoString();
+    $strConfigFile = $mySettings->JSONtoString();       // Conversion du fichier .JSON en string
 
     if($myUser->isAdmin())
     {
-        if(isset($_POST['submit_nbMaxDiscussions']) && !empty(trim($_POST['nbMaxDiscussions'])))
+        if(isset($_POST['submit_nbMaxDiscussions']) && !empty(trim($_POST['nbMaxDiscussions'])))        // Changement du nombre maximum de discussions
         {
             if (preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbMaxDiscussions']))
             {
@@ -27,7 +27,7 @@
                 $error_nbMaxDiscussions = 'Merci de saisir une valeur correcte (minimum 1)';
         }
 
-        if(isset($_POST['submit_nbMaxMessages']) && !empty(trim($_POST['nbMaxMessages'])))
+        if(isset($_POST['submit_nbMaxMessages']) && !empty(trim($_POST['nbMaxMessages'])))              // Changement du nombre maximum de messages par discussions
         {
             if(preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbMaxMessages']))
             {
@@ -41,7 +41,7 @@
                 $error_nbMaxMessages = 'Merci de saisir une valeur correcte (minimum 1)';
         }
 
-        if(isset($_POST['submit_nbUsersByPage']) && !empty(trim($_POST['nbUsersByPage'])))
+        if(isset($_POST['submit_nbUsersByPage']) && !empty(trim($_POST['nbUsersByPage'])))              // Changement du nombre d'utlisateurs par page
         {
             if(preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbUsersByPage']))
             {
@@ -55,7 +55,7 @@
                 $error_nbUsersByPage = 'Merci de saisir une valeur correcte (minimum 1)';
         }
 
-        if(isset($_POST['submit_nbDiscussionsByPage']) && !empty(trim($_POST['nbDiscussionsByPage'])))
+        if(isset($_POST['submit_nbDiscussionsByPage']) && !empty(trim($_POST['nbDiscussionsByPage'])))           // Changement du nombre de discussions par page
         {
             if(preg_match('/^[1-9]+([0-9]+)*$/', $_POST['nbDiscussionsByPage']))
             {
@@ -70,6 +70,7 @@
         }
     }
 
+    // Récupération des valeurs dans le fichier .JSON
     $nbMaxDiscussions = $mySettings->ParseJSONFile('settings_website','nbMaxDiscussions');
     $nbMaxMessages = $mySettings->ParseJSONFile('settings_website','nbMaxMessages');
     $nbUsersByPage = $mySettings->ParseJSONFile('settings_website','nbUsersByPage');

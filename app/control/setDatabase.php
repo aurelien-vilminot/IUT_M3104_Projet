@@ -1,5 +1,5 @@
 <?php
-    if(!isset($_SESSION['CurrentUser']))
+    if(!isset($_SESSION['CurrentUser']))            // Si l'utilisateur n'est pas connecté, redirection vers la page de connexion
         header("Location: login");
     else
     {
@@ -8,7 +8,7 @@
             header("Location: home");
     }
 
-    if ($myUser->isAdmin() && isset($_GET['action']) && $_GET['action'] == 'resetDatabase')
+    if ($myUser->isAdmin() && isset($_GET['action']) && $_GET['action'] == 'resetDatabase')         // Reset de la BD + insertion de jeux de tests avec des boucles
     {
         $myReset = new setDatabase();
         $myReset->resetDB();
@@ -145,7 +145,7 @@
             $myReset->sendLike('user4', $id_discussion);
         }
 
-        header('Location: logout');
+        header('Location: logout');     // Déconnexion de l'utilisateur
     }
 
     require '../app/view/setDatabase.php';

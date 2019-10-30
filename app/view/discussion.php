@@ -11,7 +11,7 @@
     <div class="infos">
 EOT;
             $UsersForThisMessage = $tabUsersMessage[$message['ID']];
-            foreach ($UsersForThisMessage as &$Users)
+            foreach ($UsersForThisMessage as &$Users)               // Pour chaque message, on concatène dans une variable ses expéditeurs
             {
                 if (!isset($users))
                     $users = 'Message envoyé par : ' . $Users['ID_USER'];
@@ -93,7 +93,7 @@ EOT;
                     echo <<<EOT
 <a href="discussion-$idPage-changeLikeSate"><img src="media/unlike.png" alt="Logo dislike" id="like"></a>
 EOT;
-            if (isset($_SESSION['CurrentUser']) && $myUser->isAdmin())
+                if ($myUser->isAdmin())
                 {
                     echo <<<EOT
  <a href="discussion-$idPage-close_discussion" class="warning">• Fermer la discussion •</a>
@@ -101,7 +101,12 @@ EOT;
                 }
         }
         else
-            echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
+            if ($myUser->isAdmin())
+                echo <<<EOT
+ <a href="discussion-$idPage-open_discussion" class="warning">• Ouvrir la discussion •</a>
+EOT;
+            else
+                echo '<p>Cette discussion est maintenant fermée, allez en créer une nouvelle !</p>';
     }
     else
         echo '<p><a href="register">Inscrivez-vous</a> ou <a href="login">connectez-vous</a> si vous souhaitez participer à cette discusion';

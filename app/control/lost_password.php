@@ -1,5 +1,5 @@
 <?php
-    if (isset($_SESSION['lost_password']) && $_SESSION['lost_password'] == 1)
+    if (isset($_SESSION['lost_password']) && $_SESSION['lost_password'] == 1)       // Si l'utilisateur a cliqué sur 'Mot de passe oublié' depuis la page login
     {
         $setNewPassword = 0;
         if(isset($_POST['submitMail']) && !empty(trim($_POST['mail'])))
@@ -7,13 +7,13 @@
             $lostPasswordUser = new lost_password($_SESSION['login']);
             $mail = $lostPasswordUser->clean(trim($_POST['mail']));
 
-            if ($lostPasswordUser->regExpMail($mail))
+            if ($lostPasswordUser->regExpMail($mail))       // Vérifie que le mail est au bon format
             {
-                if($lostPasswordUser->isExist() == 1)
+                if($lostPasswordUser->isExist() == 1)       // Vérifie que l'utilisateur existe
                 {
-                    if ($lostPasswordUser->verifMail($mail) == 0)
+                    if ($lostPasswordUser->verifMail($mail) == 0)       // Vérifie que le mail correspond bien à l'utlisateur
                     {
-                        if ($lostPasswordUser->isTokenExist() == 0)
+                        if ($lostPasswordUser->isTokenExist() == 0)     // Vérifie que l'utlisateur n'a pas déjà fait une demande de mot de passe oublié
                         {
                             $lostPasswordUser->sendMail();
                             unset($_SESSION['lost_password']);
@@ -35,18 +35,18 @@
                 $error = 'Le format de l\'e-mail n\'est pas valide';
         }
     }
-    elseif (isset($_GET['token']) && !empty($_GET['token']) && preg_match('/^[a-zA-Z0-9]{40}$/', $_GET['token']))
+    elseif (isset($_GET['token']) && !empty($_GET['token']) && preg_match('/^[a-zA-Z0-9]{40}$/', $_GET['token']))       // Si un token est valide dans l'URL
     {
         $setNewPassword = 1;
         $lostPasswordUser = new lost_password(null);
         $token = $lostPasswordUser->clean(trim($_GET['token']));
-        $login = $lostPasswordUser->verifToken($token);
+        $login = $lostPasswordUser->verifToken($token);         // Vérifie que le token existe et qu'il n'est pas expiré et renvoie le login associé
 
         if ($login != 1)
         {
             if ($login != 2)
             {
-                if (isset($_POST['submitNewPassword']) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
+                if (isset($_POST['submitNewPassword']) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))           // Mise en place du nouveau mot de passe
                 {
                     $lostPasswordUser->setLogin($login);
                     $password = password_hash($lostPasswordUser->clean(trim($_POST['password'])), PASSWORD_DEFAULT);
@@ -60,7 +60,7 @@
                     {
                         $myUser = new user($login);
                         $myUser->setPassword($password);
-                        $lostPasswordUser->destroyToken($token);
+                        $lostPasswordUser->destroyToken($token);        // Destruction du token
                         $_SESSION['CurrentUser'] = serialize($myUser);
                         $setNewPassword = 2;
                     }

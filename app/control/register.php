@@ -1,8 +1,8 @@
 <?php
-    if(isset($_SESSION['user']) && $_SESSION['user'] == 1)
+    if(isset($_SESSION['CurrentUser']))         // Si l'utilisateur est déjà connecté, redirection vers la page d'accueil
         header('Location: home');
 
-    if(isset($_POST['submit']) && !empty(trim($_POST['login'])) && !empty(trim($_POST['mail'])) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))
+    if(isset($_POST['submit']) && !empty(trim($_POST['login'])) && !empty(trim($_POST['mail'])) && !empty(trim($_POST['password'])) && !empty(trim($_POST['check_password'])))      // Inscription
     {
         $userRegister = new register();
 
