@@ -10,7 +10,7 @@
                 {
             ?>
             <h3>Modification de votre identifiant :<br></h3>
-            <form action="" method="post">
+            <form method="post">
                 <input type="text" placeholder="Entrez un nouvel identifiant" name="login" pattern=".{0,15}" required>
                 <?php
                 if (isset($error_login))
@@ -18,13 +18,13 @@
 <p class="error">$error_login</p>
 EOT;
                 ?>
-                <input type="submit" id="littleSubmitBox" name="submit_login" value="Modifier">
+                <input type="submit" class="littleSubmitBox" name="submit_login" value="Modifier">
             </form>
             <?php
                 }
             ?>
             <h3>Modification de votre mail :<br></h3>
-            <form action="" method="post">
+            <form method="post">
                 <input type="email" placeholder="Entrez une nouvelle adresse mail" name="mail" required>
                 <?php
                 if (isset($error_email))
@@ -32,12 +32,12 @@ EOT;
 <p class="error">$error_email</p>
 EOT;
                 ?>
-                <input type="submit" id="littleSubmitBox" name="submit_mail" value="Modifier">
+                <input type="submit" class="littleSubmitBox" name="submit_mail" value="Modifier">
             </form>
         </div>
         <div>
             <h3>Modification de votre mot de passe :</h3>
-            <form action="" method="post">
+            <form method="post">
                 <input type="password" placeholder="Entrez votre mot de passe actuel" name="old_password" pattern=".{8,}" required>
                 <input type="password" placeholder="Entrez un nouveau mot de passe" name="password" pattern=".{8,}" required>
                 <input type="password" placeholder="Verifiez le nouveau mot de passe" name="check_password" pattern=".{8,}" required>
@@ -47,7 +47,7 @@ EOT;
 <p class="error">$error_password</p>
 EOT;
                 ?>
-                <input type="submit" id="littleSubmitBox" name="submit_password" value="Modifier">
+                <input type="submit" class="littleSubmitBox" name="submit_password" value="Modifier">
             </form>
         </div>
     </div>

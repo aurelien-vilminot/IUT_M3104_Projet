@@ -18,5 +18,5 @@
 EOT;
     ?>
 
-    <input type="submit" id="littleSubmitBox" name="submit" value="Inscription">
+    <input type="submit" class="littleSubmitBox" name="submit" value="Inscription">
 </form>

@@ -153,11 +153,11 @@ input[type=submit]:hover {
     background-color: #000000;
 }
 
-#littleSubmitBox {
+.littleSubmitBox {
     max-width: 10vw;
 }
 
-#littleInputBox {
+.littleInputBox {
     max-width: 22.8vw;
 }
 

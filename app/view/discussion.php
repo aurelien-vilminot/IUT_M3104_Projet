@@ -78,7 +78,7 @@ EOT;
             ?>
             <form action="discussion-<?=$idPage?>" method="post">
                 <input type="text" placeholder="Entrer un ou deux mots" name="message" required>
-                <input type="submit" id="littleSubmitBox" name="submit" value="Envoyer">
+                <input type="submit" class="littleSubmitBox" name="submit" value="Envoyer">
                 <input type="submit" name="submit_close" value="Envoyer et clore le message">
                 <?php
                 if (isset($error))
