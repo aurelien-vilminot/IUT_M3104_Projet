@@ -1,7 +1,7 @@
 <?php
     class login extends database
     {
-        public function verif_user($login, $password)   // verifie si l'utilisateur à rentrer le bon mot de passe
+        public function verif_user($login, $password)   // verifie si l'utilisateur à rentrer le bon mot de passe / login
         {
             $tab = array('login' => $login);
             $sql = 'SELECT * FROM USER WHERE LOGIN = :login';

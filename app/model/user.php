@@ -6,7 +6,7 @@
         private $password;
         private $admin;
 
-        public function __construct($login)             //Constructeur de la classe user
+        public function __construct($login)             // Constructeur de la classe user
         {
             $tab = array('login' => $login);
             $sql = 'SELECT * FROM USER WHERE LOGIN = :login';
@@ -77,7 +77,7 @@
             return $req->rowCount();
         }
 
-        public function create_message ($content, $state, $id_discussion)       //Créé une discussion
+        public function create_message ($content, $state, $id_discussion)       // Créé un message
         {
             $tab = array('content' => $content, 'state' =>$state, 'id_discussion' => $id_discussion);
             $sql = 'INSERT INTO MESSAGE (CONTENT, STATE, ID_DISCUSSION) VALUES (:content, :state, :id_discussion)';
@@ -90,14 +90,14 @@
             $this->executeRequete($sql3, $tab3);
         }
 
-        public function modify_message($idMessage, $content)                    //Modifie le contenue du message
+        public function modify_message($idMessage, $content)                    // Modifie le contenu du message
         {
             $tab = array('idMessage' => $idMessage, 'content' => $content);
             $sql = 'UPDATE MESSAGE SET CONTENT = :content WHERE ID = :idMessage';
             $this->executeRequete($sql, $tab);
         }
 
-        public function update_message ($idMessage, $content)                   //Met à jour un message en cours d'écriture
+        public function update_message ($idMessage, $content)                   // Met à jour un message en cours d'écriture
         {
             $tab = array('idMessage' => $idMessage);
             $sql = 'SELECT CONTENT FROM MESSAGE WHERE ID = :idMessage';
@@ -115,7 +115,7 @@
             $this->executeRequete($sql3, $tab);
         }
 
-        public function update_close_message($idMessage, $content)              //Met à jour et ferme un message en cours d'écriture
+        public function update_close_message($idMessage, $content)              // Met à jour et ferme un message en cours d'écriture
         {
             $this->update_message($idMessage, $content);
             $tab = array('idMessage' => $idMessage);
@@ -123,7 +123,7 @@
             $this->executeRequete($sql, $tab);
         }
 
-        public function authorizedUpdateMessage ($idMessage)                    //Vérifie si l'utilisateur a déjà envoyé un message dans le message courant
+        public function authorizedUpdateMessage ($idMessage)                    // Vérifie si l'utilisateur a déjà envoyé un message dans le message courant
         {
             $tab = array('login' => $this->login, 'idMessage' => $idMessage);
             $sql = 'SELECT * FROM USER_MESSAGE WHERE ID_USER = :login  AND ID_MESSAGE = :idMessage';
@@ -131,7 +131,7 @@
             return $req->rowCount();
         }
 
-        public function deleteMessage($idMessage)                               //Supprime un message
+        public function deleteMessage($idMessage)                               // Supprime un message
         {
             $tab = array('id' => $idMessage);
             $sql = 'DELETE FROM USER_MESSAGE WHERE ID_MESSAGE = :id';
@@ -141,7 +141,7 @@
             $this->executeRequete($sql2, $tab);
         }
 
-        public function isMessageExist($idMessage)      //Vérifie si un message existe
+        public function isMessageExist($idMessage)      // Vérifie si un message existe
         {
             $tab = array('idMessage' => $idMessage);
             $sql = 'SELECT * FROM MESSAGE WHERE ID = :idMessage';
@@ -149,7 +149,7 @@
             return $req->rowCount();
         }
 
-        public function isAdmin()               //Booléen permettant de savoir si un utilisateur est admin
+        public function isAdmin()               // Booléen permettant de savoir si un utilisateur est admin
         {
             if ($this->admin)
                 return 1;
@@ -157,7 +157,7 @@
                 return 0;
         }
 
-        public function delete()                //Supprime un utilisateur
+        public function delete()                // Supprime un utilisateur
         {
             $tab = array('login' => $this->login);
             $sql = 'DELETE FROM USER_MESSAGE WHERE ID_USER = :login';
@@ -185,7 +185,7 @@
             $this->executeRequete($sql6, $tab);
         }
 
-        public function __sleep()
+        public function __sleep()       // Permet de serializer un objet user() pour le passer dans les variables $_SESSION[]
         {
             return array('login', 'mail', 'password', 'admin');
         }

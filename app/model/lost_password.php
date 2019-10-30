@@ -9,7 +9,7 @@
             $this->login = $login;
         }
 
-        public function setLogin($login)
+        public function setLogin($login)    // Modifie l'attribut login de l'objet
         {
             $this->login = $login;
         }
@@ -22,7 +22,7 @@
             return $requete->rowCount();
         }
 
-        private function getMail()  //trouve un mail dans la base de donnée
+        private function getMail()  // Renvoie un mail associé à un login dans la base de donnée
         {
             $tab = array('login' =>  $this->login);
             $sql = 'SELECT MAIL FROM USER WHERE LOGIN = :login';
@@ -40,7 +40,7 @@
                 return 1;
         }
 
-        public function isTokenExist()
+        public function isTokenExist()      // Vérifie si l'utilisateur a déjà token attribué
         {
             $tab = array('login' =>  $this->login);
             $sql = 'SELECT ID_USER FROM TOKEN_USER WHERE ID_USER = :login';
@@ -48,7 +48,7 @@
             return $req->rowCount();
         }
 
-        private function generateToken()
+        private function generateToken()        // Génère un token
         {
             $token = substr(bin2hex(password_hash(microtime(), PASSWORD_DEFAULT)),  rand(0,20), 40);
             $date = date('Y-m-d');
@@ -58,7 +58,7 @@
             return $token;
         }
 
-        public function verifToken($token)
+        public function verifToken($token)      // Vérifie que le token est valide
         {
             $tab = array('token' => $token);
             $sql = 'SELECT * FROM TOKEN_USER WHERE TOKEN = :token';
@@ -87,14 +87,14 @@
             }
         }
 
-        public function destroyToken($token)
+        public function destroyToken($token)        // Détruit le token
         {
             $tab = array('token' => $token);
             $sql = 'DELETE FROM TOKEN_USER WHERE TOKEN = :token';
             $this->executeRequete($sql, $tab);
         }
 
-        public function sendMail()   //envoie d'un mail avec le nouveau mot de passe 
+        public function sendMail()   // Envoie d'un mail avec un lien
         {
             $message = 'Bonjour ' . $this->login . ', ' . "\n\n";
             $message .= 'Vous avez fait une demande de réinitialisation de votre mot de passe. Voici un lien qui vous permettra de réinitialiser votre mot de passe : ' . "\n\n";

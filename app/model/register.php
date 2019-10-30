@@ -1,7 +1,7 @@
 <?php
     class register extends database
     {
-        public function email_taken($email)             //Vérifie si l'email est déjà utilisé
+        public function email_taken($email)             // Vérifie si l'email est déjà utilisé
         {
             $tab = array('email' => $email);
             $sql = 'SELECT LOGIN FROM USER WHERE MAIL = :email';
@@ -9,7 +9,7 @@
             return $req->rowCount();
         }
 
-        public function login_taken($login)             //Vérifie si le login est déjà utilisé
+        public function login_taken($login)             // Vérifie si le login est déjà utilisé
         {
             $tab = array('login' => $login);
             $sql = 'SELECT LOGIN FROM USER WHERE LOGIN = :login';
@@ -17,7 +17,7 @@
             return $req->rowCount();
         }
 
-        public function registerUser($login, $email, $password, $isAdmin)   //Insère dans la BD l'utilisateur, le mot de passe, l'email d'un utilisateur venant de s'inscrire
+        public function registerUser($login, $email, $password, $isAdmin)   // Inscrit un utilisateur dans la BD
         {
             $tab = array('login' => $login, 'email' => $email, 'password' => $password, 'isAdmin' => $isAdmin);
             $sql = 'INSERT INTO USER (LOGIN,MAIL,PASSWORD,ADMIN) VALUES(:login,:email,:password,:isAdmin)';

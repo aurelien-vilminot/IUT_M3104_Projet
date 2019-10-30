@@ -3,7 +3,7 @@
 
         private $bdd;
 
-        protected function executeRequete($sql, $params = null)      // permet d'executer les requêtes sql
+        protected function executeRequete($sql, $params = null)      // Permet d'executer les requêtes sql
         {
             if ($params == null)
                 $resultat = $this->getBdd()->query($sql);            // exécution directe
@@ -13,7 +13,7 @@
                 {
                     $this->getBdd()->beginTransaction();            // Début de transaction
                     $resultat = $this->getBdd()->prepare($sql);     // requête préparée
-                    foreach ($params as $key => $value)
+                    foreach ($params as $key => $value)             // Bind de toutes les valeurs de la requête
                     {
                         $myKey = ':' . $key;
                         if (is_int($value))
@@ -34,7 +34,7 @@
             return $resultat;
         }
 
-        protected function lastInsertId($table)  //dernier élément inséré
+        protected function lastInsertId($table)  // Retourne le dernier élément inséré dans une table
         {
             $sql = 'SELECT MAX(ID) FROM ' . $table;
             $resultat = $this->executeRequete($sql);
@@ -42,7 +42,7 @@
             return $row[0][0];
         }
 
-        private function getBdd()     // renvoie la base de donnée
+        private function getBdd()     // Renvoie la base de données
         {
             if ($this->bdd == null)
             {
@@ -62,12 +62,12 @@
             return htmlspecialchars($var, ENT_QUOTES, 'UTF-8', false);
         }
 
-        public function regExpMail($mail)  // permet de verifier si c'est un mail
+        public function regExpMail($mail)  // Permet de verifier si le format du mail est bon
         {
             return preg_match('/^[^\W][a-zA-Z0-9_]+(\.[a-zA-Z0-9_]+)*\@[a-zA-Z0-9_]+((-|\.)[a-zA-Z0-9_]+)*\.[a-zA-Z]{2,4}$/', $mail);
         }
 
-        public function ParseJSONFile($category, $object, $param = null)   // parcour le fichier json et renvoie les valeur en fonction des paramètres
+        public function ParseJSONFile($category, $object, $param = null)   // Parcours le fichier config.JSON et renvoie une valeur en fonction des paramètres
         {
             $configFile = file_get_contents('../app/files/config.json');
             $parsed_json = json_decode($configFile);
@@ -77,7 +77,7 @@
                 return $parsed_json->{$category}->{$object}->{$param};
         }
 
-        public function __sleep()
+        public function __sleep()       // Permet de serializer des objets
         {
             return array();
         }

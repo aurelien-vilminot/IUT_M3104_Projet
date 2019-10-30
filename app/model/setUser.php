@@ -8,7 +8,7 @@ class setUser extends database
         $this->id = $id;
     }
 
-    public function isExist()       //Vérifie si le login existe déjà
+    public function isExist()       // Vérifie si le login existe déjà
     {
         $tab = array('login' => $this->id);
         $sql = 'SELECT LOGIN FROM USER WHERE LOGIN = :login';

@@ -11,13 +11,16 @@
     <div class="infos">
 EOT;
             $UsersForThisMessage = $tabUsersMessage[$message['ID']];
-            foreach ($UsersForThisMessage as &$Users)               // Pour chaque message, on concatène dans une variable ses expéditeurs
-            {
-                if (!isset($users))
-                    $users = 'Message envoyé par : ' . $Users['ID_USER'];
-                else
-                    $users = $users . ', ' .$Users['ID_USER'];
-            }
+            if (count($UsersForThisMessage) == 0)
+                $users = 'Utilisateur supprimé';
+            else
+                foreach ($UsersForThisMessage as &$Users)               // Pour chaque message, on concatène dans une variable ses expéditeurs
+                {
+                    if (!isset($users))
+                        $users = 'Message envoyé par : ' . $Users['ID_USER'];
+                    else
+                        $users = $users . ', ' .$Users['ID_USER'];
+                }
 
             echo <<<EOT
 <div>

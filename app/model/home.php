@@ -9,7 +9,7 @@
             return $req->fetchAll();
         }
 
-        public function getNbDiscussions()  // renvoie toutes les discussions
+        public function getNbDiscussions()  // renvoie le nombre de discussions
         {
             $sql = 'SELECT * FROM DISCUSSION';
             $req = $this->executeRequete($sql);
@@ -23,7 +23,7 @@
             $this->executeRequete($sql, $tab);
         }
 
-        public function lastDiscussion() //dernier discussion ajoute à la base de donnée 
+        public function lastDiscussion() // retourne l'identifiant de la dernière discussion ajoutée à la base de données
         {
             return $this->lastInsertId('DISCUSSION');
         }

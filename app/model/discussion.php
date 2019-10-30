@@ -21,7 +21,7 @@
             return $this->state;
         }
 
-        public function setState($state)   //change le statut de la discussion dans la base de donnée
+        public function setState($state)   //change le statut de la discussion dans la base de données
         {
             $tab = array('id' => $this->id_discussion, 'state' => $state);
             $sql = 'UPDATE DISCUSSION SET STATE = :state WHERE ID = :id';
@@ -36,7 +36,7 @@
             return $req->rowCount();
         }
 
-        public function getAllMessages()  //renvoie tous les messages
+        public function getAllMessages()  //renvoie tous les messages de la discussion
         {
             $tab = array('id' => $this->id_discussion);
             $sql = 'SELECT * FROM MESSAGE WHERE ID_DISCUSSION = :id';
@@ -61,7 +61,7 @@
             return $req->fetchAll();
         }
 
-        public function isLastMessageClose()    // ferme le dernier message
+        public function isLastMessageClose()    // Verifie si le dernier message est clos ou pas
         {
             $lastMessage = $this->getLastMessage();
             $tab = array('lastMessage' => $lastMessage);
@@ -95,7 +95,7 @@
             $this->executeRequete($sql4, $tab);
         }
 
-        public function isLiked($login)     // retourne l'identifiant de l'utiliser et celui de la discussion en fonction de si ils ont aimé
+        public function isLiked($login)     // Verifie si la discussion a été liké ou pas par l'utilisateur passé en paramètre
         {
             $tab = array('id' => $this->id_discussion, 'login' => $login);
             $sql = 'SELECT * FROM LIKE_DISCUSSION WHERE ID_USER = :login AND ID_DISCUSSION = :id';

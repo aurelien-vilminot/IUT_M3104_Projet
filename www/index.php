@@ -10,8 +10,10 @@
 
     if(isset($_GET['page']) && !empty($_GET['page']) && in_array($_GET['page'].'.php',$pages))
             $page = $_GET['page'];
-        else
-            $page = 'home';
+    elseif (isset($_GET['page']) && !empty($_GET['page']) && !in_array($_GET['page'].'.php',$pages))
+        $page = 'error';
+    else
+        $page = 'home';
 ?>
 <!DOCTYPE html>
 <html lang="fr">
