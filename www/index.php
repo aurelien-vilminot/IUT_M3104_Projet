@@ -9,7 +9,7 @@
     $pages = scandir('../app/control/');
 
     if(isset($_GET['page']) && !empty($_GET['page']) && in_array($_GET['page'].'.php',$pages))
-            $page = $_GET['page'];
+        $page = $_GET['page'];
     elseif (isset($_GET['page']) && !empty($_GET['page']) && !in_array($_GET['page'].'.php',$pages))
         $page = 'error';
     else
