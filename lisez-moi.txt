@@ -14,7 +14,7 @@ Présentation du projet :
     Différentes fonctionnalités sont paramétrables sur le site pour modifier certaines fonctionnalitées
 
 
-Choix technique :
+Choix techniques :
     • Utilisation du MVC afin d'avoir une application modulaire et évolutive
     • Utilisation de la Programmation Orientée Objet pour avoir des méthodes influant sur le comportant des objets tels que les utilisateurs, discussions...
     • Autoload pour éviter les require() dans chaque contrôleur lors de l'instanciation d'un nouvel objet
