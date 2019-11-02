@@ -29,4 +29,5 @@ RewriteRule ^([a-zA-Z_]+)$   index.php?page=$1 [L]
 # Gestion de l'erreur 404
 #--------------------------------------------------
 
+ErrorDocument 403 /index.php?page=error
 ErrorDocument 404 /index.php?page=error
