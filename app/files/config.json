@@ -1,9 +1,9 @@
 {
   "Database": {
     "Host": "localhost",
-    "Name": "viau8608_m3104",
-    "User": "viau8608_aurelien",
-    "Password": "82g3hv2000O"
+    "Name": "",
+    "User": "",
+    "Password": ""
   },
   "settings_website": {
     "nbMaxDiscussions": 10,
