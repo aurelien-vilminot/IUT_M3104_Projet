@@ -65,14 +65,3 @@ Identifiant de connexion :
     SuperAdmin :
         Login : root
         Mot de passe : passwordRoot
-
-    Base de données :
-        Login : aurelien
-        Mot de passe : M3104_ASTC
-
-    AlwaysData :
-        Mail : messi.om13@yahoo.fr
-        Mot de passe : M3104_ASTC
-
-    Système de version:
-        Nous avons ajouté le compte 'moinal' sur dépot GitHub

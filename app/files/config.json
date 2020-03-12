@@ -1,9 +1,9 @@
 {
   "Database": {
-    "Host": "mysql-aurelien.alwaysdata.net",
-    "Name": "aurelien_projet",
-    "User": "aurelien",
-    "Password": "M3104_ASTC"
+    "Host": "localhost",
+    "Name": "viau8608_m3104",
+    "User": "viau8608_aurelien",
+    "Password": "82g3hv2000O"
   },
   "settings_website": {
     "nbMaxDiscussions": 10,
