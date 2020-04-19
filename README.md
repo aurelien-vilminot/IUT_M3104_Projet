@@ -1,5 +1,5 @@
 # IUT M3104 | 2de année | Freenote
-Projet Web - Dévelopemment d'un réseau social
+Projet Web - Développement d'un réseau social
 
 ## Présentation du projet
 Réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant
@@ -16,7 +16,7 @@ Différentes fonctionnalités sont paramétrables sur le site pour modifier cert
 * Tous les mots de passes insérés dans la base de données sont hachés avec la fonction PHP `password_hash()` qui utilise un algorithme de hachage fort et irréversible et qui génère automatiquement un salt sécurisé.
   Pour savoir si deux mots de passe correspondent, on utilise la fonction PHP `password_verify()`.
 * Pour chaques requête SQL, il y a une protection contre les injections SQL :
-    - On lance une nouvelle transaction (`bdd->beginTransaction()`), on prépare (`bdd->prepare()`), on exécute (`bdd->execute()`), on commit (`bdd->commit()`)
+    * On lance une nouvelle transaction (`bdd->beginTransaction()`), on prépare (`bdd->prepare()`), on exécute (`bdd->execute()`), on commit (`bdd->commit()`)
       et en cas d'erreur, annulation et remise à l’état initial (`bdd->rollback()`)
     * Toutes les valeurs extérieures des requêtes sont soumises au `bindValue()` en fonction de leur type
 * Pour chaque valeur transmise en POST et GET :
