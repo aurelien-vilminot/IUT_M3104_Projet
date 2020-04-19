@@ -1,5 +1,5 @@
 # IUT M3104 | 2de année | Freenote
-Dévelopemment d'un réseau social
+Projet Web - Dévelopemment d'un réseau social
 
 ## Présentation du projet
 Réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant
