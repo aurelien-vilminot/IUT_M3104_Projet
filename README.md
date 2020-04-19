@@ -1,7 +1,7 @@
 # IUT M3104 | 2<sup>de</sup> année | Freenote
 Projet Web - Développement d'un réseau social
 
-## Présentation du projet
+## Présentation
 Réseau social d’un nouveau genre, FreeNote consiste à créer des fils de discussions comprenant
 des messages participatifs au sein desquels chaque utilisateur ne peut ajouter qu’un ou deux mots.
 Différentes fonctionnalités sont paramétrables sur le site pour modifier certaines fonctionnalitées
@@ -28,8 +28,8 @@ Différentes fonctionnalités sont paramétrables sur le site pour modifier cert
 * Pour la génération des token :
     * La fonction `microtime()` retournant le timestamp Unix est hachée avec `password_hash()`
     * Le resultat haché est converti en hexadécimal avec `bin2hex()`
-    * Seuls quarante caractères sont extraits de la chaîne en hexadécimal en commmençant l'extraction aléatoirement, avec `rand()`, en le 1er et le 20me caractère
-    * Le token est valable uniquement la journée de sa création, au-delà, si l'utilisateur essaie de l'utiliser, il sera automatiquement détruit de la base.
+    * Seuls quarante caractères sont extraits de la chaîne en hexadécimal en commmençant l'extraction aléatoirement, avec `rand()`, en le 1<sup>er</sup> et le 20<sup>me</sup> caractère
+    * Le token est valable uniquement la journée de sa création, au-delà, si l'utilisateur essaie de l'utiliser, il sera automatiquement détruit de la base
 
 
 ## Configuration minimale requise
