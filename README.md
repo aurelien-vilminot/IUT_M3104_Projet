@@ -1,4 +1,4 @@
-# IUT M3104 | 2de année | Freenote
+# IUT M3104 | 2<sup>de</sup> année | Freenote
 Projet Web - Développement d'un réseau social
 
 ## Présentation du projet
